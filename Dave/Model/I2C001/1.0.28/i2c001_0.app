@@ -533,7 +533,6 @@ specific interrupt signal otherwise there
     <requiredResource uriString="app/clk002/*" uriType="LOCALTYPE"/>
   </consumed>
   <consumed xsi:type="ResourceModel:ProxyResource" name="I2C SCL" URI="http://www.infineon.com/1.0.28/app/i2c001/0/i2c_scl">
-    <downWardmappedList xsi:type="ResourceModel:ResourceGroup" href="../../P0/P0_0.dd#//@provided.0"/>
     <downWardmappedList xsi:type="ResourceModel:ResourceGroup" href="../../P0/P0_0.dd#//@provided.70"/>
     <requiredResource uriString="port/p/0/pad/11" uriType="LOCALTYPE"/>
   </consumed>

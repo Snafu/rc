@@ -20,9 +20,34 @@ void wait(unsigned int ms);
 void DelayHandler(void* t);
 
 
+void servo_set(int prozent)
+{
+	// min = 1,32 ms
+	// cent = 1,56 ms
+	// max = 1,77 ms
+	// 50 HZ -> 1% = 200 us
+	int dc = 8;
+	if(prozent < 0) {
+		dc = 7;
+	} else if(prozent > 0) {
+		dc = 9;
+	}
+	(void) PWMSP001_SetDutyCycle((PWMSP001_HandleType*)&PWMSP001_Handle1, dc);
+
+}
+
 int main(void)
 {
 	DAVE_Init();			// Initialization of DAVE Apps
+
+	servo_set(0);
+	wait(1000);
+	servo_set(-1);
+	wait(1000);
+	servo_set(+1);
+	wait(1000);
+	servo_set(0);
+	wait(1000);
 
 
 	strcpy(debug, "Starting IR init");

@@ -309,32 +309,32 @@
   </provided>
   <provided xsi:type="ResourceModel:IntegerParameter" name="PWM frequency" evalFunction="&#xD;&#xA;        function ForwardMapping(){&#xD;&#xA;          var Scalefactor = 1000000000;&#xD;&#xA;          var Scalefactor1 = 1;  &#xD;&#xA;          var ClkScalefactor = 1;      &#xD;&#xA;          var PwmTime = 0;&#xD;&#xA;          var Count = 0;&#xD;&#xA;          var lsb = 0;&#xD;&#xA;          var mode = 0;&#xD;&#xA;          var Res7 = 0;&#xD;&#xA;          var Res6 = 0;&#xD;&#xA;          var freq = SCM.getDoubleValue(currentResource);&#xD;&#xA;          var tempRes = SCM.getResource(&quot;pwmsp001_tempfreq&quot;);&#xD;&#xA;          SCM.setDoubleValue(tempRes,freq);&#xD;&#xA;&#xD;&#xA;          var Res2 = SCM.getResource(&quot;pwmsp001_irselresolution&quot;);          &#xD;&#xA;          var resolution = SCM.getDoubleValue(Res2);&#xD;&#xA;&#xD;&#xA;          var Res1 = SCM.getResource(&quot;slice/tc/tcm&quot;); &#xD;&#xA;          var val1 = SCM.getIntValue(Res1); &#xD;&#xA;          if(val1 == 1){mode = 1;}   &#xD;&#xA;    &#xD;&#xA;          var Res5 = SCM.getResource(&quot;slice/prs/prs&quot;);&#xD;&#xA;          Res6 = SCM.getResource(&quot;slice1/prs/prs&quot;);&#xD;&#xA;          Res7 = SCM.getResource(&quot;slice/cmc/tce&quot;);      &#xD;&#xA;          &#xD;&#xA;          PwmTime = (Scalefactor / (Scalefactor1 * freq )) ;&#xD;&#xA;          Count = (PwmTime / resolution);&#xD;&#xA;//center-aligned mode&#xD;&#xA;          if(mode == 1)&#xD;&#xA;          {&#xD;&#xA;            Count = (Count-1) >> 1;&#xD;&#xA;            if (Count > 65535){&#xD;&#xA;                 SCM.setIntValue(Res5, 0);&#xD;&#xA;                SCM.setIntValue(Res7, 0);&#xD;&#xA;            }&#xD;&#xA;            else{&#xD;&#xA;                 SCM.setIntValue(Res5, Count);&#xD;&#xA;            }                      &#xD;&#xA;          }&#xD;&#xA;//edge-aligned mode&#xD;&#xA;          else{          &#xD;&#xA;            if(Count > 65535){&#xD;&#xA;              do{&#xD;&#xA;                  Count = Count >> 1;&#xD;&#xA;                  lsb++;&#xD;&#xA;                }while(Count >= 65535);&#xD;&#xA;                 lsb = ((1 &lt;&lt; lsb) -1);&#xD;&#xA;&#xD;&#xA;                 SCM.setIntValue(Res6, Count);&#xD;&#xA;                SCM.setIntValue(Res5, lsb);    &#xD;&#xA;                SCM.setIntValue(Res7, 1);        &#xD;&#xA;            }&#xD;&#xA;            else&#xD;&#xA;            {              &#xD;&#xA;              SCM.setIntValue(Res5, Count-1);&#xD;&#xA;              SCM.setIntValue(Res7, 0);&#xD;&#xA;            }&#xD;&#xA;          }&#xD;&#xA;&#xD;&#xA;        }&#xD;&#xA;&#xD;&#xA;        function BackwardMapping(){&#xD;&#xA;            var tempRes = SCM.getResource(&quot;pwmsp001_tempfreq&quot;);&#xD;&#xA;            var value = SCM.getDoubleValue(tempRes);&#xD;&#xA;&#x9;&#x9;&#x9;var Res2 = SCM.getResource(&quot;ccu4globalapp/ccu4global_irclock&quot;);          &#xD;&#xA;            var Clock = SCM.getDoubleValue(Res2);&#xD;&#xA;            SCM.setDoubleValue(currentResource,value);&#xD;&#xA;          &#xD;&#xA;&#x9;&#x9;&#x9; var freq_max=Math.ceil((Clock/2)*1000000);&#xD;&#xA;&#x9;&#x9;&#x9; var freq_min=1;&#xD;&#xA;&#x9;&#x9;&#x9; SCM.setMinMaxValue(currentResource,freq_min,freq_max,1);&#xD;&#xA;}&#xD;&#xA;" URI="http://www.infineon.com/1.0.32/app/pwmsp001/1/pwmsp001_irwfreq" downWardmappedList="//@consumed.10 //@consumed.63 //@consumed.61 //@consumed.37" maxValue="3938700" minValue="1">
     <defaultValue xsi:type="ResourceModel:IntegerValue" value="5DC"/>
-    <localValue xsi:type="ResourceModel:StringValue" value="5DC"/>
-    <globalValue xsi:type="ResourceModel:IntegerValue" value="5dc"/>
+    <localValue xsi:type="ResourceModel:StringValue" value="32"/>
+    <globalValue xsi:type="ResourceModel:IntegerValue" value="32"/>
     <toolTipHelpDescription>This allows user to input PWM frequency. Maximum value till which timer will count (Period register)</toolTipHelpDescription>
   </provided>
   <provided xsi:type="ResourceModel:IntegerParameter" name="Period value" evalFunction="&#xD;&#xA;        function ForwardMapping(){&#xD;&#xA;             var Res_2 = SCM.getResource(&quot;ccu4globalapp/ccu4global_irclock&quot;);          &#xD;&#xA;             var Clock = SCM.getDoubleValue(Res_2);&#xD;&#xA;              var Res5 = SCM.getResource(&quot;slice/psc/psiv&quot;);          &#xD;&#xA;              var prescalar = SCM.getIntValue(Res5);&#xD;&#xA;              var Res1 = SCM.getResource(&quot;slice/prs/prs&quot;);          &#xD;&#xA;              var prescalar1 = SCM.getIntValue(Res1);&#xD;&#xA;              var Res = SCM.getResource(&quot;slice/tc/tcm&quot;);&#xD;&#xA;              var value = SCM.getIntValue(Res);&#xD;&#xA;        }&#xD;&#xA;        function BackwardMapping(){&#xD;&#xA;          var Scalefactor = 1000000000;&#xD;&#xA;          var PwmTime = 0;&#xD;&#xA;          var Count = 0;&#xD;&#xA;          var lsb = 0;&#xD;&#xA;          var mode = 0;&#xD;&#xA;          var period = 0;&#xD;&#xA;          var Res4 = SCM.getResource(&quot;pwmsp001_tempfreq&quot;);          &#xD;&#xA;          var freq = SCM.getDoubleValue(Res4);&#xD;&#xA;&#xD;&#xA;          var Res6 = SCM.getResource(&quot;pwmsp001_irselresolution&quot;);&#xD;&#xA;          var resolution = SCM.getDoubleValue(Res6);&#xD;&#xA;&#xD;&#xA;          var Res1 = SCM.getResource(&quot;slice/tc/tcm&quot;); &#xD;&#xA;          var val1 = SCM.getIntValue(Res1); &#xD;&#xA;          if(val1 == 1){mode = 1;}  &#xD;&#xA;    &#xD;&#xA;          PwmTime = (Scalefactor / (freq )) ;&#xD;&#xA;          Count = (PwmTime / resolution);&#xD;&#xA;//center-aligned mode&#xD;&#xA;          if(mode == 1)&#xD;&#xA;          {&#xD;&#xA;            Count = (Count-1) >> 1;&#xD;&#xA;            if (Count > 65535){&#xD;&#xA;              period = 0;&#xD;&#xA;            }&#xD;&#xA;            else{&#xD;&#xA;               period = Count;&#xD;&#xA;            }                     &#xD;&#xA;          }&#xD;&#xA;//edge-aligned mode&#xD;&#xA;          else{         &#xD;&#xA;            if(Count > 65535){&#xD;&#xA;              do{&#xD;&#xA;                  Count = Count >> 1;&#xD;&#xA;                  lsb++;&#xD;&#xA;                }while(Count >= 65535);&#xD;&#xA;                lsb = ((1 &lt;&lt; lsb) -1);&#xD;&#xA;                period = (lsb &lt;&lt; 16) | Count;&#xD;&#xA;            }&#xD;&#xA;            else&#xD;&#xA;            {             &#xD;&#xA;              period =  Count-1;&#xD;&#xA;            }&#xD;&#xA;          }&#xD;&#xA;          SCM.setIntValue(currentResource, period);&#xD;&#xA; &#xD;&#xA;        }  &#xD;&#xA;" URI="http://www.infineon.com/1.0.32/app/pwmsp001/1/pwmsp001_irperiodval" maxValue="FFFFFFFF" minValue="1">
     <defaultValue xsi:type="ResourceModel:IntegerValue" value="1"/>
     <localValue xsi:type="ResourceModel:StringValue" value="1"/>
-    <globalValue xsi:type="ResourceModel:IntegerValue" value="9c3e"/>
+    <globalValue xsi:type="ResourceModel:IntegerValue" value="1f927c"/>
     <toolTipHelpDescription>Period register value</toolTipHelpDescription>
   </provided>
   <provided xsi:type="ResourceModel:IntegerParameter" name="TimerConcate" evalFunction="&#xD;&#xA;          function ForwardMapping()&#xD;&#xA;          {&#xD;&#xA;             var Res_2 = SCM.getResource(&quot;ccu4globalapp/ccu4global_irclock&quot;);          &#xD;&#xA;             var Clock = SCM.getDoubleValue(Res_2);&#xD;&#xA;              var Res5 = SCM.getResource(&quot;slice/psc/psiv&quot;);          &#xD;&#xA;              var prescalar = SCM.getIntValue(Res5);&#xD;&#xA;              var Res1 = SCM.getResource(&quot;slice/prs/prs&quot;);          &#xD;&#xA;              var prescalar1 = SCM.getIntValue(Res1);&#xD;&#xA;              var Res = SCM.getResource(&quot;slice/tc/tcm&quot;);&#xD;&#xA;              var value = SCM.getIntValue(Res);&#xD;&#xA;          }&#xD;&#xA;          function BackwardMapping()&#xD;&#xA;          {&#xD;&#xA;          var Scalefactor = 1000000000;&#xD;&#xA;          var PwmTime = 0;&#xD;&#xA;          var Count = 0;&#xD;&#xA;          var lsb = 0;&#xD;&#xA;          var mode = 0;&#xD;&#xA;          var period = 0;&#xD;&#xA;          var tc = 0;&#xD;&#xA;          var Res4 = SCM.getResource(&quot;pwmsp001_tempfreq&quot;);          &#xD;&#xA;          var freq = SCM.getDoubleValue(Res4);&#xD;&#xA;&#xD;&#xA;          var Res6 = SCM.getResource(&quot;pwmsp001_irselresolution&quot;);&#xD;&#xA;          var resolution = SCM.getDoubleValue(Res6);&#xD;&#xA;&#xD;&#xA;          var Res1 = SCM.getResource(&quot;slice/tc/tcm&quot;); &#xD;&#xA;          var val1 = SCM.getIntValue(Res1); &#xD;&#xA;          if(val1 == 1){mode = 1;}  &#xD;&#xA;    &#xD;&#xA;          PwmTime = (Scalefactor / (freq )) ;&#xD;&#xA;          Count = (PwmTime / resolution);&#xD;&#xA;//center-aligned mode&#xD;&#xA;          if(mode == 1)&#xD;&#xA;          {&#xD;&#xA;            tc = 0;&#xD;&#xA;          }&#xD;&#xA;//edge-aligned mode&#xD;&#xA;          else{         &#xD;&#xA;            if(Count > 65535){&#xD;&#xA;              tc = 1;&#xD;&#xA;            }&#xD;&#xA;            else&#xD;&#xA;            {             &#xD;&#xA;              tc = 0;&#xD;&#xA;            }&#xD;&#xA;          }&#xD;&#xA;          SCM.setIntValue(currentResource, tc);&#xD;&#xA;          }&#xD;&#xA;        " URI="http://www.infineon.com/1.0.32/app/pwmsp001/1/pwmsp001_irtimerconcat" maxValue="1" minValue="0">
     <defaultValue xsi:type="ResourceModel:IntegerValue" value="0"/>
     <localValue xsi:type="ResourceModel:StringValue" value="0"/>
-    <globalValue xsi:type="ResourceModel:IntegerValue" value="0"/>
+    <globalValue xsi:type="ResourceModel:IntegerValue" value="1"/>
     <toolTipHelpDescription>Timer Concatenation. Hidden parameter.</toolTipHelpDescription>
   </provided>
   <provided xsi:type="ResourceModel:StringParameter" name="Selected Timer concatenation setting" evalFunction="&#xD;&#xA;          function ForwardMapping()&#xD;&#xA;          {&#xD;&#xA;             var Res_2 = SCM.getResource(&quot;ccu4globalapp/ccu4global_irclock&quot;);          &#xD;&#xA;             var Clock = SCM.getDoubleValue(Res_2);&#xD;&#xA;              var Res5 = SCM.getResource(&quot;slice/psc/psiv&quot;);          &#xD;&#xA;              var prescalar = SCM.getIntValue(Res5);&#xD;&#xA;              var Res1 = SCM.getResource(&quot;slice/prs/prs&quot;);          &#xD;&#xA;              var prescalar1 = SCM.getIntValue(Res1);&#xD;&#xA;              var Res = SCM.getResource(&quot;slice/tc/tcm&quot;);&#xD;&#xA;              var value = SCM.getIntValue(Res);&#xD;&#xA;          }&#xD;&#xA;          function BackwardMapping()&#xD;&#xA;          {&#xD;&#xA;            var Scalefactor = 1000000000;&#xD;&#xA;            var PwmTime = 0;&#xD;&#xA;            var Count = 0;&#xD;&#xA;            var lsb = 0;&#xD;&#xA;            var mode = 0;&#xD;&#xA;            var period = 0;&#xD;&#xA;            var tc = 0;&#xD;&#xA;            var Res4 = SCM.getResource(&quot;pwmsp001_tempfreq&quot;);          &#xD;&#xA;            var freq = SCM.getDoubleValue(Res4);&#xD;&#xA;  &#xD;&#xA;            var Res6 = SCM.getResource(&quot;pwmsp001_irselresolution&quot;);&#xD;&#xA;            var resolution = SCM.getDoubleValue(Res6);&#xD;&#xA;  &#xD;&#xA;            var Res1 = SCM.getResource(&quot;slice/tc/tcm&quot;); &#xD;&#xA;            var val1 = SCM.getIntValue(Res1); &#xD;&#xA;            if(val1 == 1){mode = 1;}  &#xD;&#xA;      &#xD;&#xA;            PwmTime = (Scalefactor / (freq )) ;&#xD;&#xA;            Count = (PwmTime / resolution);&#xD;&#xA;  //center-aligned mode&#xD;&#xA;            if(mode == 1)&#xD;&#xA;            {&#xD;&#xA;              tc = 0;&#xD;&#xA;            }&#xD;&#xA;  //edge-aligned mode&#xD;&#xA;            else{         &#xD;&#xA;              if(Count > 65535){&#xD;&#xA;                tc = 1;&#xD;&#xA;              }&#xD;&#xA;              else&#xD;&#xA;              {             &#xD;&#xA;                tc = 0;&#xD;&#xA;              }&#xD;&#xA;            }&#xD;&#xA;            if(tc === 0 || tc == -1){&#xD;&#xA;              SCM.setStringValue(currentResource, &quot;No timer concatenation&quot;);&#xD;&#xA;            }&#xD;&#xA;            else if(tc == 1){&#xD;&#xA;              SCM.setStringValue(currentResource, &quot;Timer concatenation&quot;);&#xD;&#xA;            }&#xD;&#xA;        }&#xD;&#xA;" URI="http://www.infineon.com/1.0.32/app/pwmsp001/1/pwmsp001_srtimerconcatenation">
     <defaultValue xsi:type="ResourceModel:StringValue" value=" "/>
     <localValue xsi:type="ResourceModel:StringValue" value=" "/>
-    <globalValue xsi:type="ResourceModel:StringValue" value="No timer concatenation"/>
+    <globalValue xsi:type="ResourceModel:StringValue" value="Timer concatenation"/>
     <toolTipHelpDescription>Selected timer concatenation setting (non-editable)</toolTipHelpDescription>
   </provided>
   <provided xsi:type="ResourceModel:IntegerParameter" name="Duty Cycle in %" evalFunction="&#xD;&#xA;        function ForwardMapping(){&#xD;&#xA;          var Res6 = SCM.getResource(&quot;slice/tc/tcm&quot;); &#xD;&#xA;          var value6 = SCM.getIntValue(Res6); &#xD;&#xA;          var Res8 = SCM.getResource(&quot;pwmsp001_irtimerconcat&quot;);&#xD;&#xA;          var tc = SCM.getIntValue(Res8);&#xD;&#xA;          var Res9 = SCM.getResource(&quot;pwmsp001_irperiodval&quot;);&#xD;&#xA;          var period = SCM.getIntValue(Res9);&#xD;&#xA;          var Res10 = 0;&#xD;&#xA;          var pr = 0;&#xD;&#xA;          var pr1 = 0;&#xD;&#xA;          var Res = 0;&#xD;&#xA;          var countingmode = 0;&#xD;&#xA;          var compreg  = 0;&#xD;&#xA;          var compreg1 = 0;&#xD;&#xA;          var compreg2 = 0;&#xD;&#xA;&#xD;&#xA;          if(pr == -1){pr = 1;}&#xD;&#xA;&#xD;&#xA;          var duty = SCM.getDoubleValue(currentResource);&#xD;&#xA;          var tempRes = SCM.getResource(&quot;pwmsp001_tempduty&quot;);&#xD;&#xA;          SCM.setDoubleValue(tempRes,duty);&#xD;&#xA;          &#xD;&#xA;          var Res0 = SCM.getResource(&quot;slice/crs/crs&quot;);&#xD;&#xA;          Res = SCM.getResource(&quot;slice1/crs/crs&quot;);&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;          if(value6 == 1){countingmode = 1;}&#xD;&#xA;&#xD;&#xA;          //edge-aligned mode with and without timer concatenation&#xD;&#xA;          pr = period % 65536;&#xD;&#xA;          pr1 = period / 65536;&#xD;&#xA;&#xD;&#xA;          if (countingmode === 0){&#xD;&#xA;            if(tc == 1){&#xD;&#xA;&#xD;&#xA;              period = ((pr1+1)*(pr+1))+1;&#xD;&#xA;              compreg = ((100 - duty ) * (period)) / 100;&#xD;&#xA;              compreg2 = compreg % (pr1);&#xD;&#xA;              compreg1 = compreg / (pr1);&#xD;&#xA;              SCM.setIntValue(Res,compreg2 ); &#xD;&#xA;              SCM.setIntValue(Res0,compreg1 ); &#xD;&#xA;            }&#xD;&#xA;            else{&#xD;&#xA;              compreg = ((100 - duty ) * (period+1)) / 100;    &#xD;&#xA;              SCM.setIntValue(Res0,compreg );          &#xD;&#xA;            } &#xD;&#xA;          }&#xD;&#xA;          //center-aligned mode&#xD;&#xA;          else if (countingmode == 1){&#xD;&#xA;            compreg = ((100 - duty ) * period) / 100;&#xD;&#xA;            SCM.setIntValue(Res0,compreg );&#xD;&#xA;          }&#xD;&#xA;        }&#xD;&#xA;&#xD;&#xA;        function BackwardMapping(){&#xD;&#xA;           var tempRes = SCM.getResource(&quot;pwmsp001_tempduty&quot;);&#xD;&#xA;           var value = SCM.getDoubleValue(tempRes);&#xD;&#xA;           SCM.setDoubleValue(currentResource,value);&#xD;&#xA;        }&#xD;&#xA;&#xD;&#xA;" URI="http://www.infineon.com/1.0.32/app/pwmsp001/1/pwmsp001_irwdutycycle" downWardmappedList="//@consumed.11 //@consumed.66" maxValue="64" minValue="0">
     <defaultValue xsi:type="ResourceModel:IntegerValue" value="32"/>
-    <localValue xsi:type="ResourceModel:StringValue" value="32"/>
-    <globalValue xsi:type="ResourceModel:IntegerValue" value="32"/>
+    <localValue xsi:type="ResourceModel:StringValue" value="8"/>
+    <globalValue xsi:type="ResourceModel:IntegerValue" value="8"/>
     <toolTipHelpDescription>This allows user to input required duty cycle value in %</toolTipHelpDescription>
   </provided>
   <provided xsi:type="ResourceModel:IntegerParameter" name="Selected Prescalar" evalFunction="&#xD;&#xA;        function ForwardMapping(){&#xD;&#xA;           var Res2 = SCM.getResource(&quot;ccu4globalapp/ccu4global_irclock&quot;);&#xD;&#xA;           var clock = SCM.getDoubleValue(Res2);&#xD;&#xA;           var Res3 = SCM.getResource(&quot;pwmsp001_tempresolution&quot;);&#xD;&#xA;           var value3 = SCM.getDoubleValue(Res3);&#xD;&#xA;        }&#xD;&#xA;        function BackwardMapping(){&#xD;&#xA;           var Res2 = SCM.getResource(&quot;ccu4globalapp/ccu4global_irclock&quot;);&#xD;&#xA;           var Clock = SCM.getDoubleValue(Res2);&#xD;&#xA; &#x9;&#x9;   var XMC1xxx=SCM.getSoftwareId().substring(0,1).compareTo(&quot;1&quot;);&#xD;&#xA; &#x9;&#x9;   var XMC42xx=SCM.getSoftwareId().substring(0,2).compareTo(&quot;42&quot;);&#xD;&#xA;&#xD;&#xA;             if (Clock == -1)&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;{ &#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;if(XMC1xxx==0)&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Clock = 32;&#xD;&#xA;&#x9;&#x9;&#x9; &#x9;&#x9;else if(XMC42xx==0)&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Clock = 80;&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;else&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Clock = 120;&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;}&#xD;&#xA;        &#xD;&#xA;           var clkDiv = (1000 /Clock);      &#xD;&#xA;           var Res_2 = SCM.getResource(&quot;pwmsp001_tempresolution&quot;);&#xD;&#xA;           var value2 = SCM.getDoubleValue(Res_2);&#xD;&#xA;           var Divider = (value2) / clkDiv;&#xD;&#xA;           var Prescalar = Math.floor( Math.log(Divider) / Math.log( 2 ) );&#xD;&#xA;           var temp = 0;&#xD;&#xA;           if(Prescalar > 15) {&#xD;&#xA;              temp = 0;&#xD;&#xA;              }&#xD;&#xA;          else{           &#xD;&#xA;                temp = clkDiv * (1 &lt;&lt; Prescalar);&#xD;&#xA;              }&#xD;&#xA;              SCM.setIntValue(currentResource, Prescalar);&#xD;&#xA;        }&#xD;&#xA;        " URI="http://www.infineon.com/1.0.32/app/pwmsp001/1/pwmsp001_irselprescalar" maxValue="F" minValue="0">
@@ -346,7 +346,7 @@
   <provided xsi:type="ResourceModel:IntegerParameter" name="Compare value" evalFunction="&#xD;&#xA;        function ForwardMapping(){&#xD;&#xA;          var Res_2 = SCM.getResource(&quot;ccu4globalapp/ccu4global_irclock&quot;);          &#xD;&#xA;          var Clock = SCM.getDoubleValue(Res_2);&#xD;&#xA;          var Res4 = SCM.getResource(&quot;slice/psc/psiv&quot;);&#xD;&#xA;          var value4 = SCM.getIntValue(Res4); &#xD;&#xA;          var Res1 = SCM.getResource(&quot;slice/prs/prs&quot;);          &#xD;&#xA;          var prescalar1 = SCM.getIntValue(Res1); &#xD;&#xA;          var Res2 = SCM.getResource(&quot;slice/crs/crs&quot;);          &#xD;&#xA;          var value2 = SCM.getIntValue(Res2); &#xD;&#xA;          var Res = SCM.getResource(&quot;slice/tc/tcm&quot;);&#xD;&#xA;          var value = SCM.getIntValue(Res);&#xD;&#xA;        }&#xD;&#xA;        function BackwardMapping(){&#xD;&#xA;          var Res3 = SCM.getResource(&quot;slice/psc/psiv&quot;);&#xD;&#xA;          var value3 = SCM.getIntValue(Res3);   &#xD;&#xA;          var Res6 = SCM.getResource(&quot;slice/tc/tcm&quot;); &#xD;&#xA;          var value6 = SCM.getIntValue(Res6); &#xD;&#xA;          var Res9 = SCM.getResource(&quot;pwmsp001_irperiodval&quot;);&#xD;&#xA;          var pr = SCM.getIntValue(Res9);&#xD;&#xA;          var Res8 = SCM.getResource(&quot;pwmsp001_irtimerconcat&quot;);&#xD;&#xA;          var tc = SCM.getIntValue(Res8);&#xD;&#xA;&#xD;&#xA;          var Res10 = 0;&#xD;&#xA;          var pr1 = 0;&#xD;&#xA;          var Res = 0;&#xD;&#xA;&#xD;&#xA;          var tempRes = SCM.getResource(&quot;pwmsp001_tempduty&quot;);&#xD;&#xA;          var duty = SCM.getDoubleValue(tempRes);&#xD;&#xA;&#xD;&#xA;          pr1 = (pr &amp; 0xFFFF0000) >> 16;&#xD;&#xA;          pr = (pr &amp; 0xFFFF);&#xD;&#xA;&#xD;&#xA;          var countingmode = 0;&#xD;&#xA;          var compreg  = 0;&#xD;&#xA;          var compreg1 = 0;&#xD;&#xA;          var compreg2 = 0;&#xD;&#xA;          var period = 0;&#xD;&#xA;&#xD;&#xA;          if(value6 == 1){countingmode = 1;}&#xD;&#xA;&#xD;&#xA;//edge-aligned mode with and without timer concatenation&#xD;&#xA;          if (countingmode === 0){&#xD;&#xA;            if(tc == 1){&#xD;&#xA;              period = ((pr1 +1) * (pr+1)) + 1;&#xD;&#xA;              compreg = ((100 - duty ) * (period)) / 100;&#xD;&#xA;              compreg2 = compreg % (pr);&#xD;&#xA;              compreg1 = compreg / (pr);&#xD;&#xA;              compreg = (compreg1 &lt;&lt; 16 ) | compreg2;&#xD;&#xA;            }&#xD;&#xA;            else{&#xD;&#xA;              compreg = ((100 - duty ) * (pr+1)) / 100;   &#xD;&#xA;            } &#xD;&#xA;          }&#xD;&#xA;//center-aligned mode&#xD;&#xA;          else if (countingmode == 1){&#xD;&#xA;            compreg = ((100 - duty ) * pr) / 100;&#xD;&#xA;          }&#xD;&#xA;          SCM.setIntValue(currentResource,compreg ); &#xD;&#xA;        } &#xD;&#xA;&#xD;&#xA;" URI="http://www.infineon.com/1.0.32/app/pwmsp001/1/pwmsp001_ircompareval" maxValue="FFFFFFFF" minValue="0">
     <defaultValue xsi:type="ResourceModel:IntegerValue" value="0"/>
     <localValue xsi:type="ResourceModel:StringValue" value="0"/>
-    <globalValue xsi:type="ResourceModel:IntegerValue" value="4e1f"/>
+    <globalValue xsi:type="ResourceModel:IntegerValue" value="1d4092"/>
     <toolTipHelpDescription>Compare register value</toolTipHelpDescription>
   </provided>
   <provided xsi:type="ResourceModel:IntegerParameter" name="Dither compare value" evalFunction="&#xD;&#xA;          function ForwardMapping()&#xD;&#xA;          {&#xD;&#xA;            var value = SCM.getIntValue(currentResource);&#xD;&#xA;            var Res = SCM.getResource(&quot;slice/dits/dcvs&quot;);&#xD;&#xA;            SCM.setIntValue (Res, value);&#xD;&#xA;          }&#xD;&#xA;          function BackwardMapping()&#xD;&#xA;          {&#xD;&#xA;            var Res = SCM.getResource(&quot;slice/dits/dcvs&quot;);&#xD;&#xA;            var value = SCM.getIntValue(Res);          &#xD;&#xA;            SCM.setIntValue (currentResource, value);&#xD;&#xA;          }&#xD;&#xA;        " URI="http://www.infineon.com/1.0.32/app/pwmsp001/1/pwmsp001_irwdithercomp" downWardmappedList="//@consumed.54" maxValue="F" minValue="0">
@@ -388,14 +388,14 @@
   <provided xsi:type="ResourceModel:EnumerationParameter" name="Start" evalFunction="&#xD;&#xA;            function ForwardMapping()&#xD;&#xA;            {&#xD;&#xA;              var Res = SCM.getResource(&quot;pwmsp001_tempstart&quot;); &#xD;&#xA;              var value = SCM.getIntValue(currentResource);&#xD;&#xA;              SCM.setIntValue(Res,value);&#xD;&#xA;            }&#xD;&#xA;            function BackwardMapping()&#xD;&#xA;            {&#xD;&#xA;              var Res = SCM.getResource(&quot;pwmsp001_tempstart&quot;); &#xD;&#xA;              var value = SCM.getIntValue(Res); &#xD;&#xA;              SCM.setIntValue(currentResource,value);&#xD;&#xA;            }" URI="http://www.infineon.com/1.0.32/app/pwmsp001/1/pwmsp001_erwstart" downWardmappedList="//@consumed.2" multipleSelections="true">
     <defaultValue xsi:type="ResourceModel:IntegerValue" value="0"/>
     <localValue xsi:type="ResourceModel:StringValue" value="0"/>
-    <globalValue xsi:type="ResourceModel:IntegerValue" value="0"/>
+    <globalValue xsi:type="ResourceModel:IntegerValue" value="1"/>
     <toolTipHelpDescription>This allows user to configure whether this app should be started during initialization.&#xD;
 The PWM Generation can be started during the initialisation or can be started later by&#xD;
 calling an API.</toolTipHelpDescription>
     <item name="Start during initialization" evalFunction="&#xD;&#xA;            function ForwardMapping()&#xD;&#xA;            {&#xD;&#xA;              var Res = SCM.getResource(&quot;pwmsp001_tempstart&quot;); &#xD;&#xA;              var value = SCM.getIntValue(currentResource);&#xD;&#xA;              if(value == 1){&#xD;&#xA;                SCM.setIntValue(Res,1);&#xD;&#xA;              }&#xD;&#xA;              else {&#xD;&#xA;                SCM.setIntValue(Res,0);&#xD;&#xA;              }&#xD;&#xA;            }&#xD;&#xA;            function BackwardMapping()&#xD;&#xA;            {&#xD;&#xA;              var Res = SCM.getResource(&quot;pwmsp001_tempstart&quot;); &#xD;&#xA;              var value = SCM.getIntValue(Res);&#xD;&#xA;              if(value == 1){ &#xD;&#xA;                SCM.setIntValue(currentResource,1);&#xD;&#xA;              }&#xD;&#xA;              else {&#xD;&#xA;                SCM.setIntValue(currentResource,0);&#xD;&#xA;              }&#xD;&#xA;            }" URI="http://www.infineon.com/1.0.32/app/pwmsp001/1/pwmsp001_erwstart/0" downWardmappedList="//@consumed.2" maxValue="1" minValue="0">
       <defaultValue xsi:type="ResourceModel:IntegerValue" value="0"/>
-      <localValue xsi:type="ResourceModel:StringValue" value="0"/>
-      <globalValue xsi:type="ResourceModel:IntegerValue" value="0"/>
+      <localValue xsi:type="ResourceModel:StringValue" value="1"/>
+      <globalValue xsi:type="ResourceModel:IntegerValue" value="1"/>
       <toolTipHelpDescription>If this is checked then PWM Generation would start during initialisation.</toolTipHelpDescription>
     </item>
   </provided>
@@ -651,8 +651,8 @@ not enabled then Port Pin is not consumed</toolTipHelpDescription>
     <requiredResource uriString="" uriType="LOCALTYPE"/>
   </consumed>
   <consumed xsi:type="ResourceModel:ProxyResource" URI="http://www.infineon.com/1.0.32/app/pwmsp001/1/pwmsp001_tempstart" upWardMappingList="//@provided.38 //@provided.38/@item.0" isSystemDefined="true">
-    <localValue xsi:type="ResourceModel:IntegerValue" value="0"/>
-    <globalValue xsi:type="ResourceModel:IntegerValue" value="0"/>
+    <localValue xsi:type="ResourceModel:IntegerValue" value="1"/>
+    <globalValue xsi:type="ResourceModel:IntegerValue" value="1"/>
     <requiredResource uriString="" uriType="LOCALTYPE"/>
   </consumed>
   <consumed xsi:type="ResourceModel:ProxyResource" URI="http://www.infineon.com/1.0.32/app/pwmsp001/1/pwmsp001_tempcompmatch" upWardMappingList="//@provided.39 //@provided.39/@item.0" isSystemDefined="true">
@@ -689,13 +689,13 @@ not enabled then Port Pin is not consumed</toolTipHelpDescription>
     <requiredResource uriString="" uriType="LOCALTYPE"/>
   </consumed>
   <consumed xsi:type="ResourceModel:ProxyResource" URI="http://www.infineon.com/1.0.32/app/pwmsp001/1/pwmsp001_tempfreq" upWardMappingList="//@provided.29 //@provided.30 //@provided.31 //@provided.32" isSystemDefined="true">
-    <localValue xsi:type="ResourceModel:IntegerValue" value="5dc"/>
-    <globalValue xsi:type="ResourceModel:IntegerValue" value="5dc"/>
+    <localValue xsi:type="ResourceModel:IntegerValue" value="32"/>
+    <globalValue xsi:type="ResourceModel:IntegerValue" value="32"/>
     <requiredResource uriString="" uriType="LOCALTYPE"/>
   </consumed>
   <consumed xsi:type="ResourceModel:ProxyResource" URI="http://www.infineon.com/1.0.32/app/pwmsp001/1/pwmsp001_tempduty" upWardMappingList="//@provided.33 //@provided.35" isSystemDefined="true">
-    <localValue xsi:type="ResourceModel:IntegerValue" value="32"/>
-    <globalValue xsi:type="ResourceModel:IntegerValue" value="32"/>
+    <localValue xsi:type="ResourceModel:IntegerValue" value="8"/>
+    <globalValue xsi:type="ResourceModel:IntegerValue" value="8"/>
     <requiredResource uriString="" uriType="LOCALTYPE"/>
   </consumed>
   <consumed xsi:type="ResourceModel:ProxyResource" URI="http://www.infineon.com/1.0.32/app/pwmsp001/1/chkval" isSystemDefined="true">
@@ -706,6 +706,7 @@ not enabled then Port Pin is not consumed</toolTipHelpDescription>
     <requiredResource uriString="peripheral/ccu4/*/cc4/*" uriType="LOCALTYPE"/>
   </consumed>
   <consumed xsi:type="ResourceModel:ProxyResource" evalFunction="function resourceCondition() {&#xD;&#xA;          var Res0 = Solver.getResource(&quot;pwmsp001_irtimerconcat&quot;);&#xD;&#xA;          var tc = Solver.getIntValue(Res0);&#xD;&#xA;          if (tc == 1) {&#xD;&#xA;            return true; &#xD;&#xA;          } &#xD;&#xA;          return false;&#xD;&#xA;&#xD;&#xA;        }" URI="http://www.infineon.com/1.0.32/app/pwmsp001/1/slice1">
+    <downWardmappedList xsi:type="ResourceModel:ResourceGroup" href="../../CCU40/CCU40_0.dd#//@provided.160"/>
     <requiredResource uriString="peripheral/ccu4/*/cc4/*" uriType="LOCALTYPE"/>
   </consumed>
   <consumed xsi:type="ResourceModel:ProxyResource" URI="http://www.infineon.com/1.0.32/app/pwmsp001/1/pwmsp001_directoutputpadclassdummy" upWardMappingList="//@provided.46 //@provided.46/@item.0 //@provided.46/@item.1 //@provided.46/@item.2 //@provided.46/@item.3 //@provided.47/@item.0 //@provided.47/@item.1 //@provided.47/@item.2 //@provided.47/@item.3 //@provided.47/@item.4 //@provided.47/@item.5" isSystemDefined="true">
@@ -743,7 +744,9 @@ not enabled then Port Pin is not consumed</toolTipHelpDescription>
   <consumed xsi:type="ResourceModel:ProxyResource" URI="http://www.infineon.com/1.0.32/app/pwmsp001/1/slice/e0as" isSystemDefined="true">
     <downWardmappedList xsi:type="ResourceModel:SignalDeclaration" href="../../CCU40/CCU40_0.dd#//@provided.51"/>
   </consumed>
-  <consumed xsi:type="ResourceModel:ProxyResource" URI="http://www.infineon.com/1.0.32/app/pwmsp001/1/slice1/gp1_unsync" isSystemDefined="true"/>
+  <consumed xsi:type="ResourceModel:ProxyResource" URI="http://www.infineon.com/1.0.32/app/pwmsp001/1/slice1/gp1_unsync" isSystemDefined="true">
+    <downWardmappedList xsi:type="ResourceModel:SignalDeclaration" href="../../CCU40/CCU40_0.dd#//@provided.161"/>
+  </consumed>
   <consumed xsi:type="ResourceModel:ProxyResource" URI="http://www.infineon.com/1.0.32/app/pwmsp001/1/slice/gp1_unsync" isSystemDefined="true">
     <downWardmappedList xsi:type="ResourceModel:SignalDeclaration" href="../../CCU40/CCU40_0.dd#//@provided.52"/>
   </consumed>
@@ -797,7 +800,11 @@ not enabled then Port Pin is not consumed</toolTipHelpDescription>
     <downWardmappedList xsi:type="ResourceModel:RegisterParameter" href="../../CCU40/CCU40_0.dd#//@provided.59"/>
     <globalValue xsi:type="ResourceModel:IntegerValue" value="00000000"/>
   </consumed>
-  <consumed xsi:type="ResourceModel:ProxyResource" URI="http://www.infineon.com/1.0.32/app/pwmsp001/1/slice1/cmc" isSystemDefined="true"/>
+  <consumed xsi:type="ResourceModel:ProxyResource" URI="http://www.infineon.com/1.0.32/app/pwmsp001/1/slice1/cmc" isSystemDefined="true">
+    <localValue xsi:type="ResourceModel:IntegerValue" value="00000000"/>
+    <downWardmappedList xsi:type="ResourceModel:RegisterParameter" href="../../CCU40/CCU40_0.dd#//@provided.162"/>
+    <globalValue xsi:type="ResourceModel:IntegerValue" value="00000000"/>
+  </consumed>
   <consumed xsi:type="ResourceModel:ProxyResource" URI="http://www.infineon.com/1.0.32/app/pwmsp001/1/slice/cmc/tce" upWardMappingList="//@provided.29" isSystemDefined="true">
     <localValue xsi:type="ResourceModel:IntegerValue" value="1"/>
     <downWardmappedList xsi:type="ResourceModel:BitField" href="../../CCU40/CCU40_0.dd#//@provided.59/@bitFields.11"/>
@@ -923,9 +930,14 @@ not enabled then Port Pin is not consumed</toolTipHelpDescription>
     <downWardmappedList xsi:type="ResourceModel:BitField" href="../../CCU40/CCU40_0.dd#//@provided.71/@bitFields.0"/>
     <globalValue xsi:type="ResourceModel:IntegerValue" value="1"/>
   </consumed>
-  <consumed xsi:type="ResourceModel:ProxyResource" URI="http://www.infineon.com/1.0.32/app/pwmsp001/1/slice1/prs" isSystemDefined="true"/>
+  <consumed xsi:type="ResourceModel:ProxyResource" URI="http://www.infineon.com/1.0.32/app/pwmsp001/1/slice1/prs" isSystemDefined="true">
+    <localValue xsi:type="ResourceModel:IntegerValue" value="00000000"/>
+    <downWardmappedList xsi:type="ResourceModel:RegisterParameter" href="../../CCU40/CCU40_0.dd#//@provided.163"/>
+    <globalValue xsi:type="ResourceModel:IntegerValue" value="00000000"/>
+  </consumed>
   <consumed xsi:type="ResourceModel:ProxyResource" URI="http://www.infineon.com/1.0.32/app/pwmsp001/1/slice1/prs/prs" upWardMappingList="//@provided.29" isSystemDefined="true">
     <localValue xsi:type="ResourceModel:IntegerValue" value="0"/>
+    <downWardmappedList xsi:type="ResourceModel:BitField" href="../../CCU40/CCU40_0.dd#//@provided.163/@bitFields.0"/>
     <globalValue xsi:type="ResourceModel:IntegerValue" value="0"/>
   </consumed>
   <consumed xsi:type="ResourceModel:ProxyResource" URI="http://www.infineon.com/1.0.32/app/pwmsp001/1/slice/cr" isSystemDefined="true">
@@ -943,8 +955,16 @@ not enabled then Port Pin is not consumed</toolTipHelpDescription>
     <downWardmappedList xsi:type="ResourceModel:BitField" href="../../CCU40/CCU40_0.dd#//@provided.73/@bitFields.0"/>
     <globalValue xsi:type="ResourceModel:IntegerValue" value="1"/>
   </consumed>
-  <consumed xsi:type="ResourceModel:ProxyResource" URI="http://www.infineon.com/1.0.32/app/pwmsp001/1/slice1/crs" isSystemDefined="true"/>
-  <consumed xsi:type="ResourceModel:ProxyResource" URI="http://www.infineon.com/1.0.32/app/pwmsp001/1/slice1/crs/crs" isSystemDefined="true"/>
+  <consumed xsi:type="ResourceModel:ProxyResource" URI="http://www.infineon.com/1.0.32/app/pwmsp001/1/slice1/crs" isSystemDefined="true">
+    <localValue xsi:type="ResourceModel:IntegerValue" value="00000000"/>
+    <downWardmappedList xsi:type="ResourceModel:RegisterParameter" href="../../CCU40/CCU40_0.dd#//@provided.164"/>
+    <globalValue xsi:type="ResourceModel:IntegerValue" value="00000000"/>
+  </consumed>
+  <consumed xsi:type="ResourceModel:ProxyResource" URI="http://www.infineon.com/1.0.32/app/pwmsp001/1/slice1/crs/crs" isSystemDefined="true">
+    <localValue xsi:type="ResourceModel:IntegerValue" value="0"/>
+    <downWardmappedList xsi:type="ResourceModel:BitField" href="../../CCU40/CCU40_0.dd#//@provided.164/@bitFields.0"/>
+    <globalValue xsi:type="ResourceModel:IntegerValue" value="0"/>
+  </consumed>
   <consumed xsi:type="ResourceModel:ProxyResource" URI="http://www.infineon.com/1.0.32/app/pwmsp001/1/slice/timer" isSystemDefined="true">
     <localValue xsi:type="ResourceModel:IntegerValue" value="00000000"/>
     <downWardmappedList xsi:type="ResourceModel:RegisterParameter" href="../../CCU40/CCU40_0.dd#//@provided.74"/>
@@ -1044,7 +1064,9 @@ not enabled then Port Pin is not consumed</toolTipHelpDescription>
   <consumed xsi:type="ResourceModel:ProxyResource" URI="http://www.infineon.com/1.0.32/app/pwmsp001/1/slice/concat_bus_in" isSystemDefined="true">
     <downWardmappedList xsi:type="ResourceModel:SignalDeclaration" href="../../CCU40/CCU40_0.dd#//@provided.86"/>
   </consumed>
-  <consumed xsi:type="ResourceModel:ProxyResource" URI="http://www.infineon.com/1.0.32/app/pwmsp001/1/slice1/concat_bus_out" isSystemDefined="true"/>
+  <consumed xsi:type="ResourceModel:ProxyResource" URI="http://www.infineon.com/1.0.32/app/pwmsp001/1/slice1/concat_bus_out" isSystemDefined="true">
+    <downWardmappedList xsi:type="ResourceModel:SignalDeclaration" href="../../CCU40/CCU40_0.dd#//@provided.165"/>
+  </consumed>
   <consumed xsi:type="ResourceModel:ProxyResource" URI="http://www.infineon.com/1.0.32/app/pwmsp001/1/slice/gp2_unsync" isSystemDefined="true">
     <downWardmappedList xsi:type="ResourceModel:SignalDeclaration" href="../../CCU40/CCU40_0.dd#//@provided.87"/>
   </consumed>
@@ -1060,7 +1082,9 @@ not enabled then Port Pin is not consumed</toolTipHelpDescription>
   <consumed xsi:type="ResourceModel:ProxyResource" URI="http://www.infineon.com/1.0.32/app/pwmsp001/1/slice/gp0_unsync" isSystemDefined="true">
     <downWardmappedList xsi:type="ResourceModel:SignalDeclaration" href="../../CCU40/CCU40_0.dd#//@provided.90"/>
   </consumed>
-  <consumed xsi:type="ResourceModel:ProxyResource" URI="http://www.infineon.com/1.0.32/app/pwmsp001/1/slice1/gp0_unsync" isSystemDefined="true"/>
+  <consumed xsi:type="ResourceModel:ProxyResource" URI="http://www.infineon.com/1.0.32/app/pwmsp001/1/slice1/gp0_unsync" isSystemDefined="true">
+    <downWardmappedList xsi:type="ResourceModel:SignalDeclaration" href="../../CCU40/CCU40_0.dd#//@provided.166"/>
+  </consumed>
   <propertyConstants name="uridevice" value="device">
     <propertyConstants name="uriPeri_CCU4" value="peripheral/ccu4/">
       <propertyConstants name="uriPWMSP001App" value="app/pwmsp001/"/>
