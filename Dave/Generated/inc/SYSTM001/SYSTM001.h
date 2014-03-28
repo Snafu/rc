@@ -91,7 +91,7 @@
   /* Time between between two systick interrupt in Msec */
  #define SYSTM001_SYSTICK_INTERVAL 1U
   /* Maximum No of timer */
-#define SYSTM001_CFG_MAX_TMR  2U 
+#define SYSTM001_CFG_MAX_TMR  8U 
 
 /* Macro function to convert systick count to millisecond */
 #define CONVERT_SYSTICK_COUNT_TO_MSEC(val) (val * SYSTM001_SYSTICK_INTERVAL)

@@ -2,8 +2,8 @@
 <ResourceModel:App xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ResourceModel="http://www.infineon.com/Davex/Resource.ecore" name="CLK001" description="App to configure System&#xA; and Peripheral Clocks." descriptionURL="/doc/html/group___c_l_k001_app.html" mode="SHARABLE" URI="http://www.infineon.com/1.0.42/app/clk001/0">
   <upWardMappingList xsi:type="ResourceModel:ProxyResource" href="../../I2C001/1.0.28/i2c001_0.app#//@consumed.2"/>
   <upWardMappingList xsi:type="ResourceModel:ProxyResource" href="../../CCU4GLOBAL/1.0.20/ccu4global_0.app#//@consumed.1"/>
-  <upWardMappingList xsi:type="ResourceModel:ProxyResource" href="../../SYSTM001/1.0.18/systm001_0.app#//@consumed.2"/>
   <upWardMappingList xsi:type="ResourceModel:ProxyResource" href="../../UART001/1.0.22/uart001_0.app#//@consumed.3"/>
+  <upWardMappingList xsi:type="ResourceModel:ProxyResource" href="../../SYSTM001/1.0.18/systm001_0.app#//@consumed.2"/>
   <provided xsi:type="ResourceModel:VirtualSignal" name="Perbridge (fPB) Clock" URI="http://www.infineon.com/1.0.42/app/clk001/0/clk001_fpb_vs" requiredSignalResource="perbridge/fpb">
     <localValue xsi:type="ResourceModel:StringValue" value="-1"/>
     <globalValue xsi:type="ResourceModel:StringValue" value="-1"/>
@@ -235,13 +235,13 @@
   </provided>
   <provided xsi:type="ResourceModel:EnumerationParameter" name="USB Clock Enable" evalFunction="&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;function ForwardMapping()&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;{&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;var Res = SCM.getResource(&quot;usb/clkset_usbcen&quot;);&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;var value = SCM.getIntValue(currentResource);  &#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;SCM.setIntValue(Res,value);&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;function BackwardMapping()&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;{&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;var Res = SCM.getResource(&quot;usb/clkset_usbcen&quot;);&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;var value = SCM.getIntValue(Res); &#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; if (value === 0) {&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;SCM.setIntValue(currentResource,0);&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;}else if(value ==1){&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;SCM.setIntValue(currentResource,1);&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;" URI="http://www.infineon.com/1.0.42/app/clk001/0/clk001_erwusbclkenable" downWardmappedList="//@consumed.51" multipleSelections="true">
     <defaultValue xsi:type="ResourceModel:IntegerValue" value="0"/>
-    <localValue xsi:type="ResourceModel:StringValue" value="0"/>
-    <globalValue xsi:type="ResourceModel:IntegerValue" value="0"/>
+    <localValue xsi:type="ResourceModel:IntegerValue" value="1"/>
+    <globalValue xsi:type="ResourceModel:IntegerValue" value="1"/>
     <toolTipHelpDescription>Enable USB Clock</toolTipHelpDescription>
     <item name="USB Clock Enable" evalFunction="&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;function ForwardMapping()&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;{&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;var Res = SCM.getResource(&quot;usb/clkset_usbcen&quot;); &#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;var value = SCM.getIntValue(currentResource);&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;SCM.setIntValue(Res,value);&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;function BackwardMapping()&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;{&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;var Res = SCM.getResource(&quot;usb/clkset_usbcen&quot;); &#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;var value = SCM.getIntValue(Res); &#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;if (value == -1) {&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;SCM.setIntValue(currentResource,0);&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;} else {&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;SCM.setIntValue(currentResource,value);&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;}&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;" URI="http://www.infineon.com/1.0.42/app/clk001/0/clk001_erwusbclkenable/0" downWardmappedList="//@consumed.51" maxValue="1" minValue="0">
       <defaultValue xsi:type="ResourceModel:IntegerValue" value="0"/>
       <localValue xsi:type="ResourceModel:StringValue" value="0"/>
-      <globalValue xsi:type="ResourceModel:IntegerValue" value="0"/>
+      <globalValue xsi:type="ResourceModel:IntegerValue" value="1"/>
       <toolTipHelpDescription>This selection enables USB Clock</toolTipHelpDescription>
     </item>
   </provided>
@@ -478,7 +478,7 @@ Valid values of clock divide registers for fCCU , fCPU and fPERIPH clocks
     </item>
   </provided>
   <provided xsi:type="ResourceModel:EnumerationParameter" name="Enable Hibernate Domain" evalFunction="&#xD;&#xA;            function ForwardMapping()&#xD;&#xA;            {&#xD;&#xA;              var Res1 = SCM.getResource(&quot;clk001_bkupclksrcconfdummy&quot;); &#xD;&#xA;              var value1 = SCM.getIntValue(Res1);&#xD;&#xA;              var Res = SCM.getResource(&quot;hibernate/pwrset/hib&quot;); &#xD;&#xA;              var value = SCM.getIntValue(currentResource);&#xD;&#xA;              SCM.setIntValue(Res,value);&#xD;&#xA;            }&#xD;&#xA;            function BackwardMapping()&#xD;&#xA;            {&#xD;&#xA;              var Res = SCM.getResource(&quot;hibernate/pwrset/hib&quot;); &#xD;&#xA;              var value = SCM.getIntValue(Res); &#xD;&#xA;              if (value == -1) {&#xD;&#xA;                SCM.setIntValue(currentResource,0);&#xD;&#xA;              } else {&#xD;&#xA;                SCM.setIntValue(currentResource,value);               &#xD;&#xA;              }&#xD;&#xA;            }           &#xD;&#xA;            " URI="http://www.infineon.com/1.0.42/app/clk001/0/clk001_erwenablehibernate" downWardmappedList="//@consumed.59" multipleSelections="true">
-    <localValue xsi:type="ResourceModel:StringValue" value="-1"/>
+    <localValue xsi:type="ResourceModel:IntegerValue" value="1"/>
     <globalValue xsi:type="ResourceModel:IntegerValue" value="1"/>
     <toolTipHelpDescription>Checking this option,enables the hibernate domain</toolTipHelpDescription>
     <item name="Enable Hibernate Domain" evalFunction="&#xD;&#xA;            function ForwardMapping()&#xD;&#xA;            {&#xD;&#xA;              var Res1 = SCM.getResource(&quot;clk001_bkupclksrcconfdummy&quot;); &#xD;&#xA;              var value1 = SCM.getIntValue(Res1);&#xD;&#xA;              var Res = SCM.getResource(&quot;hibernate/pwrset/hib&quot;); &#xD;&#xA;              var value = SCM.getIntValue(currentResource);&#xD;&#xA;              SCM.setIntValue(Res,value);&#xD;&#xA;            }&#xD;&#xA;            function BackwardMapping()&#xD;&#xA;            {&#xD;&#xA;              var Res = SCM.getResource(&quot;hibernate/pwrset/hib&quot;); &#xD;&#xA;              var value = SCM.getIntValue(Res); &#xD;&#xA;              if (value == -1) {&#xD;&#xA;                SCM.setIntValue(currentResource,0);&#xD;&#xA;              } else {&#xD;&#xA;                SCM.setIntValue(currentResource,value);               &#xD;&#xA;              }&#xD;&#xA;            }           &#xD;&#xA;            " URI="http://www.infineon.com/1.0.42/app/clk001/0/clk001_erwenablehibernate/0" downWardmappedList="//@consumed.59" maxValue="1" minValue="0">
@@ -822,9 +822,9 @@ Note that the PLL Clock observed is divided by PLL Clock Divider value</toolTipH
     <globalValue xsi:type="ResourceModel:IntegerValue" value="0"/>
   </consumed>
   <consumed xsi:type="ResourceModel:ProxyResource" URI="http://www.infineon.com/1.0.42/app/clk001/0/usb/clkset_usbcen" upWardMappingList="//@provided.22 //@provided.22/@item.0" isSystemDefined="true">
-    <localValue xsi:type="ResourceModel:IntegerValue" value="0"/>
+    <localValue xsi:type="ResourceModel:IntegerValue" value="1"/>
     <downWardmappedList xsi:type="ResourceModel:BitField" href="../../SCU/SCU_0.dd#//@provided.26"/>
-    <globalValue xsi:type="ResourceModel:IntegerValue" value="0"/>
+    <globalValue xsi:type="ResourceModel:IntegerValue" value="1"/>
   </consumed>
   <consumed xsi:type="ResourceModel:ProxyResource" URI="http://www.infineon.com/1.0.42/app/clk001/0/usb/usbclkcr/usbsel" upWardMappingList="//@provided.23/@item.0 //@provided.23/@item.1 //@provided.28 //@provided.30" isSystemDefined="true">
     <localValue xsi:type="ResourceModel:IntegerValue" value="0"/>

@@ -10,45 +10,31 @@
 #include <string.h>
 #include <stdio.h>
 #include "i2c.h"
+#include "car.h"
+#include "debug.h"
+
+#define CAR_INIT_ERROR	0x8f
 
 char debug[80];
 static volatile bool delayExpired = FALSE;
 
+void car_test(void);
 void ir_init(void);
 void ir_read(void);
 void wait(unsigned int ms);
 void DelayHandler(void* t);
 
 
-void servo_set(int prozent)
-{
-	// min = 1,32 ms
-	// cent = 1,56 ms
-	// max = 1,77 ms
-	// 50 HZ -> 1% = 200 us
-	int dc = 8;
-	if(prozent < 0) {
-		dc = 7;
-	} else if(prozent > 0) {
-		dc = 9;
-	}
-	(void) PWMSP001_SetDutyCycle((PWMSP001_HandleType*)&PWMSP001_Handle1, dc);
-
-}
-
 int main(void)
 {
 	DAVE_Init();			// Initialization of DAVE Apps
 
-	servo_set(0);
-	wait(1000);
-	servo_set(-1);
-	wait(1000);
-	servo_set(+1);
-	wait(1000);
-	servo_set(0);
-	wait(1000);
+	if(car_init()) {
+		debug_show(CAR_INIT_ERROR);
+		while(1);
+	}
 
+	car_test();
 
 	strcpy(debug, "Starting IR init");
 	ir_init();
@@ -60,6 +46,26 @@ int main(void)
 		wait(2000);
 	}
 	return 0;
+}
+
+void car_test(void)
+{
+	car_steer(-50);
+	wait(250);
+	car_steer(-100);
+	wait(250);
+	car_steer(50);
+	wait(250);
+	car_steer(100);
+	wait(250);
+	car_steer(0);
+
+	wait(1000);
+	car_throttle(-30);
+	wait(250);
+	car_throttle(30);
+	wait(250);
+	car_throttle(0);
 }
 
 void ir_init(void)
@@ -151,7 +157,7 @@ void ir_read(void)
 void wait(unsigned int ms)
 {
 	handle_t handle;
-	handle = SYSTM001_CreateTimer(ms,SYSTM001_ONE_SHOT,DelayHandler,NULL);
+	handle = SYSTM001_CreateTimer(ms, SYSTM001_ONE_SHOT, DelayHandler, NULL);
 	delayExpired = FALSE;
 	if(handle)
 		(void) SYSTM001_StartTimer(handle);

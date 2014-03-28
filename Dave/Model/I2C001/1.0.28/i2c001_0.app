@@ -533,11 +533,11 @@ specific interrupt signal otherwise there
     <requiredResource uriString="app/clk002/*" uriType="LOCALTYPE"/>
   </consumed>
   <consumed xsi:type="ResourceModel:ProxyResource" name="I2C SCL" URI="http://www.infineon.com/1.0.28/app/i2c001/0/i2c_scl">
-    <downWardmappedList xsi:type="ResourceModel:ResourceGroup" href="../../P0/P0_0.dd#//@provided.70"/>
+    <downWardmappedList xsi:type="ResourceModel:ResourceGroup" href="../../P0/P0_0.dd#//@provided.0"/>
     <requiredResource uriString="port/p/0/pad/11" uriType="LOCALTYPE"/>
   </consumed>
   <consumed xsi:type="ResourceModel:ProxyResource" name="I2C SDA" URI="http://www.infineon.com/1.0.28/app/i2c001/0/i2c_sda">
-    <downWardmappedList xsi:type="ResourceModel:ResourceGroup" href="../../P0/P0_0.dd#//@provided.0"/>
+    <downWardmappedList xsi:type="ResourceModel:ResourceGroup" href="../../P0/P0_0.dd#//@provided.4"/>
     <requiredResource uriString="port/p/0/pad/5" uriType="LOCALTYPE"/>
   </consumed>
   <consumed xsi:type="ResourceModel:ProxyResource" evalFunction="function resourceCondition() {&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;var value1 = Solver.getSoftwareId().substring(0,1).compareTo(&quot;1&quot;);&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;if(value1  == 0 ) {&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;  return false;&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;return true;&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;}" URI="http://www.infineon.com/1.0.28/app/i2c001/0/resetapp1">
@@ -614,11 +614,11 @@ specific interrupt signal otherwise there
     <downWardmappedList xsi:type="ResourceModel:SignalDeclaration" href="../../USIC1/USIC1_1.dd#//@provided.8"/>
   </consumed>
   <consumed xsi:type="ResourceModel:ProxyResource" URI="http://www.infineon.com/1.0.28/app/i2c001/0/i2c_sda/pad" isSystemDefined="true">
-    <downWardmappedList xsi:type="ResourceModel:SignalDeclaration" href="../../P0/P0_0.dd#//@provided.1"/>
+    <downWardmappedList xsi:type="ResourceModel:SignalDeclaration" href="../../P0/P0_0.dd#//@provided.5"/>
   </consumed>
   <consumed xsi:type="ResourceModel:ProxyResource" URI="http://www.infineon.com/1.0.28/app/i2c001/0/i2c_scl/pad" isSystemDefined="true">
     <downWardmappedList xsi:type="ResourceModel:SignalDeclaration" href="../../P0/P0_0.dd#//@provided.1"/>
-    <downWardmappedList xsi:type="ResourceModel:SignalDeclaration" href="../../P0/P0_0.dd#//@provided.71"/>
+    <downWardmappedList xsi:type="ResourceModel:SignalDeclaration" href="../../P0/P0_0.dd#//@provided.1"/>
   </consumed>
   <consumed xsi:type="ResourceModel:ProxyResource" URI="http://www.infineon.com/1.0.28/app/i2c001/0/channel/standard_receive_buffer_int" isSystemDefined="true">
     <downWardmappedList xsi:type="ResourceModel:SignalDeclaration" href="../../USIC1/USIC1_1.dd#//@provided.9"/>
@@ -691,24 +691,24 @@ specific interrupt signal otherwise there
   <consumed xsi:type="ResourceModel:ProxyResource" URI="http://www.infineon.com/1.0.28/app/i2c001/0/clockapp/clk002_irmclk" isSystemDefined="true"/>
   <consumed xsi:type="ResourceModel:ProxyResource" URI="http://www.infineon.com/1.0.28/app/i2c001/0/i2c_sda/pdr_pd" upWardMappingList="//@provided.33/@item.0 //@provided.33/@item.1 //@provided.33/@item.2 //@provided.34 //@provided.34/@item.0 //@provided.34/@item.1 //@provided.34/@item.2 //@provided.34/@item.3 //@provided.34/@item.4 //@provided.34/@item.5" isSystemDefined="true">
     <localValue xsi:type="ResourceModel:IntegerValue" value="0"/>
-    <downWardmappedList xsi:type="ResourceModel:BitField" href="../../P0/P0_0.dd#//@provided.2"/>
+    <downWardmappedList xsi:type="ResourceModel:BitField" href="../../P0/P0_0.dd#//@provided.6"/>
     <globalValue xsi:type="ResourceModel:IntegerValue" value="0"/>
   </consumed>
   <consumed xsi:type="ResourceModel:ProxyResource" URI="http://www.infineon.com/1.0.28/app/i2c001/0/i2c_sda/iocr_po" upWardMappingList="//@provided.35 //@provided.35/@item.0 //@provided.35/@item.1" isSystemDefined="true">
     <localValue xsi:type="ResourceModel:IntegerValue" value="1"/>
-    <downWardmappedList xsi:type="ResourceModel:BitField" href="../../P0/P0_0.dd#//@provided.3"/>
+    <downWardmappedList xsi:type="ResourceModel:BitField" href="../../P0/P0_0.dd#//@provided.7"/>
     <globalValue xsi:type="ResourceModel:IntegerValue" value="1"/>
   </consumed>
   <consumed xsi:type="ResourceModel:ProxyResource" URI="http://www.infineon.com/1.0.28/app/i2c001/0/i2c_scl/pdr_pd" upWardMappingList="//@provided.36/@item.0 //@provided.36/@item.1 //@provided.36/@item.2 //@provided.37 //@provided.37/@item.0 //@provided.37/@item.1 //@provided.37/@item.2 //@provided.37/@item.3 //@provided.37/@item.4 //@provided.37/@item.5" isSystemDefined="true">
     <localValue xsi:type="ResourceModel:IntegerValue" value="0"/>
     <downWardmappedList xsi:type="ResourceModel:BitField" href="../../P0/P0_0.dd#//@provided.2"/>
-    <downWardmappedList xsi:type="ResourceModel:BitField" href="../../P0/P0_0.dd#//@provided.72"/>
+    <downWardmappedList xsi:type="ResourceModel:BitField" href="../../P0/P0_0.dd#//@provided.2"/>
     <globalValue xsi:type="ResourceModel:IntegerValue" value="0"/>
   </consumed>
   <consumed xsi:type="ResourceModel:ProxyResource" URI="http://www.infineon.com/1.0.28/app/i2c001/0/i2c_scl/iocr_po" upWardMappingList="//@provided.38 //@provided.38/@item.0 //@provided.38/@item.1" isSystemDefined="true">
     <localValue xsi:type="ResourceModel:IntegerValue" value="1"/>
     <downWardmappedList xsi:type="ResourceModel:BitField" href="../../P0/P0_0.dd#//@provided.3"/>
-    <downWardmappedList xsi:type="ResourceModel:BitField" href="../../P0/P0_0.dd#//@provided.73"/>
+    <downWardmappedList xsi:type="ResourceModel:BitField" href="../../P0/P0_0.dd#//@provided.3"/>
     <globalValue xsi:type="ResourceModel:IntegerValue" value="1"/>
   </consumed>
   <consumed xsi:type="ResourceModel:ProxyResource" URI="http://www.infineon.com/1.0.28/app/i2c001/0/channel/fdr/step" upWardMappingList="//@provided.19" isSystemDefined="true">

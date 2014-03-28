@@ -297,7 +297,7 @@
   </provided>
   <provided xsi:type="ResourceModel:IntegerParameter" name="CCU4 clock resolution" evalFunction="&#xD;&#xA;        function ForwardMapping(){&#xD;&#xA;             var Res2 = SCM.getResource(&quot;ccu4globalapp/ccu4global_irclock&quot;);&#xD;&#xA;             var Clock = SCM.getDoubleValue(Res2);&#xD;&#xA;&#x9;&#x9;&#x9; var XMC1xxx=SCM.getSoftwareId().substring(0,1).compareTo(&quot;1&quot;);&#xD;&#xA;&#x9;&#x9;&#x9; var XMC42xx=SCM.getSoftwareId().substring(0,2).compareTo(&quot;42&quot;);&#xD;&#xA;&#xD;&#xA;             if (Clock == -1)&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;{ &#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;if(XMC1xxx==0)&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Clock = 32;&#xD;&#xA;&#x9;&#x9;&#x9; &#x9;&#x9;else if(XMC42xx==0)&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Clock = 80;&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;else&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Clock = 120;&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;}&#xD;&#xA;&#xD;&#xA;             var clkDiv = (1000 /Clock);&#xD;&#xA;&#xD;&#xA;             var value2 = SCM.getDoubleValue(currentResource);&#xD;&#xA;&#x9;&#x9;&#x9; var tempRes = SCM.getResource(&quot;pwmsp001_tempresolution&quot;);&#xD;&#xA;&#xD;&#xA;&#x9;&#x9;&#x9;if(value2==0){&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;if(XMC1xxx==0){&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;value2 =32;&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;} else {&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;value2 =20;&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;&#x9;} &#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#x9;&#x9;&#x9; SCM.setDoubleValue(tempRes,value2);&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;&#x9;&#xD;&#xA;             var Res3 = SCM.getResource(&quot;slice/psc/psiv&quot;);  &#xD;&#xA;             var Divider = (value2) / clkDiv;&#xD;&#xA;&#xD;&#xA;             var Prescalar = Math.floor( Math.log(Divider) / Math.log( 2 ) );&#xD;&#xA;             SCM.setIntValue(Res3, Prescalar);&#xD;&#xA;         }&#xD;&#xA;        &#xD;&#xA;        function BackwardMapping(){&#xD;&#xA;            var tempRes = SCM.getResource(&quot;pwmsp001_tempresolution&quot;);&#xD;&#xA;            var value = SCM.getDoubleValue(tempRes);&#xD;&#xA;            SCM.setDoubleValue(currentResource,value);&#xD;&#xA;&#xD;&#xA;&#x9;&#x9;&#x9;var Res2 = SCM.getResource(&quot;ccu4globalapp/ccu4global_irclock&quot;);&#xD;&#xA;            var Clock = SCM.getDoubleValue(Res2);&#xD;&#xA;&#xD;&#xA;&#x9;&#x9;&#x9;var clkDiv = (1000 /Clock);&#xD;&#xA;&#xD;&#xA; &#x9;&#x9;&#x9; var res_max=Math.ceil(clkDiv*32768);&#xD;&#xA;&#x9;&#x9;&#x9; var res_min=Math.ceil(clkDiv);&#xD;&#xA;&#x9;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;&#x9; SCM.setMinMaxValue(currentResource,res_min,res_max,1);&#xD;&#xA;        }&#xD;&#xA;        " URI="http://www.infineon.com/1.0.32/app/pwmsp001/0/pwmsp001_irwresolution" downWardmappedList="//@consumed.8 //@consumed.56" maxValue="42aab" minValue="9">
     <defaultValue xsi:type="ResourceModel:IntegerValue" value="0"/>
-    <localValue xsi:type="ResourceModel:StringValue" value="0"/>
+    <localValue xsi:type="ResourceModel:StringValue" value="14"/>
     <globalValue xsi:type="ResourceModel:IntegerValue" value="14"/>
     <toolTipHelpDescription>This allows user to input resolution for CCU4 clock. Depending on 1/(resolution*PWM frequency) the app decides if timer concatenation is needed</toolTipHelpDescription>
   </provided>
@@ -728,7 +728,7 @@ not enabled then Port Pin is not consumed</toolTipHelpDescription>
     <requiredResource uriString="app/ccu4global/*" uriType="LOCALTYPE"/>
   </consumed>
   <consumed xsi:type="ResourceModel:ProxyResource" evalFunction="function resourceCondition() &#xD;&#xA;        {&#xD;&#xA;          var Res0 = Solver.getResource(&quot;pwmsp001_erwdirectoutputpadenable&quot;);&#xD;&#xA;          var OutputEnable = Solver.getIntValue(Res0);&#xD;&#xA;          if (OutputEnable == 1)&#xD;&#xA;          {&#xD;&#xA;            return true; &#xD;&#xA;          } &#xD;&#xA;          return false;&#xD;&#xA;        }" URI="http://www.infineon.com/1.0.32/app/pwmsp001/0/pin_directoutput">
-    <downWardmappedList xsi:type="ResourceModel:ResourceGroup" href="../../P0/P0_0.dd#//@provided.20"/>
+    <downWardmappedList xsi:type="ResourceModel:ResourceGroup" href="../../P0/P0_0.dd#//@provided.56"/>
     <requiredResource uriString="port/p/0/pad/12" uriType="LOCALTYPE"/>
   </consumed>
   <consumed xsi:type="ResourceModel:ProxyResource" URI="http://www.infineon.com/1.0.32/app/pwmsp001/0/slice/out" isSystemDefined="true">
@@ -1032,7 +1032,7 @@ not enabled then Port Pin is not consumed</toolTipHelpDescription>
   </consumed>
   <consumed xsi:type="ResourceModel:ProxyResource" URI="http://www.infineon.com/1.0.32/app/pwmsp001/0/pin_directoutput/pdr_pd" upWardMappingList="//@provided.46/@item.0 //@provided.46/@item.1 //@provided.46/@item.2 //@provided.47 //@provided.47/@item.0 //@provided.47/@item.1 //@provided.47/@item.2 //@provided.47/@item.3 //@provided.47/@item.4 //@provided.47/@item.5" isSystemDefined="true">
     <localValue xsi:type="ResourceModel:IntegerValue" value="0"/>
-    <downWardmappedList xsi:type="ResourceModel:BitField" href="../../P0/P0_0.dd#//@provided.21"/>
+    <downWardmappedList xsi:type="ResourceModel:BitField" href="../../P0/P0_0.dd#//@provided.57"/>
     <globalValue xsi:type="ResourceModel:IntegerValue" value="0"/>
   </consumed>
   <consumed xsi:type="ResourceModel:ProxyResource" URI="http://www.infineon.com/1.0.32/app/pwmsp001/0/slice/st" isSystemDefined="true">
@@ -1052,7 +1052,7 @@ not enabled then Port Pin is not consumed</toolTipHelpDescription>
     <downWardmappedList xsi:type="ResourceModel:SignalDeclaration" href="../../CCU40/CCU40_0.dd#//@provided.44"/>
   </consumed>
   <consumed xsi:type="ResourceModel:ProxyResource" URI="http://www.infineon.com/1.0.32/app/pwmsp001/0/pin_directoutput/pad" isSystemDefined="true">
-    <downWardmappedList xsi:type="ResourceModel:SignalDeclaration" href="../../P0/P0_0.dd#//@provided.22"/>
+    <downWardmappedList xsi:type="ResourceModel:SignalDeclaration" href="../../P0/P0_0.dd#//@provided.58"/>
   </consumed>
   <consumed xsi:type="ResourceModel:ProxyResource" URI="http://www.infineon.com/1.0.32/app/pwmsp001/0/slice/e1as" isSystemDefined="true">
     <downWardmappedList xsi:type="ResourceModel:SignalDeclaration" href="../../CCU40/CCU40_0.dd#//@provided.45"/>
