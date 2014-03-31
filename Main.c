@@ -15,12 +15,17 @@
 
 #define CAR_INIT_ERROR	0x8f
 
+typedef struct {
+	uint16_t x;
+	uint16_t y;
+} ir_point_t;
+
 char debug[80];
 static volatile bool delayExpired = FALSE;
 
 void car_test(void);
 void ir_init(void);
-void ir_read(void);
+void ir_read(ir_point_t *p1, ir_point_t *p2, ir_point_t *p3, ir_point_t *p4);
 void wait(unsigned int ms);
 void DelayHandler(void* t);
 
@@ -39,10 +44,12 @@ int main(void)
 	strcpy(debug, "Starting IR init");
 	ir_init();
 
+	ir_point_t p1, p2, p3, p4;
 	strcpy(debug, "Polling data");
 	while(1)
 	{
-		ir_read();
+		ir_read(&p1, &p2, &p3, &p4);
+		sprintf(debug, "%d,%d  -  %d,%d\n", p1.x, p1.y, p2.x, p2.y);
 		wait(2000);
 	}
 	return 0;
@@ -115,7 +122,7 @@ void ir_init(void)
 
 }
 
-void ir_read(void)
+void ir_read(ir_point_t *p1, ir_point_t *p2, ir_point_t *p3, ir_point_t *p4)
 {
 
 	int s;
@@ -150,8 +157,14 @@ void ir_read(void)
 	Ix4 = data_buf[10]; Iy4 = data_buf[11]; s = data_buf[12];
 	Ix4 += (s & 0x30) <<4; Iy4 += (s & 0xC0) <<2;
 
-	sprintf(debug, "%d,%d  -  %d,%d\n", Ix1, Iy1, Ix2, Iy2);
-
+	p1->x = Ix1;
+	p1->y = Iy1;
+	p2->x = Ix2;
+	p2->y = Iy2;
+	p3->x = Ix3;
+	p3->y = Iy3;
+	p4->x = Ix4;
+	p4->y = Iy4;
 }
 
 void wait(unsigned int ms)
