@@ -1,3 +1,5 @@
-Generated/*
+Dave/Cache/*
 Debug/
 *.o
+*.jlink
+*~

@@ -416,14 +416,14 @@ void I2C001_Init(void)
   I2C001_lInit(&I2C001_Handle0);          
      /* Configuration of SCL Pin 0.11 based on User configuration */
   PORT0->PDR1 &= (~(PORT0_PDR1_PD11_Msk));
-  PORT0->PDR1 |= (((uint32_t)0 << PORT0_PDR1_PD11_Pos) & PORT0_PDR1_PD11_Msk);    
+  PORT0->PDR1 |= (((uint32_t)2 << PORT0_PDR1_PD11_Pos) & PORT0_PDR1_PD11_Msk);    
  	       
   PORT0->IOCR8 |= ((uint32_t)24 << 27);
  	 
   PORT0->OMR |= ((uint32_t)0x01 << 11);          
      /* Configuration of SDA Pin 0.5 based on User configuration */
   PORT0->PDR0  &= (~(PORT0_PDR0_PD5_Msk));
-  PORT0->PDR0  |= (((uint32_t)0 << PORT0_PDR0_PD5_Pos) & PORT0_PDR0_PD5_Msk);
+  PORT0->PDR0  |= (((uint32_t)2 << PORT0_PDR0_PD5_Pos) & PORT0_PDR0_PD5_Msk);
  	
  	
   PORT0->IOCR4 |= ((uint32_t)24 << 11);

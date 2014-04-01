@@ -284,7 +284,7 @@ void PWMSP001_Init(void)
     
       /* Configuration of Direct Output Pin 0.12 based on User configuration */
       PORT0->PDR1 &= (uint32_t)(~(PORT0_PDR1_PD12_Msk));
-      PORT0->PDR1 |= (((uint32_t)0 << (uint32_t)PORT0_PDR1_PD12_Pos) & \
+      PORT0->PDR1 |= (((uint32_t)2 << (uint32_t)PORT0_PDR1_PD12_Pos) & \
                                (uint32_t)PORT0_PDR1_PD12_Msk);
       PORT0->IOCR12  &= (uint32_t)(~(PORT_IOCR_PC0_PO_Msk));
       PORT0->IOCR12  |= (((uint32_t)0 << (uint32_t)PORT_IOCR_PC0_PO_Pos) & \
