@@ -27,5 +27,7 @@ RC car following an object via Wiimote IR sensor.
 ## Links
 
 * [Bluetooth module](http://docs-europe.electrocomponents.com/webdocs/125a/0900766b8125a3e6.pdf)
-* [IR cam](http://translate.google.com/translate?u=http%3A%2F%2Fwww.kako.com%2Fneta%2F2007-001%2F2007-001.html&hl=en&ie=UTF-8&sl=ja&tl=en)
+* [Instructables IR cam](http://www.instructables.com/id/Wii-Remote-IR-Camera-Hack/?lang=de)
+* [Kotaku](http://translate.google.com/translate?u=http%3A%2F%2Fwww.kako.com%2Fneta%2F2008-009%2F2008-009.html&hl=en&ie=UTF-8&sl=ja&tl=en)
 * [Working with Pixart cam](http://procrastineering.blogspot.co.at/2008/09/working-with-pixart-camera-directly.html)
+* [Schematic](http://stephenhobley.com/blog/wp-content/uploads/2009/02/wiicam_schem.gif)
