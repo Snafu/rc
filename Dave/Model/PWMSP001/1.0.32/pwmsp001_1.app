@@ -702,7 +702,7 @@ not enabled then Port Pin is not consumed</toolTipHelpDescription>
     <requiredResource uriString="" uriType="LOCALTYPE"/>
   </consumed>
   <consumed xsi:type="ResourceModel:ProxyResource" URI="http://www.infineon.com/1.0.32/app/pwmsp001/1/slice">
-    <downWardmappedList xsi:type="ResourceModel:ResourceGroup" href="../../CCU40/CCU40_0.dd#//@provided.116"/>
+    <downWardmappedList xsi:type="ResourceModel:ResourceGroup" href="../../CCU40/CCU40_0.dd#//@provided.47"/>
     <requiredResource uriString="peripheral/ccu4/*/cc4/*" uriType="LOCALTYPE"/>
   </consumed>
   <consumed xsi:type="ResourceModel:ProxyResource" evalFunction="function resourceCondition() {&#xD;&#xA;          var Res0 = Solver.getResource(&quot;pwmsp001_irtimerconcat&quot;);&#xD;&#xA;          var tc = Solver.getIntValue(Res0);&#xD;&#xA;          if (tc == 1) {&#xD;&#xA;            return true; &#xD;&#xA;          } &#xD;&#xA;          return false;&#xD;&#xA;&#xD;&#xA;        }" URI="http://www.infineon.com/1.0.32/app/pwmsp001/1/slice1">
@@ -733,83 +733,83 @@ not enabled then Port Pin is not consumed</toolTipHelpDescription>
   </consumed>
   <consumed xsi:type="ResourceModel:ProxyResource" URI="http://www.infineon.com/1.0.32/app/pwmsp001/1/slice/out" isSystemDefined="true">
     <downWardmappedList xsi:type="ResourceModel:SignalDeclaration" href="../../CCU40/CCU40_0.dd#//@provided.48"/>
-    <downWardmappedList xsi:type="ResourceModel:SignalDeclaration" href="../../CCU40/CCU40_0.dd#//@provided.117"/>
+    <downWardmappedList xsi:type="ResourceModel:SignalDeclaration" href="../../CCU40/CCU40_0.dd#//@provided.48"/>
   </consumed>
   <consumed xsi:type="ResourceModel:ProxyResource" URI="http://www.infineon.com/1.0.32/app/pwmsp001/1/slice/e2as" isSystemDefined="true">
     <downWardmappedList xsi:type="ResourceModel:SignalDeclaration" href="../../CCU40/CCU40_0.dd#//@provided.49"/>
-    <downWardmappedList xsi:type="ResourceModel:SignalDeclaration" href="../../CCU40/CCU40_0.dd#//@provided.118"/>
+    <downWardmappedList xsi:type="ResourceModel:SignalDeclaration" href="../../CCU40/CCU40_0.dd#//@provided.49"/>
   </consumed>
   <consumed xsi:type="ResourceModel:ProxyResource" URI="http://www.infineon.com/1.0.32/app/pwmsp001/1/slice/cmds_cmus" isSystemDefined="true">
     <downWardmappedList xsi:type="ResourceModel:SignalDeclaration" href="../../CCU40/CCU40_0.dd#//@provided.50"/>
-    <downWardmappedList xsi:type="ResourceModel:SignalDeclaration" href="../../CCU40/CCU40_0.dd#//@provided.119"/>
+    <downWardmappedList xsi:type="ResourceModel:SignalDeclaration" href="../../CCU40/CCU40_0.dd#//@provided.50"/>
   </consumed>
   <consumed xsi:type="ResourceModel:ProxyResource" URI="http://www.infineon.com/1.0.32/app/pwmsp001/1/slice/e0as" isSystemDefined="true">
     <downWardmappedList xsi:type="ResourceModel:SignalDeclaration" href="../../CCU40/CCU40_0.dd#//@provided.51"/>
-    <downWardmappedList xsi:type="ResourceModel:SignalDeclaration" href="../../CCU40/CCU40_0.dd#//@provided.120"/>
+    <downWardmappedList xsi:type="ResourceModel:SignalDeclaration" href="../../CCU40/CCU40_0.dd#//@provided.51"/>
   </consumed>
   <consumed xsi:type="ResourceModel:ProxyResource" URI="http://www.infineon.com/1.0.32/app/pwmsp001/1/slice1/gp1_unsync" isSystemDefined="true"/>
   <consumed xsi:type="ResourceModel:ProxyResource" URI="http://www.infineon.com/1.0.32/app/pwmsp001/1/slice/gp1_unsync" isSystemDefined="true">
     <downWardmappedList xsi:type="ResourceModel:SignalDeclaration" href="../../CCU40/CCU40_0.dd#//@provided.52"/>
-    <downWardmappedList xsi:type="ResourceModel:SignalDeclaration" href="../../CCU40/CCU40_0.dd#//@provided.121"/>
+    <downWardmappedList xsi:type="ResourceModel:SignalDeclaration" href="../../CCU40/CCU40_0.dd#//@provided.52"/>
   </consumed>
   <consumed xsi:type="ResourceModel:ProxyResource" URI="http://www.infineon.com/1.0.32/app/pwmsp001/1/slice/gidls_ssi" isSystemDefined="true">
     <localValue xsi:type="ResourceModel:IntegerValue" value="0"/>
     <downWardmappedList xsi:type="ResourceModel:BitField" href="../../CCU40/CCU40_0.dd#//@provided.53"/>
-    <downWardmappedList xsi:type="ResourceModel:BitField" href="../../CCU40/CCU40_0.dd#//@provided.122"/>
+    <downWardmappedList xsi:type="ResourceModel:BitField" href="../../CCU40/CCU40_0.dd#//@provided.53"/>
     <globalValue xsi:type="ResourceModel:IntegerValue" value="0"/>
   </consumed>
   <consumed xsi:type="ResourceModel:ProxyResource" URI="http://www.infineon.com/1.0.32/app/pwmsp001/1/slice/gidlc_csi" isSystemDefined="true">
     <localValue xsi:type="ResourceModel:IntegerValue" value="0"/>
     <downWardmappedList xsi:type="ResourceModel:BitField" href="../../CCU40/CCU40_0.dd#//@provided.54"/>
-    <downWardmappedList xsi:type="ResourceModel:BitField" href="../../CCU40/CCU40_0.dd#//@provided.123"/>
+    <downWardmappedList xsi:type="ResourceModel:BitField" href="../../CCU40/CCU40_0.dd#//@provided.54"/>
     <globalValue xsi:type="ResourceModel:IntegerValue" value="0"/>
   </consumed>
   <consumed xsi:type="ResourceModel:ProxyResource" URI="http://www.infineon.com/1.0.32/app/pwmsp001/1/slice/gcss_sse" isSystemDefined="true">
     <localValue xsi:type="ResourceModel:IntegerValue" value="0"/>
     <downWardmappedList xsi:type="ResourceModel:BitField" href="../../CCU40/CCU40_0.dd#//@provided.55"/>
-    <downWardmappedList xsi:type="ResourceModel:BitField" href="../../CCU40/CCU40_0.dd#//@provided.124"/>
+    <downWardmappedList xsi:type="ResourceModel:BitField" href="../../CCU40/CCU40_0.dd#//@provided.55"/>
     <globalValue xsi:type="ResourceModel:IntegerValue" value="0"/>
   </consumed>
   <consumed xsi:type="ResourceModel:ProxyResource" URI="http://www.infineon.com/1.0.32/app/pwmsp001/1/slice/gcss_sdse" isSystemDefined="true">
     <localValue xsi:type="ResourceModel:IntegerValue" value="0"/>
     <downWardmappedList xsi:type="ResourceModel:BitField" href="../../CCU40/CCU40_0.dd#//@provided.56"/>
-    <downWardmappedList xsi:type="ResourceModel:BitField" href="../../CCU40/CCU40_0.dd#//@provided.125"/>
+    <downWardmappedList xsi:type="ResourceModel:BitField" href="../../CCU40/CCU40_0.dd#//@provided.56"/>
     <globalValue xsi:type="ResourceModel:IntegerValue" value="0"/>
   </consumed>
   <consumed xsi:type="ResourceModel:ProxyResource" URI="http://www.infineon.com/1.0.32/app/pwmsp001/1/slice/gcss_spse" isSystemDefined="true">
     <localValue xsi:type="ResourceModel:IntegerValue" value="0"/>
     <downWardmappedList xsi:type="ResourceModel:BitField" href="../../CCU40/CCU40_0.dd#//@provided.57"/>
-    <downWardmappedList xsi:type="ResourceModel:BitField" href="../../CCU40/CCU40_0.dd#//@provided.126"/>
+    <downWardmappedList xsi:type="ResourceModel:BitField" href="../../CCU40/CCU40_0.dd#//@provided.57"/>
     <globalValue xsi:type="ResourceModel:IntegerValue" value="0"/>
   </consumed>
   <consumed xsi:type="ResourceModel:ProxyResource" URI="http://www.infineon.com/1.0.32/app/pwmsp001/1/slice/ins" isSystemDefined="true">
     <localValue xsi:type="ResourceModel:IntegerValue" value="00000000"/>
     <downWardmappedList xsi:type="ResourceModel:RegisterParameter" href="../../CCU40/CCU40_0.dd#//@provided.58"/>
-    <downWardmappedList xsi:type="ResourceModel:RegisterParameter" href="../../CCU40/CCU40_0.dd#//@provided.127"/>
+    <downWardmappedList xsi:type="ResourceModel:RegisterParameter" href="../../CCU40/CCU40_0.dd#//@provided.58"/>
     <globalValue xsi:type="ResourceModel:IntegerValue" value="00000000"/>
   </consumed>
   <consumed xsi:type="ResourceModel:ProxyResource" URI="http://www.infineon.com/1.0.32/app/pwmsp001/1/slice/ins/ev0em" upWardMappingList="//@provided.19 //@provided.19/@item.0 //@provided.19/@item.1 //@provided.19/@item.2 //@provided.19/@item.3" isSystemDefined="true">
     <localValue xsi:type="ResourceModel:IntegerValue" value="0"/>
     <downWardmappedList xsi:type="ResourceModel:BitField" href="../../CCU40/CCU40_0.dd#//@provided.58/@bitFields.3"/>
-    <downWardmappedList xsi:type="ResourceModel:BitField" href="../../CCU40/CCU40_0.dd#//@provided.127/@bitFields.3"/>
+    <downWardmappedList xsi:type="ResourceModel:BitField" href="../../CCU40/CCU40_0.dd#//@provided.58/@bitFields.3"/>
     <globalValue xsi:type="ResourceModel:IntegerValue" value="0"/>
   </consumed>
   <consumed xsi:type="ResourceModel:ProxyResource" URI="http://www.infineon.com/1.0.32/app/pwmsp001/1/slice/ins/ev1em" upWardMappingList="//@provided.20 //@provided.20/@item.0 //@provided.20/@item.1 //@provided.20/@item.2 //@provided.20/@item.3" isSystemDefined="true">
     <localValue xsi:type="ResourceModel:IntegerValue" value="0"/>
     <downWardmappedList xsi:type="ResourceModel:BitField" href="../../CCU40/CCU40_0.dd#//@provided.58/@bitFields.4"/>
-    <downWardmappedList xsi:type="ResourceModel:BitField" href="../../CCU40/CCU40_0.dd#//@provided.127/@bitFields.4"/>
+    <downWardmappedList xsi:type="ResourceModel:BitField" href="../../CCU40/CCU40_0.dd#//@provided.58/@bitFields.4"/>
     <globalValue xsi:type="ResourceModel:IntegerValue" value="0"/>
   </consumed>
   <consumed xsi:type="ResourceModel:ProxyResource" URI="http://www.infineon.com/1.0.32/app/pwmsp001/1/slice/ins/ev2lm" upWardMappingList="//@provided.26 //@provided.26/@item.0 //@provided.26/@item.1" isSystemDefined="true">
     <localValue xsi:type="ResourceModel:IntegerValue" value="1"/>
     <downWardmappedList xsi:type="ResourceModel:BitField" href="../../CCU40/CCU40_0.dd#//@provided.58/@bitFields.8"/>
-    <downWardmappedList xsi:type="ResourceModel:BitField" href="../../CCU40/CCU40_0.dd#//@provided.127/@bitFields.8"/>
+    <downWardmappedList xsi:type="ResourceModel:BitField" href="../../CCU40/CCU40_0.dd#//@provided.58/@bitFields.8"/>
     <globalValue xsi:type="ResourceModel:IntegerValue" value="1"/>
   </consumed>
   <consumed xsi:type="ResourceModel:ProxyResource" URI="http://www.infineon.com/1.0.32/app/pwmsp001/1/slice/cmc" isSystemDefined="true">
     <localValue xsi:type="ResourceModel:IntegerValue" value="00000000"/>
     <downWardmappedList xsi:type="ResourceModel:RegisterParameter" href="../../CCU40/CCU40_0.dd#//@provided.59"/>
-    <downWardmappedList xsi:type="ResourceModel:RegisterParameter" href="../../CCU40/CCU40_0.dd#//@provided.128"/>
+    <downWardmappedList xsi:type="ResourceModel:RegisterParameter" href="../../CCU40/CCU40_0.dd#//@provided.59"/>
     <globalValue xsi:type="ResourceModel:IntegerValue" value="00000000"/>
   </consumed>
   <consumed xsi:type="ResourceModel:ProxyResource" URI="http://www.infineon.com/1.0.32/app/pwmsp001/1/slice1/cmc" isSystemDefined="true">
@@ -819,151 +819,151 @@ not enabled then Port Pin is not consumed</toolTipHelpDescription>
   <consumed xsi:type="ResourceModel:ProxyResource" URI="http://www.infineon.com/1.0.32/app/pwmsp001/1/slice/cmc/tce" upWardMappingList="//@provided.29" isSystemDefined="true">
     <localValue xsi:type="ResourceModel:IntegerValue" value="1"/>
     <downWardmappedList xsi:type="ResourceModel:BitField" href="../../CCU40/CCU40_0.dd#//@provided.59/@bitFields.11"/>
-    <downWardmappedList xsi:type="ResourceModel:BitField" href="../../CCU40/CCU40_0.dd#//@provided.128/@bitFields.11"/>
+    <downWardmappedList xsi:type="ResourceModel:BitField" href="../../CCU40/CCU40_0.dd#//@provided.59/@bitFields.11"/>
     <globalValue xsi:type="ResourceModel:IntegerValue" value="1"/>
   </consumed>
   <consumed xsi:type="ResourceModel:ProxyResource" URI="http://www.infineon.com/1.0.32/app/pwmsp001/1/slice/tcst" isSystemDefined="true">
     <localValue xsi:type="ResourceModel:IntegerValue" value="00000000"/>
     <downWardmappedList xsi:type="ResourceModel:RegisterParameter" href="../../CCU40/CCU40_0.dd#//@provided.60"/>
-    <downWardmappedList xsi:type="ResourceModel:RegisterParameter" href="../../CCU40/CCU40_0.dd#//@provided.129"/>
+    <downWardmappedList xsi:type="ResourceModel:RegisterParameter" href="../../CCU40/CCU40_0.dd#//@provided.60"/>
     <globalValue xsi:type="ResourceModel:IntegerValue" value="00000000"/>
   </consumed>
   <consumed xsi:type="ResourceModel:ProxyResource" URI="http://www.infineon.com/1.0.32/app/pwmsp001/1/slice/tcset" isSystemDefined="true">
     <localValue xsi:type="ResourceModel:IntegerValue" value="00000000"/>
     <downWardmappedList xsi:type="ResourceModel:RegisterParameter" href="../../CCU40/CCU40_0.dd#//@provided.61"/>
-    <downWardmappedList xsi:type="ResourceModel:RegisterParameter" href="../../CCU40/CCU40_0.dd#//@provided.130"/>
+    <downWardmappedList xsi:type="ResourceModel:RegisterParameter" href="../../CCU40/CCU40_0.dd#//@provided.61"/>
     <globalValue xsi:type="ResourceModel:IntegerValue" value="00000000"/>
   </consumed>
   <consumed xsi:type="ResourceModel:ProxyResource" URI="http://www.infineon.com/1.0.32/app/pwmsp001/1/slice/tcclr" isSystemDefined="true">
     <localValue xsi:type="ResourceModel:IntegerValue" value="00000000"/>
     <downWardmappedList xsi:type="ResourceModel:RegisterParameter" href="../../CCU40/CCU40_0.dd#//@provided.62"/>
-    <downWardmappedList xsi:type="ResourceModel:RegisterParameter" href="../../CCU40/CCU40_0.dd#//@provided.131"/>
+    <downWardmappedList xsi:type="ResourceModel:RegisterParameter" href="../../CCU40/CCU40_0.dd#//@provided.62"/>
     <globalValue xsi:type="ResourceModel:IntegerValue" value="00000000"/>
   </consumed>
   <consumed xsi:type="ResourceModel:ProxyResource" URI="http://www.infineon.com/1.0.32/app/pwmsp001/1/slice/tc" isSystemDefined="true">
     <localValue xsi:type="ResourceModel:IntegerValue" value="00000000"/>
     <downWardmappedList xsi:type="ResourceModel:RegisterParameter" href="../../CCU40/CCU40_0.dd#//@provided.63"/>
-    <downWardmappedList xsi:type="ResourceModel:RegisterParameter" href="../../CCU40/CCU40_0.dd#//@provided.132"/>
+    <downWardmappedList xsi:type="ResourceModel:RegisterParameter" href="../../CCU40/CCU40_0.dd#//@provided.63"/>
     <globalValue xsi:type="ResourceModel:IntegerValue" value="00000000"/>
   </consumed>
   <consumed xsi:type="ResourceModel:ProxyResource" URI="http://www.infineon.com/1.0.32/app/pwmsp001/1/slice/tc/strm" upWardMappingList="//@provided.21 //@provided.21/@item.0 //@provided.21/@item.1" isSystemDefined="true">
     <localValue xsi:type="ResourceModel:IntegerValue" value="0"/>
     <downWardmappedList xsi:type="ResourceModel:BitField" href="../../CCU40/CCU40_0.dd#//@provided.63/@bitFields.7"/>
-    <downWardmappedList xsi:type="ResourceModel:BitField" href="../../CCU40/CCU40_0.dd#//@provided.132/@bitFields.7"/>
+    <downWardmappedList xsi:type="ResourceModel:BitField" href="../../CCU40/CCU40_0.dd#//@provided.63/@bitFields.7"/>
     <globalValue xsi:type="ResourceModel:IntegerValue" value="0"/>
   </consumed>
   <consumed xsi:type="ResourceModel:ProxyResource" URI="http://www.infineon.com/1.0.32/app/pwmsp001/1/slice/tc/endm" upWardMappingList="//@provided.22 //@provided.22/@item.0 //@provided.22/@item.1 //@provided.22/@item.2" isSystemDefined="true">
     <localValue xsi:type="ResourceModel:IntegerValue" value="0"/>
     <downWardmappedList xsi:type="ResourceModel:BitField" href="../../CCU40/CCU40_0.dd#//@provided.63/@bitFields.6"/>
-    <downWardmappedList xsi:type="ResourceModel:BitField" href="../../CCU40/CCU40_0.dd#//@provided.132/@bitFields.6"/>
+    <downWardmappedList xsi:type="ResourceModel:BitField" href="../../CCU40/CCU40_0.dd#//@provided.63/@bitFields.6"/>
     <globalValue xsi:type="ResourceModel:IntegerValue" value="0"/>
   </consumed>
   <consumed xsi:type="ResourceModel:ProxyResource" URI="http://www.infineon.com/1.0.32/app/pwmsp001/1/slice/tc/tssm" upWardMappingList="//@provided.16 //@provided.16/@item.0" isSystemDefined="true">
     <localValue xsi:type="ResourceModel:IntegerValue" value="0"/>
     <downWardmappedList xsi:type="ResourceModel:BitField" href="../../CCU40/CCU40_0.dd#//@provided.63/@bitFields.1"/>
-    <downWardmappedList xsi:type="ResourceModel:BitField" href="../../CCU40/CCU40_0.dd#//@provided.132/@bitFields.1"/>
+    <downWardmappedList xsi:type="ResourceModel:BitField" href="../../CCU40/CCU40_0.dd#//@provided.63/@bitFields.1"/>
     <globalValue xsi:type="ResourceModel:IntegerValue" value="0"/>
   </consumed>
   <consumed xsi:type="ResourceModel:ProxyResource" URI="http://www.infineon.com/1.0.32/app/pwmsp001/1/slice/tc/tcm" upWardMappingList="//@provided.17 //@provided.17/@item.0 //@provided.17/@item.1 //@provided.29 //@provided.30 //@provided.31 //@provided.32 //@provided.33 //@provided.35" isSystemDefined="true">
     <localValue xsi:type="ResourceModel:IntegerValue" value="0"/>
     <downWardmappedList xsi:type="ResourceModel:BitField" href="../../CCU40/CCU40_0.dd#//@provided.63/@bitFields.0"/>
-    <downWardmappedList xsi:type="ResourceModel:BitField" href="../../CCU40/CCU40_0.dd#//@provided.132/@bitFields.0"/>
+    <downWardmappedList xsi:type="ResourceModel:BitField" href="../../CCU40/CCU40_0.dd#//@provided.63/@bitFields.0"/>
     <globalValue xsi:type="ResourceModel:IntegerValue" value="0"/>
   </consumed>
   <consumed xsi:type="ResourceModel:ProxyResource" URI="http://www.infineon.com/1.0.32/app/pwmsp001/1/slice/tc/dithe" upWardMappingList="//@provided.37 //@provided.37/@item.0 //@provided.37/@item.1 //@provided.37/@item.2 //@provided.37/@item.3" isSystemDefined="true">
     <localValue xsi:type="ResourceModel:IntegerValue" value="0"/>
     <downWardmappedList xsi:type="ResourceModel:BitField" href="../../CCU40/CCU40_0.dd#//@provided.63/@bitFields.10"/>
-    <downWardmappedList xsi:type="ResourceModel:BitField" href="../../CCU40/CCU40_0.dd#//@provided.132/@bitFields.10"/>
+    <downWardmappedList xsi:type="ResourceModel:BitField" href="../../CCU40/CCU40_0.dd#//@provided.63/@bitFields.10"/>
     <globalValue xsi:type="ResourceModel:IntegerValue" value="0"/>
   </consumed>
   <consumed xsi:type="ResourceModel:ProxyResource" URI="http://www.infineon.com/1.0.32/app/pwmsp001/1/slice/tc/trape" isSystemDefined="true">
     <localValue xsi:type="ResourceModel:IntegerValue" value="0"/>
     <downWardmappedList xsi:type="ResourceModel:BitField" href="../../CCU40/CCU40_0.dd#//@provided.63/@bitFields.13"/>
-    <downWardmappedList xsi:type="ResourceModel:BitField" href="../../CCU40/CCU40_0.dd#//@provided.132/@bitFields.13"/>
+    <downWardmappedList xsi:type="ResourceModel:BitField" href="../../CCU40/CCU40_0.dd#//@provided.63/@bitFields.13"/>
     <globalValue xsi:type="ResourceModel:IntegerValue" value="0"/>
   </consumed>
   <consumed xsi:type="ResourceModel:ProxyResource" URI="http://www.infineon.com/1.0.32/app/pwmsp001/1/slice/tc/trpse" isSystemDefined="true">
     <localValue xsi:type="ResourceModel:IntegerValue" value="0"/>
     <downWardmappedList xsi:type="ResourceModel:BitField" href="../../CCU40/CCU40_0.dd#//@provided.63/@bitFields.14"/>
-    <downWardmappedList xsi:type="ResourceModel:BitField" href="../../CCU40/CCU40_0.dd#//@provided.132/@bitFields.14"/>
+    <downWardmappedList xsi:type="ResourceModel:BitField" href="../../CCU40/CCU40_0.dd#//@provided.63/@bitFields.14"/>
     <globalValue xsi:type="ResourceModel:IntegerValue" value="0"/>
   </consumed>
   <consumed xsi:type="ResourceModel:ProxyResource" URI="http://www.infineon.com/1.0.32/app/pwmsp001/1/slice/tc/trpsw" upWardMappingList="//@provided.25 //@provided.25/@item.0 //@provided.25/@item.1" isSystemDefined="true">
     <localValue xsi:type="ResourceModel:IntegerValue" value="0"/>
     <downWardmappedList xsi:type="ResourceModel:BitField" href="../../CCU40/CCU40_0.dd#//@provided.63/@bitFields.15"/>
-    <downWardmappedList xsi:type="ResourceModel:BitField" href="../../CCU40/CCU40_0.dd#//@provided.132/@bitFields.15"/>
+    <downWardmappedList xsi:type="ResourceModel:BitField" href="../../CCU40/CCU40_0.dd#//@provided.63/@bitFields.15"/>
     <globalValue xsi:type="ResourceModel:IntegerValue" value="0"/>
   </consumed>
   <consumed xsi:type="ResourceModel:ProxyResource" URI="http://www.infineon.com/1.0.32/app/pwmsp001/1/slice/psl" isSystemDefined="true">
     <localValue xsi:type="ResourceModel:IntegerValue" value="00000000"/>
     <downWardmappedList xsi:type="ResourceModel:RegisterParameter" href="../../CCU40/CCU40_0.dd#//@provided.64"/>
-    <downWardmappedList xsi:type="ResourceModel:RegisterParameter" href="../../CCU40/CCU40_0.dd#//@provided.133"/>
+    <downWardmappedList xsi:type="ResourceModel:RegisterParameter" href="../../CCU40/CCU40_0.dd#//@provided.64"/>
     <globalValue xsi:type="ResourceModel:IntegerValue" value="00000000"/>
   </consumed>
   <consumed xsi:type="ResourceModel:ProxyResource" URI="http://www.infineon.com/1.0.32/app/pwmsp001/1/slice/psl/psl" upWardMappingList="//@provided.18 //@provided.18/@item.0 //@provided.18/@item.1" isSystemDefined="true">
     <localValue xsi:type="ResourceModel:IntegerValue" value="0"/>
     <downWardmappedList xsi:type="ResourceModel:BitField" href="../../CCU40/CCU40_0.dd#//@provided.64/@bitFields.0"/>
-    <downWardmappedList xsi:type="ResourceModel:BitField" href="../../CCU40/CCU40_0.dd#//@provided.133/@bitFields.0"/>
+    <downWardmappedList xsi:type="ResourceModel:BitField" href="../../CCU40/CCU40_0.dd#//@provided.64/@bitFields.0"/>
     <globalValue xsi:type="ResourceModel:IntegerValue" value="0"/>
   </consumed>
   <consumed xsi:type="ResourceModel:ProxyResource" URI="http://www.infineon.com/1.0.32/app/pwmsp001/1/slice/dit" isSystemDefined="true">
     <localValue xsi:type="ResourceModel:IntegerValue" value="00000000"/>
     <downWardmappedList xsi:type="ResourceModel:RegisterParameter" href="../../CCU40/CCU40_0.dd#//@provided.65"/>
-    <downWardmappedList xsi:type="ResourceModel:RegisterParameter" href="../../CCU40/CCU40_0.dd#//@provided.134"/>
+    <downWardmappedList xsi:type="ResourceModel:RegisterParameter" href="../../CCU40/CCU40_0.dd#//@provided.65"/>
     <globalValue xsi:type="ResourceModel:IntegerValue" value="00000000"/>
   </consumed>
   <consumed xsi:type="ResourceModel:ProxyResource" URI="http://www.infineon.com/1.0.32/app/pwmsp001/1/slice/dits" isSystemDefined="true">
     <localValue xsi:type="ResourceModel:IntegerValue" value="00000000"/>
     <downWardmappedList xsi:type="ResourceModel:RegisterParameter" href="../../CCU40/CCU40_0.dd#//@provided.66"/>
-    <downWardmappedList xsi:type="ResourceModel:RegisterParameter" href="../../CCU40/CCU40_0.dd#//@provided.135"/>
+    <downWardmappedList xsi:type="ResourceModel:RegisterParameter" href="../../CCU40/CCU40_0.dd#//@provided.66"/>
     <globalValue xsi:type="ResourceModel:IntegerValue" value="00000000"/>
   </consumed>
   <consumed xsi:type="ResourceModel:ProxyResource" URI="http://www.infineon.com/1.0.32/app/pwmsp001/1/slice/dits/dcvs" upWardMappingList="//@provided.36" isSystemDefined="true">
     <localValue xsi:type="ResourceModel:IntegerValue" value="0"/>
     <downWardmappedList xsi:type="ResourceModel:BitField" href="../../CCU40/CCU40_0.dd#//@provided.66/@bitFields.0"/>
-    <downWardmappedList xsi:type="ResourceModel:BitField" href="../../CCU40/CCU40_0.dd#//@provided.135/@bitFields.0"/>
+    <downWardmappedList xsi:type="ResourceModel:BitField" href="../../CCU40/CCU40_0.dd#//@provided.66/@bitFields.0"/>
     <globalValue xsi:type="ResourceModel:IntegerValue" value="0"/>
   </consumed>
   <consumed xsi:type="ResourceModel:ProxyResource" URI="http://www.infineon.com/1.0.32/app/pwmsp001/1/slice/psc" isSystemDefined="true">
     <localValue xsi:type="ResourceModel:IntegerValue" value="00000000"/>
     <downWardmappedList xsi:type="ResourceModel:RegisterParameter" href="../../CCU40/CCU40_0.dd#//@provided.67"/>
-    <downWardmappedList xsi:type="ResourceModel:RegisterParameter" href="../../CCU40/CCU40_0.dd#//@provided.136"/>
+    <downWardmappedList xsi:type="ResourceModel:RegisterParameter" href="../../CCU40/CCU40_0.dd#//@provided.67"/>
     <globalValue xsi:type="ResourceModel:IntegerValue" value="00000000"/>
   </consumed>
   <consumed xsi:type="ResourceModel:ProxyResource" URI="http://www.infineon.com/1.0.32/app/pwmsp001/1/slice/psc/psiv" upWardMappingList="//@provided.27 //@provided.28 //@provided.30 //@provided.31 //@provided.32 //@provided.35" isSystemDefined="true">
     <localValue xsi:type="ResourceModel:IntegerValue" value="5"/>
     <downWardmappedList xsi:type="ResourceModel:BitField" href="../../CCU40/CCU40_0.dd#//@provided.67/@bitFields.0"/>
-    <downWardmappedList xsi:type="ResourceModel:BitField" href="../../CCU40/CCU40_0.dd#//@provided.136/@bitFields.0"/>
+    <downWardmappedList xsi:type="ResourceModel:BitField" href="../../CCU40/CCU40_0.dd#//@provided.67/@bitFields.0"/>
     <globalValue xsi:type="ResourceModel:IntegerValue" value="5"/>
   </consumed>
   <consumed xsi:type="ResourceModel:ProxyResource" URI="http://www.infineon.com/1.0.32/app/pwmsp001/1/slice/fpc" isSystemDefined="true">
     <localValue xsi:type="ResourceModel:IntegerValue" value="00000000"/>
     <downWardmappedList xsi:type="ResourceModel:RegisterParameter" href="../../CCU40/CCU40_0.dd#//@provided.68"/>
-    <downWardmappedList xsi:type="ResourceModel:RegisterParameter" href="../../CCU40/CCU40_0.dd#//@provided.137"/>
+    <downWardmappedList xsi:type="ResourceModel:RegisterParameter" href="../../CCU40/CCU40_0.dd#//@provided.68"/>
     <globalValue xsi:type="ResourceModel:IntegerValue" value="00000000"/>
   </consumed>
   <consumed xsi:type="ResourceModel:ProxyResource" URI="http://www.infineon.com/1.0.32/app/pwmsp001/1/slice/fpcs" isSystemDefined="true">
     <localValue xsi:type="ResourceModel:IntegerValue" value="00000000"/>
     <downWardmappedList xsi:type="ResourceModel:RegisterParameter" href="../../CCU40/CCU40_0.dd#//@provided.69"/>
-    <downWardmappedList xsi:type="ResourceModel:RegisterParameter" href="../../CCU40/CCU40_0.dd#//@provided.138"/>
+    <downWardmappedList xsi:type="ResourceModel:RegisterParameter" href="../../CCU40/CCU40_0.dd#//@provided.69"/>
     <globalValue xsi:type="ResourceModel:IntegerValue" value="00000000"/>
   </consumed>
   <consumed xsi:type="ResourceModel:ProxyResource" URI="http://www.infineon.com/1.0.32/app/pwmsp001/1/slice/pr" isSystemDefined="true">
     <localValue xsi:type="ResourceModel:IntegerValue" value="00000000"/>
     <downWardmappedList xsi:type="ResourceModel:RegisterParameter" href="../../CCU40/CCU40_0.dd#//@provided.70"/>
-    <downWardmappedList xsi:type="ResourceModel:RegisterParameter" href="../../CCU40/CCU40_0.dd#//@provided.139"/>
+    <downWardmappedList xsi:type="ResourceModel:RegisterParameter" href="../../CCU40/CCU40_0.dd#//@provided.70"/>
     <globalValue xsi:type="ResourceModel:IntegerValue" value="00000000"/>
   </consumed>
   <consumed xsi:type="ResourceModel:ProxyResource" URI="http://www.infineon.com/1.0.32/app/pwmsp001/1/slice/prs" isSystemDefined="true">
     <localValue xsi:type="ResourceModel:IntegerValue" value="00000000"/>
     <downWardmappedList xsi:type="ResourceModel:RegisterParameter" href="../../CCU40/CCU40_0.dd#//@provided.71"/>
-    <downWardmappedList xsi:type="ResourceModel:RegisterParameter" href="../../CCU40/CCU40_0.dd#//@provided.140"/>
+    <downWardmappedList xsi:type="ResourceModel:RegisterParameter" href="../../CCU40/CCU40_0.dd#//@provided.71"/>
     <globalValue xsi:type="ResourceModel:IntegerValue" value="00000000"/>
   </consumed>
   <consumed xsi:type="ResourceModel:ProxyResource" URI="http://www.infineon.com/1.0.32/app/pwmsp001/1/slice/prs/prs" upWardMappingList="//@provided.29 //@provided.30 //@provided.31 //@provided.32 //@provided.35" isSystemDefined="true">
     <localValue xsi:type="ResourceModel:IntegerValue" value="1"/>
     <downWardmappedList xsi:type="ResourceModel:BitField" href="../../CCU40/CCU40_0.dd#//@provided.71/@bitFields.0"/>
-    <downWardmappedList xsi:type="ResourceModel:BitField" href="../../CCU40/CCU40_0.dd#//@provided.140/@bitFields.0"/>
+    <downWardmappedList xsi:type="ResourceModel:BitField" href="../../CCU40/CCU40_0.dd#//@provided.71/@bitFields.0"/>
     <globalValue xsi:type="ResourceModel:IntegerValue" value="1"/>
   </consumed>
   <consumed xsi:type="ResourceModel:ProxyResource" URI="http://www.infineon.com/1.0.32/app/pwmsp001/1/slice1/prs" isSystemDefined="true">
@@ -977,19 +977,19 @@ not enabled then Port Pin is not consumed</toolTipHelpDescription>
   <consumed xsi:type="ResourceModel:ProxyResource" URI="http://www.infineon.com/1.0.32/app/pwmsp001/1/slice/cr" isSystemDefined="true">
     <localValue xsi:type="ResourceModel:IntegerValue" value="00000000"/>
     <downWardmappedList xsi:type="ResourceModel:RegisterParameter" href="../../CCU40/CCU40_0.dd#//@provided.72"/>
-    <downWardmappedList xsi:type="ResourceModel:RegisterParameter" href="../../CCU40/CCU40_0.dd#//@provided.141"/>
+    <downWardmappedList xsi:type="ResourceModel:RegisterParameter" href="../../CCU40/CCU40_0.dd#//@provided.72"/>
     <globalValue xsi:type="ResourceModel:IntegerValue" value="00000000"/>
   </consumed>
   <consumed xsi:type="ResourceModel:ProxyResource" URI="http://www.infineon.com/1.0.32/app/pwmsp001/1/slice/crs" isSystemDefined="true">
     <localValue xsi:type="ResourceModel:IntegerValue" value="00000000"/>
     <downWardmappedList xsi:type="ResourceModel:RegisterParameter" href="../../CCU40/CCU40_0.dd#//@provided.73"/>
-    <downWardmappedList xsi:type="ResourceModel:RegisterParameter" href="../../CCU40/CCU40_0.dd#//@provided.142"/>
+    <downWardmappedList xsi:type="ResourceModel:RegisterParameter" href="../../CCU40/CCU40_0.dd#//@provided.73"/>
     <globalValue xsi:type="ResourceModel:IntegerValue" value="00000000"/>
   </consumed>
   <consumed xsi:type="ResourceModel:ProxyResource" URI="http://www.infineon.com/1.0.32/app/pwmsp001/1/slice/crs/crs" upWardMappingList="//@provided.33 //@provided.35" isSystemDefined="true">
     <localValue xsi:type="ResourceModel:IntegerValue" value="2"/>
     <downWardmappedList xsi:type="ResourceModel:BitField" href="../../CCU40/CCU40_0.dd#//@provided.73/@bitFields.0"/>
-    <downWardmappedList xsi:type="ResourceModel:BitField" href="../../CCU40/CCU40_0.dd#//@provided.142/@bitFields.0"/>
+    <downWardmappedList xsi:type="ResourceModel:BitField" href="../../CCU40/CCU40_0.dd#//@provided.73/@bitFields.0"/>
     <globalValue xsi:type="ResourceModel:IntegerValue" value="2"/>
   </consumed>
   <consumed xsi:type="ResourceModel:ProxyResource" URI="http://www.infineon.com/1.0.32/app/pwmsp001/1/slice1/crs" isSystemDefined="true">
@@ -1003,97 +1003,97 @@ not enabled then Port Pin is not consumed</toolTipHelpDescription>
   <consumed xsi:type="ResourceModel:ProxyResource" URI="http://www.infineon.com/1.0.32/app/pwmsp001/1/slice/timer" isSystemDefined="true">
     <localValue xsi:type="ResourceModel:IntegerValue" value="00000000"/>
     <downWardmappedList xsi:type="ResourceModel:RegisterParameter" href="../../CCU40/CCU40_0.dd#//@provided.74"/>
-    <downWardmappedList xsi:type="ResourceModel:RegisterParameter" href="../../CCU40/CCU40_0.dd#//@provided.143"/>
+    <downWardmappedList xsi:type="ResourceModel:RegisterParameter" href="../../CCU40/CCU40_0.dd#//@provided.74"/>
     <globalValue xsi:type="ResourceModel:IntegerValue" value="00000000"/>
   </consumed>
   <consumed xsi:type="ResourceModel:ProxyResource" URI="http://www.infineon.com/1.0.32/app/pwmsp001/1/slice/c0v" isSystemDefined="true">
     <localValue xsi:type="ResourceModel:IntegerValue" value="00000000"/>
     <downWardmappedList xsi:type="ResourceModel:RegisterParameter" href="../../CCU40/CCU40_0.dd#//@provided.75"/>
-    <downWardmappedList xsi:type="ResourceModel:RegisterParameter" href="../../CCU40/CCU40_0.dd#//@provided.144"/>
+    <downWardmappedList xsi:type="ResourceModel:RegisterParameter" href="../../CCU40/CCU40_0.dd#//@provided.75"/>
     <globalValue xsi:type="ResourceModel:IntegerValue" value="00000000"/>
   </consumed>
   <consumed xsi:type="ResourceModel:ProxyResource" URI="http://www.infineon.com/1.0.32/app/pwmsp001/1/slice/c1v" isSystemDefined="true">
     <localValue xsi:type="ResourceModel:IntegerValue" value="00000000"/>
     <downWardmappedList xsi:type="ResourceModel:RegisterParameter" href="../../CCU40/CCU40_0.dd#//@provided.76"/>
-    <downWardmappedList xsi:type="ResourceModel:RegisterParameter" href="../../CCU40/CCU40_0.dd#//@provided.145"/>
+    <downWardmappedList xsi:type="ResourceModel:RegisterParameter" href="../../CCU40/CCU40_0.dd#//@provided.76"/>
     <globalValue xsi:type="ResourceModel:IntegerValue" value="00000000"/>
   </consumed>
   <consumed xsi:type="ResourceModel:ProxyResource" URI="http://www.infineon.com/1.0.32/app/pwmsp001/1/slice/c2v" isSystemDefined="true">
     <localValue xsi:type="ResourceModel:IntegerValue" value="00000000"/>
     <downWardmappedList xsi:type="ResourceModel:RegisterParameter" href="../../CCU40/CCU40_0.dd#//@provided.77"/>
-    <downWardmappedList xsi:type="ResourceModel:RegisterParameter" href="../../CCU40/CCU40_0.dd#//@provided.146"/>
+    <downWardmappedList xsi:type="ResourceModel:RegisterParameter" href="../../CCU40/CCU40_0.dd#//@provided.77"/>
     <globalValue xsi:type="ResourceModel:IntegerValue" value="00000000"/>
   </consumed>
   <consumed xsi:type="ResourceModel:ProxyResource" URI="http://www.infineon.com/1.0.32/app/pwmsp001/1/slice/c3v" isSystemDefined="true">
     <localValue xsi:type="ResourceModel:IntegerValue" value="00000000"/>
     <downWardmappedList xsi:type="ResourceModel:RegisterParameter" href="../../CCU40/CCU40_0.dd#//@provided.78"/>
-    <downWardmappedList xsi:type="ResourceModel:RegisterParameter" href="../../CCU40/CCU40_0.dd#//@provided.147"/>
+    <downWardmappedList xsi:type="ResourceModel:RegisterParameter" href="../../CCU40/CCU40_0.dd#//@provided.78"/>
     <globalValue xsi:type="ResourceModel:IntegerValue" value="00000000"/>
   </consumed>
   <consumed xsi:type="ResourceModel:ProxyResource" URI="http://www.infineon.com/1.0.32/app/pwmsp001/1/slice/ints" isSystemDefined="true">
     <localValue xsi:type="ResourceModel:IntegerValue" value="00000000"/>
     <downWardmappedList xsi:type="ResourceModel:RegisterParameter" href="../../CCU40/CCU40_0.dd#//@provided.79"/>
-    <downWardmappedList xsi:type="ResourceModel:RegisterParameter" href="../../CCU40/CCU40_0.dd#//@provided.148"/>
+    <downWardmappedList xsi:type="ResourceModel:RegisterParameter" href="../../CCU40/CCU40_0.dd#//@provided.79"/>
     <globalValue xsi:type="ResourceModel:IntegerValue" value="00000000"/>
   </consumed>
   <consumed xsi:type="ResourceModel:ProxyResource" URI="http://www.infineon.com/1.0.32/app/pwmsp001/1/slice/inte" isSystemDefined="true">
     <localValue xsi:type="ResourceModel:IntegerValue" value="00000000"/>
     <downWardmappedList xsi:type="ResourceModel:RegisterParameter" href="../../CCU40/CCU40_0.dd#//@provided.80"/>
-    <downWardmappedList xsi:type="ResourceModel:RegisterParameter" href="../../CCU40/CCU40_0.dd#//@provided.149"/>
+    <downWardmappedList xsi:type="ResourceModel:RegisterParameter" href="../../CCU40/CCU40_0.dd#//@provided.80"/>
     <globalValue xsi:type="ResourceModel:IntegerValue" value="00000000"/>
   </consumed>
   <consumed xsi:type="ResourceModel:ProxyResource" URI="http://www.infineon.com/1.0.32/app/pwmsp001/1/slice/inte/pme" isSystemDefined="true">
     <localValue xsi:type="ResourceModel:IntegerValue" value="0"/>
     <downWardmappedList xsi:type="ResourceModel:BitField" href="../../CCU40/CCU40_0.dd#//@provided.80/@bitFields.0"/>
-    <downWardmappedList xsi:type="ResourceModel:BitField" href="../../CCU40/CCU40_0.dd#//@provided.149/@bitFields.0"/>
+    <downWardmappedList xsi:type="ResourceModel:BitField" href="../../CCU40/CCU40_0.dd#//@provided.80/@bitFields.0"/>
     <globalValue xsi:type="ResourceModel:IntegerValue" value="0"/>
   </consumed>
   <consumed xsi:type="ResourceModel:ProxyResource" URI="http://www.infineon.com/1.0.32/app/pwmsp001/1/slice/inte/cmue" isSystemDefined="true">
     <localValue xsi:type="ResourceModel:IntegerValue" value="0"/>
     <downWardmappedList xsi:type="ResourceModel:BitField" href="../../CCU40/CCU40_0.dd#//@provided.80/@bitFields.2"/>
-    <downWardmappedList xsi:type="ResourceModel:BitField" href="../../CCU40/CCU40_0.dd#//@provided.149/@bitFields.2"/>
+    <downWardmappedList xsi:type="ResourceModel:BitField" href="../../CCU40/CCU40_0.dd#//@provided.80/@bitFields.2"/>
     <globalValue xsi:type="ResourceModel:IntegerValue" value="0"/>
   </consumed>
   <consumed xsi:type="ResourceModel:ProxyResource" URI="http://www.infineon.com/1.0.32/app/pwmsp001/1/slice/inte/cmde" isSystemDefined="true">
     <localValue xsi:type="ResourceModel:IntegerValue" value="0"/>
     <downWardmappedList xsi:type="ResourceModel:BitField" href="../../CCU40/CCU40_0.dd#//@provided.80/@bitFields.3"/>
-    <downWardmappedList xsi:type="ResourceModel:BitField" href="../../CCU40/CCU40_0.dd#//@provided.149/@bitFields.3"/>
+    <downWardmappedList xsi:type="ResourceModel:BitField" href="../../CCU40/CCU40_0.dd#//@provided.80/@bitFields.3"/>
     <globalValue xsi:type="ResourceModel:IntegerValue" value="0"/>
   </consumed>
   <consumed xsi:type="ResourceModel:ProxyResource" URI="http://www.infineon.com/1.0.32/app/pwmsp001/1/slice/inte/e0ae" isSystemDefined="true">
     <localValue xsi:type="ResourceModel:IntegerValue" value="0"/>
     <downWardmappedList xsi:type="ResourceModel:BitField" href="../../CCU40/CCU40_0.dd#//@provided.80/@bitFields.4"/>
-    <downWardmappedList xsi:type="ResourceModel:BitField" href="../../CCU40/CCU40_0.dd#//@provided.149/@bitFields.4"/>
+    <downWardmappedList xsi:type="ResourceModel:BitField" href="../../CCU40/CCU40_0.dd#//@provided.80/@bitFields.4"/>
     <globalValue xsi:type="ResourceModel:IntegerValue" value="0"/>
   </consumed>
   <consumed xsi:type="ResourceModel:ProxyResource" URI="http://www.infineon.com/1.0.32/app/pwmsp001/1/slice/inte/e1ae" isSystemDefined="true">
     <localValue xsi:type="ResourceModel:IntegerValue" value="0"/>
     <downWardmappedList xsi:type="ResourceModel:BitField" href="../../CCU40/CCU40_0.dd#//@provided.80/@bitFields.5"/>
-    <downWardmappedList xsi:type="ResourceModel:BitField" href="../../CCU40/CCU40_0.dd#//@provided.149/@bitFields.5"/>
+    <downWardmappedList xsi:type="ResourceModel:BitField" href="../../CCU40/CCU40_0.dd#//@provided.80/@bitFields.5"/>
     <globalValue xsi:type="ResourceModel:IntegerValue" value="0"/>
   </consumed>
   <consumed xsi:type="ResourceModel:ProxyResource" URI="http://www.infineon.com/1.0.32/app/pwmsp001/1/slice/inte/e2ae" isSystemDefined="true">
     <localValue xsi:type="ResourceModel:IntegerValue" value="0"/>
     <downWardmappedList xsi:type="ResourceModel:BitField" href="../../CCU40/CCU40_0.dd#//@provided.80/@bitFields.6"/>
-    <downWardmappedList xsi:type="ResourceModel:BitField" href="../../CCU40/CCU40_0.dd#//@provided.149/@bitFields.6"/>
+    <downWardmappedList xsi:type="ResourceModel:BitField" href="../../CCU40/CCU40_0.dd#//@provided.80/@bitFields.6"/>
     <globalValue xsi:type="ResourceModel:IntegerValue" value="0"/>
   </consumed>
   <consumed xsi:type="ResourceModel:ProxyResource" URI="http://www.infineon.com/1.0.32/app/pwmsp001/1/slice/srs" isSystemDefined="true">
     <localValue xsi:type="ResourceModel:IntegerValue" value="00000000"/>
     <downWardmappedList xsi:type="ResourceModel:RegisterParameter" href="../../CCU40/CCU40_0.dd#//@provided.81"/>
-    <downWardmappedList xsi:type="ResourceModel:RegisterParameter" href="../../CCU40/CCU40_0.dd#//@provided.150"/>
+    <downWardmappedList xsi:type="ResourceModel:RegisterParameter" href="../../CCU40/CCU40_0.dd#//@provided.81"/>
     <globalValue xsi:type="ResourceModel:IntegerValue" value="00000000"/>
   </consumed>
   <consumed xsi:type="ResourceModel:ProxyResource" URI="http://www.infineon.com/1.0.32/app/pwmsp001/1/slice/sws" isSystemDefined="true">
     <localValue xsi:type="ResourceModel:IntegerValue" value="00000000"/>
     <downWardmappedList xsi:type="ResourceModel:RegisterParameter" href="../../CCU40/CCU40_0.dd#//@provided.82"/>
-    <downWardmappedList xsi:type="ResourceModel:RegisterParameter" href="../../CCU40/CCU40_0.dd#//@provided.151"/>
+    <downWardmappedList xsi:type="ResourceModel:RegisterParameter" href="../../CCU40/CCU40_0.dd#//@provided.82"/>
     <globalValue xsi:type="ResourceModel:IntegerValue" value="00000000"/>
   </consumed>
   <consumed xsi:type="ResourceModel:ProxyResource" URI="http://www.infineon.com/1.0.32/app/pwmsp001/1/slice/swr" isSystemDefined="true">
     <localValue xsi:type="ResourceModel:IntegerValue" value="00000000"/>
     <downWardmappedList xsi:type="ResourceModel:RegisterParameter" href="../../CCU40/CCU40_0.dd#//@provided.83"/>
-    <downWardmappedList xsi:type="ResourceModel:RegisterParameter" href="../../CCU40/CCU40_0.dd#//@provided.152"/>
+    <downWardmappedList xsi:type="ResourceModel:RegisterParameter" href="../../CCU40/CCU40_0.dd#//@provided.83"/>
     <globalValue xsi:type="ResourceModel:IntegerValue" value="00000000"/>
   </consumed>
   <consumed xsi:type="ResourceModel:ProxyResource" URI="http://www.infineon.com/1.0.32/app/pwmsp001/1/ccu4globalapp/ccu4global_irclock" upWardMappingList="//@provided.27 //@provided.28 //@provided.29 //@provided.30 //@provided.31 //@provided.32 //@provided.34 //@provided.35" isSystemDefined="true">
@@ -1108,35 +1108,35 @@ not enabled then Port Pin is not consumed</toolTipHelpDescription>
   </consumed>
   <consumed xsi:type="ResourceModel:ProxyResource" URI="http://www.infineon.com/1.0.32/app/pwmsp001/1/slice/st" isSystemDefined="true">
     <downWardmappedList xsi:type="ResourceModel:SignalDeclaration" href="../../CCU40/CCU40_0.dd#//@provided.84"/>
-    <downWardmappedList xsi:type="ResourceModel:SignalDeclaration" href="../../CCU40/CCU40_0.dd#//@provided.153"/>
+    <downWardmappedList xsi:type="ResourceModel:SignalDeclaration" href="../../CCU40/CCU40_0.dd#//@provided.84"/>
   </consumed>
   <consumed xsi:type="ResourceModel:ProxyResource" URI="http://www.infineon.com/1.0.32/app/pwmsp001/1/slice/global_signal" isSystemDefined="true">
     <downWardmappedList xsi:type="ResourceModel:SignalDeclaration" href="../../CCU40/CCU40_0.dd#//@provided.85"/>
-    <downWardmappedList xsi:type="ResourceModel:SignalDeclaration" href="../../CCU40/CCU40_0.dd#//@provided.154"/>
+    <downWardmappedList xsi:type="ResourceModel:SignalDeclaration" href="../../CCU40/CCU40_0.dd#//@provided.85"/>
   </consumed>
   <consumed xsi:type="ResourceModel:ProxyResource" URI="http://www.infineon.com/1.0.32/app/pwmsp001/1/slice/concat_bus_in" isSystemDefined="true">
     <downWardmappedList xsi:type="ResourceModel:SignalDeclaration" href="../../CCU40/CCU40_0.dd#//@provided.86"/>
-    <downWardmappedList xsi:type="ResourceModel:SignalDeclaration" href="../../CCU40/CCU40_0.dd#//@provided.155"/>
+    <downWardmappedList xsi:type="ResourceModel:SignalDeclaration" href="../../CCU40/CCU40_0.dd#//@provided.86"/>
   </consumed>
   <consumed xsi:type="ResourceModel:ProxyResource" URI="http://www.infineon.com/1.0.32/app/pwmsp001/1/slice1/concat_bus_out" isSystemDefined="true"/>
   <consumed xsi:type="ResourceModel:ProxyResource" URI="http://www.infineon.com/1.0.32/app/pwmsp001/1/slice/gp2_unsync" isSystemDefined="true">
     <downWardmappedList xsi:type="ResourceModel:SignalDeclaration" href="../../CCU40/CCU40_0.dd#//@provided.87"/>
-    <downWardmappedList xsi:type="ResourceModel:SignalDeclaration" href="../../CCU40/CCU40_0.dd#//@provided.156"/>
+    <downWardmappedList xsi:type="ResourceModel:SignalDeclaration" href="../../CCU40/CCU40_0.dd#//@provided.87"/>
   </consumed>
   <consumed xsi:type="ResourceModel:ProxyResource" URI="http://www.infineon.com/1.0.32/app/pwmsp001/1/slice/pmus_omds" isSystemDefined="true">
     <downWardmappedList xsi:type="ResourceModel:SignalDeclaration" href="../../CCU40/CCU40_0.dd#//@provided.88"/>
-    <downWardmappedList xsi:type="ResourceModel:SignalDeclaration" href="../../CCU40/CCU40_0.dd#//@provided.157"/>
+    <downWardmappedList xsi:type="ResourceModel:SignalDeclaration" href="../../CCU40/CCU40_0.dd#//@provided.88"/>
   </consumed>
   <consumed xsi:type="ResourceModel:ProxyResource" URI="http://www.infineon.com/1.0.32/app/pwmsp001/1/pin_directoutput/pad" isSystemDefined="true">
     <downWardmappedList xsi:type="ResourceModel:SignalDeclaration" href="../../P1/P1_1.dd#//@provided.2"/>
   </consumed>
   <consumed xsi:type="ResourceModel:ProxyResource" URI="http://www.infineon.com/1.0.32/app/pwmsp001/1/slice/e1as" isSystemDefined="true">
     <downWardmappedList xsi:type="ResourceModel:SignalDeclaration" href="../../CCU40/CCU40_0.dd#//@provided.89"/>
-    <downWardmappedList xsi:type="ResourceModel:SignalDeclaration" href="../../CCU40/CCU40_0.dd#//@provided.158"/>
+    <downWardmappedList xsi:type="ResourceModel:SignalDeclaration" href="../../CCU40/CCU40_0.dd#//@provided.89"/>
   </consumed>
   <consumed xsi:type="ResourceModel:ProxyResource" URI="http://www.infineon.com/1.0.32/app/pwmsp001/1/slice/gp0_unsync" isSystemDefined="true">
     <downWardmappedList xsi:type="ResourceModel:SignalDeclaration" href="../../CCU40/CCU40_0.dd#//@provided.90"/>
-    <downWardmappedList xsi:type="ResourceModel:SignalDeclaration" href="../../CCU40/CCU40_0.dd#//@provided.159"/>
+    <downWardmappedList xsi:type="ResourceModel:SignalDeclaration" href="../../CCU40/CCU40_0.dd#//@provided.90"/>
   </consumed>
   <consumed xsi:type="ResourceModel:ProxyResource" URI="http://www.infineon.com/1.0.32/app/pwmsp001/1/slice1/gp0_unsync" isSystemDefined="true"/>
   <propertyConstants name="uridevice" value="device">

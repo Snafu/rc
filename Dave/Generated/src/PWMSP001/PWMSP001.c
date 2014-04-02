@@ -281,14 +281,6 @@ void PWMSP001_Init(void)
       DBG002_N(Error != DAVEApp_SUCCESS);
     }
   }
-    
-      /* Configuration of Direct Output Pin 0.12 based on User configuration */
-      PORT0->PDR1 &= (uint32_t)(~(PORT0_PDR1_PD12_Msk));
-      PORT0->PDR1 |= (((uint32_t)2 << (uint32_t)PORT0_PDR1_PD12_Pos) & \
-                               (uint32_t)PORT0_PDR1_PD12_Msk);
-      PORT0->IOCR12  &= (uint32_t)(~(PORT_IOCR_PC0_PO_Msk));
-      PORT0->IOCR12  |= (((uint32_t)0 << (uint32_t)PORT_IOCR_PC0_PO_Pos) & \
-                                   (uint32_t)PORT_IOCR_PC0_PO_Msk);
   Error = PWMSP001_lInit((PWMSP001_HandleType*) &PWMSP001_Handle1);
   /* Start the app if "Start after initialization" is checked */
   if(Error == (uint32_t)DAVEApp_SUCCESS)

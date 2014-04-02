@@ -388,14 +388,14 @@
   <provided xsi:type="ResourceModel:EnumerationParameter" name="Start" evalFunction="&#xD;&#xA;            function ForwardMapping()&#xD;&#xA;            {&#xD;&#xA;              var Res = SCM.getResource(&quot;pwmsp001_tempstart&quot;); &#xD;&#xA;              var value = SCM.getIntValue(currentResource);&#xD;&#xA;              SCM.setIntValue(Res,value);&#xD;&#xA;            }&#xD;&#xA;            function BackwardMapping()&#xD;&#xA;            {&#xD;&#xA;              var Res = SCM.getResource(&quot;pwmsp001_tempstart&quot;); &#xD;&#xA;              var value = SCM.getIntValue(Res); &#xD;&#xA;              SCM.setIntValue(currentResource,value);&#xD;&#xA;            }" URI="http://www.infineon.com/1.0.32/app/pwmsp001/0/pwmsp001_erwstart" downWardmappedList="//@consumed.2" multipleSelections="true">
     <defaultValue xsi:type="ResourceModel:IntegerValue" value="0"/>
     <localValue xsi:type="ResourceModel:StringValue" value="0"/>
-    <globalValue xsi:type="ResourceModel:IntegerValue" value="1"/>
+    <globalValue xsi:type="ResourceModel:IntegerValue" value="0"/>
     <toolTipHelpDescription>This allows user to configure whether this app should be started during initialization.&#xD;
 The PWM Generation can be started during the initialisation or can be started later by&#xD;
 calling an API.</toolTipHelpDescription>
     <item name="Start during initialization" evalFunction="&#xD;&#xA;            function ForwardMapping()&#xD;&#xA;            {&#xD;&#xA;              var Res = SCM.getResource(&quot;pwmsp001_tempstart&quot;); &#xD;&#xA;              var value = SCM.getIntValue(currentResource);&#xD;&#xA;              if(value == 1){&#xD;&#xA;                SCM.setIntValue(Res,1);&#xD;&#xA;              }&#xD;&#xA;              else {&#xD;&#xA;                SCM.setIntValue(Res,0);&#xD;&#xA;              }&#xD;&#xA;            }&#xD;&#xA;            function BackwardMapping()&#xD;&#xA;            {&#xD;&#xA;              var Res = SCM.getResource(&quot;pwmsp001_tempstart&quot;); &#xD;&#xA;              var value = SCM.getIntValue(Res);&#xD;&#xA;              if(value == 1){ &#xD;&#xA;                SCM.setIntValue(currentResource,1);&#xD;&#xA;              }&#xD;&#xA;              else {&#xD;&#xA;                SCM.setIntValue(currentResource,0);&#xD;&#xA;              }&#xD;&#xA;            }" URI="http://www.infineon.com/1.0.32/app/pwmsp001/0/pwmsp001_erwstart/0" downWardmappedList="//@consumed.2" maxValue="1" minValue="0">
       <defaultValue xsi:type="ResourceModel:IntegerValue" value="0"/>
-      <localValue xsi:type="ResourceModel:StringValue" value="1"/>
-      <globalValue xsi:type="ResourceModel:IntegerValue" value="1"/>
+      <localValue xsi:type="ResourceModel:StringValue" value="0"/>
+      <globalValue xsi:type="ResourceModel:IntegerValue" value="0"/>
       <toolTipHelpDescription>If this is checked then PWM Generation would start during initialisation.</toolTipHelpDescription>
     </item>
   </provided>
@@ -466,13 +466,13 @@ to be enabled during initialization.</toolTipHelpDescription>
   </provided>
   <provided xsi:type="ResourceModel:EnumerationParameter" name="Output Enable" evalFunction="&#xD;&#xA;        function ForwardMapping()&#xD;&#xA;        {&#xD;&#xA;          var Res = SCM.getResource(&quot;pwmsp001_directoutputpadenabledummy&quot;); &#xD;&#xA;          var value = SCM.getIntValue(currentResource);&#xD;&#xA;          SCM.setIntValue(Res, value);&#xD;&#xA;         }&#xD;&#xA;        function BackwardMapping()&#xD;&#xA;        {&#xD;&#xA;          var Res = SCM.getResource(&quot;pwmsp001_directoutputpadenabledummy&quot;); &#xD;&#xA;          var value = SCM.getIntValue(Res); &#xD;&#xA;          SCM.setIntValue(currentResource,value);&#xD;&#xA;        }&#xD;&#xA;" URI="http://www.infineon.com/1.0.32/app/pwmsp001/0/pwmsp001_erwdirectoutputpadenable" downWardmappedList="//@consumed.16" multipleSelections="true">
     <localValue xsi:type="ResourceModel:StringValue" value="-1"/>
-    <globalValue xsi:type="ResourceModel:IntegerValue" value="1"/>
+    <globalValue xsi:type="ResourceModel:IntegerValue" value="0"/>
     <toolTipHelpDescription>Enables the Direct Output Pin and Consumes the Pin. If&#xD;
 not enabled then Port Pin is not consumed</toolTipHelpDescription>
     <item name="Enable" evalFunction="&#xD;&#xA;           function ForwardMapping()&#xD;&#xA;            {&#xD;&#xA;              var Res = SCM.getResource(&quot;pwmsp001_directoutputpadenabledummy&quot;); &#xD;&#xA;              var value = SCM.getIntValue(currentResource);&#xD;&#xA;              if(value == 1 || value == -1)&#xD;&#xA;              {&#xD;&#xA;                  SCM.setIntValue(Res, 1);&#xD;&#xA;              }&#xD;&#xA;              else&#xD;&#xA;              {&#xD;&#xA;                  SCM.setIntValue(Res, 0);&#xD;&#xA;              }&#xD;&#xA;&#xD;&#xA;            }&#xD;&#xA;            function BackwardMapping()&#xD;&#xA;            {&#xD;&#xA;              var Res = SCM.getResource(&quot;pwmsp001_directoutputpadenabledummy&quot;); &#xD;&#xA;              var value = SCM.getIntValue(Res); &#xD;&#xA;              if(value == 1 )&#xD;&#xA;              {&#xD;&#xA;                  SCM.setIntValue(currentResource, 1);&#xD;&#xA;              }&#xD;&#xA;              else {&#xD;&#xA;                  SCM.setIntValue(currentResource, 0);&#xD;&#xA;              }&#xD;&#xA;            }&#xD;&#xA; " URI="http://www.infineon.com/1.0.32/app/pwmsp001/0/pwmsp001_erwdirectoutputpadenable/0" downWardmappedList="//@consumed.16" maxValue="1" minValue="0">
       <defaultValue xsi:type="ResourceModel:IntegerValue" value="1"/>
-      <localValue xsi:type="ResourceModel:StringValue" value="1"/>
-      <globalValue xsi:type="ResourceModel:IntegerValue" value="1"/>
+      <localValue xsi:type="ResourceModel:StringValue" value="0"/>
+      <globalValue xsi:type="ResourceModel:IntegerValue" value="0"/>
       <toolTipHelpDescription>Output Pin is enabled and consumed</toolTipHelpDescription>
     </item>
   </provided>
@@ -651,8 +651,8 @@ not enabled then Port Pin is not consumed</toolTipHelpDescription>
     <requiredResource uriString="" uriType="LOCALTYPE"/>
   </consumed>
   <consumed xsi:type="ResourceModel:ProxyResource" URI="http://www.infineon.com/1.0.32/app/pwmsp001/0/pwmsp001_tempstart" upWardMappingList="//@provided.38 //@provided.38/@item.0" isSystemDefined="true">
-    <localValue xsi:type="ResourceModel:IntegerValue" value="1"/>
-    <globalValue xsi:type="ResourceModel:IntegerValue" value="1"/>
+    <localValue xsi:type="ResourceModel:IntegerValue" value="0"/>
+    <globalValue xsi:type="ResourceModel:IntegerValue" value="0"/>
     <requiredResource uriString="" uriType="LOCALTYPE"/>
   </consumed>
   <consumed xsi:type="ResourceModel:ProxyResource" URI="http://www.infineon.com/1.0.32/app/pwmsp001/0/pwmsp001_tempcompmatch" upWardMappingList="//@provided.39 //@provided.39/@item.0" isSystemDefined="true">
@@ -714,8 +714,8 @@ not enabled then Port Pin is not consumed</toolTipHelpDescription>
     <requiredResource uriString="" uriType="LOCALTYPE"/>
   </consumed>
   <consumed xsi:type="ResourceModel:ProxyResource" URI="http://www.infineon.com/1.0.32/app/pwmsp001/0/pwmsp001_directoutputpadenabledummy" upWardMappingList="//@provided.44 //@provided.44/@item.0" isSystemDefined="true">
-    <localValue xsi:type="ResourceModel:IntegerValue" value="1"/>
-    <globalValue xsi:type="ResourceModel:IntegerValue" value="1"/>
+    <localValue xsi:type="ResourceModel:IntegerValue" value="0"/>
+    <globalValue xsi:type="ResourceModel:IntegerValue" value="0"/>
     <requiredResource uriString="" uriType="LOCALTYPE"/>
   </consumed>
   <consumed xsi:type="ResourceModel:ProxyResource" URI="http://www.infineon.com/1.0.32/app/pwmsp001/0/pwmsp001_directoutputpadchardummy" upWardMappingList="//@provided.45 //@provided.45/@item.0" isSystemDefined="true">
@@ -728,7 +728,6 @@ not enabled then Port Pin is not consumed</toolTipHelpDescription>
     <requiredResource uriString="app/ccu4global/*" uriType="LOCALTYPE"/>
   </consumed>
   <consumed xsi:type="ResourceModel:ProxyResource" evalFunction="function resourceCondition() &#xD;&#xA;        {&#xD;&#xA;          var Res0 = Solver.getResource(&quot;pwmsp001_erwdirectoutputpadenable&quot;);&#xD;&#xA;          var OutputEnable = Solver.getIntValue(Res0);&#xD;&#xA;          if (OutputEnable == 1)&#xD;&#xA;          {&#xD;&#xA;            return true; &#xD;&#xA;          } &#xD;&#xA;          return false;&#xD;&#xA;        }" URI="http://www.infineon.com/1.0.32/app/pwmsp001/0/pin_directoutput">
-    <downWardmappedList xsi:type="ResourceModel:ResourceGroup" href="../../P0/P0_0.dd#//@provided.56"/>
     <requiredResource uriString="port/p/0/pad/12" uriType="LOCALTYPE"/>
   </consumed>
   <consumed xsi:type="ResourceModel:ProxyResource" URI="http://www.infineon.com/1.0.32/app/pwmsp001/0/slice/out" isSystemDefined="true">
@@ -1032,7 +1031,6 @@ not enabled then Port Pin is not consumed</toolTipHelpDescription>
   </consumed>
   <consumed xsi:type="ResourceModel:ProxyResource" URI="http://www.infineon.com/1.0.32/app/pwmsp001/0/pin_directoutput/pdr_pd" upWardMappingList="//@provided.46/@item.0 //@provided.46/@item.1 //@provided.46/@item.2 //@provided.47 //@provided.47/@item.0 //@provided.47/@item.1 //@provided.47/@item.2 //@provided.47/@item.3 //@provided.47/@item.4 //@provided.47/@item.5" isSystemDefined="true">
     <localValue xsi:type="ResourceModel:IntegerValue" value="2"/>
-    <downWardmappedList xsi:type="ResourceModel:BitField" href="../../P0/P0_0.dd#//@provided.57"/>
     <globalValue xsi:type="ResourceModel:IntegerValue" value="2"/>
   </consumed>
   <consumed xsi:type="ResourceModel:ProxyResource" URI="http://www.infineon.com/1.0.32/app/pwmsp001/0/slice/st" isSystemDefined="true">
@@ -1051,9 +1049,7 @@ not enabled then Port Pin is not consumed</toolTipHelpDescription>
   <consumed xsi:type="ResourceModel:ProxyResource" URI="http://www.infineon.com/1.0.32/app/pwmsp001/0/slice/pmus_omds" isSystemDefined="true">
     <downWardmappedList xsi:type="ResourceModel:SignalDeclaration" href="../../CCU40/CCU40_0.dd#//@provided.44"/>
   </consumed>
-  <consumed xsi:type="ResourceModel:ProxyResource" URI="http://www.infineon.com/1.0.32/app/pwmsp001/0/pin_directoutput/pad" isSystemDefined="true">
-    <downWardmappedList xsi:type="ResourceModel:SignalDeclaration" href="../../P0/P0_0.dd#//@provided.58"/>
-  </consumed>
+  <consumed xsi:type="ResourceModel:ProxyResource" URI="http://www.infineon.com/1.0.32/app/pwmsp001/0/pin_directoutput/pad" isSystemDefined="true"/>
   <consumed xsi:type="ResourceModel:ProxyResource" URI="http://www.infineon.com/1.0.32/app/pwmsp001/0/slice/e1as" isSystemDefined="true">
     <downWardmappedList xsi:type="ResourceModel:SignalDeclaration" href="../../CCU40/CCU40_0.dd#//@provided.45"/>
   </consumed>

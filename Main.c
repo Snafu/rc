@@ -9,9 +9,9 @@
 #include <DAVE3.h>			//Declarations from DAVE3 Code Generation (includes SFR declaration)
 #include <string.h>
 #include <stdio.h>
-#include "ircam.h"
-#include "car.h"
-#include "util.h"
+#include <ircam.h>
+#include <car.h>
+#include <util.h>
 
 #define CAR_INIT_ERROR	0x8f
 

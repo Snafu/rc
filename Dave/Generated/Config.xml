@@ -241,6 +241,7 @@
         <Path>\Dave\Generated\inc\DAVESupport</Path>
         <Path>\Dave\Generated\inc\LIBS</Path>
         <Path>\Dave\Generated\inc\MOTORLIBS</Path>
+        <Path>\inc</Path>
     </Include_Path>
     <Preprocessor_Symbols>
         <Assembler_Symbol>DAVE_CE=</Assembler_Symbol>

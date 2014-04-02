@@ -160,8 +160,6 @@ void DAVE_MUX_Init(void)
 					                         
   WR_REG(PORT0->IOCR8, 0xb8000000U, PORT_IOCR_PC3_PCR_Pos, 0x12U);                /*P0.11 : PORT0_IOCR8_PC11_PCR and PORT0_IOCR8_PC11_OE */					   
 					                         
-  WR_REG(PORT0->IOCR12, 0xb8U, PORT_IOCR_PC0_PCR_Pos, 0x13U);                /*P0.12 : PORT0_IOCR12_PC12_PCR and PORT0_IOCR12_PC12_OE */					   
-					                         
   WR_REG(PORT1->IOCR0, 0xb800U, PORT_IOCR_PC1_PCR_Pos, 0x13U);                /*P1.1 : PORT1_IOCR0_PC1_PCR and PORT1_IOCR0_PC1_OE */					   
 					                         
   WR_REG(PORT1->IOCR0, 0xb80000U, PORT_IOCR_PC2_PCR_Pos, 0x13U);                /*P1.2 : PORT1_IOCR0_PC2_PCR and PORT1_IOCR0_PC2_OE */					   

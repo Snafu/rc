@@ -5,9 +5,9 @@
  *      Author: Snafu
  */
 #include <DAVE3.h>
-#include "ircam.h"
-#include "i2c.h"
-#include "util.h"
+#include <ircam.h>
+#include <i2c.h>
+#include <util.h>
 
 
 void ircam_init(void)
