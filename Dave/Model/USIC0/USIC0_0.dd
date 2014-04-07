@@ -273,15 +273,15 @@
   <provided xsi:type="ResourceModel:BitField" name="PDIV" URI="http://www.infineon.com/0.1.30/peripheral/usic/0/channel/0/brg/pdiv" maxValue="1023" minValue="0" startPos="16" stopPos="25" accessPermission="rw">
     <defaultValue xsi:type="ResourceModel:IntegerValue" value="0"/>
     <upWardMappingList xsi:type="ResourceModel:ProxyResource" href="../UART001/1.0.22/uart001_0.app#//@consumed.38"/>
-    <localValue xsi:type="ResourceModel:IntegerValue" value="3ff"/>
-    <globalValue xsi:type="ResourceModel:IntegerValue" value="3ff"/>
+    <localValue xsi:type="ResourceModel:IntegerValue" value="344"/>
+    <globalValue xsi:type="ResourceModel:IntegerValue" value="344"/>
     <toolTipHelpDescription>Divider Mode: Divider Factor to Generate fPDIV</toolTipHelpDescription>
   </provided>
   <provided xsi:type="ResourceModel:BitField" name="STEP" URI="http://www.infineon.com/0.1.30/peripheral/usic/0/channel/0/fdr/step" maxValue="1023" minValue="0" startPos="0" stopPos="9" accessPermission="rw">
     <defaultValue xsi:type="ResourceModel:IntegerValue" value="0"/>
     <upWardMappingList xsi:type="ResourceModel:ProxyResource" href="../UART001/1.0.22/uart001_0.app#//@consumed.39"/>
-    <localValue xsi:type="ResourceModel:IntegerValue" value="1"/>
-    <globalValue xsi:type="ResourceModel:IntegerValue" value="1"/>
+    <localValue xsi:type="ResourceModel:IntegerValue" value="2bc"/>
+    <globalValue xsi:type="ResourceModel:IntegerValue" value="2bc"/>
     <toolTipHelpDescription>Step Value</toolTipHelpDescription>
   </provided>
   <provided xsi:type="ResourceModel:SignalDeclaration" name="c0_standard_transmit_buffer_int" description="Standard Transmit Buffer Interrupt " URI="http://www.infineon.com/0.1.30/peripheral/usic/0/channel/0/standard_transmit_buffer_int" signalType="INTERRUPT" isVisible="true">

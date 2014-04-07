@@ -12,10 +12,11 @@
 #include <ircam.h>
 #include <car.h>
 #include <util.h>
+#include <bluetooth.h>
 
 #define CAR_INIT_ERROR	0x8f
 
-char debug[80];
+char debug[100];
 
 void car_test(void);
 
@@ -31,18 +32,24 @@ int main(void)
 
 	//car_test();
 
-	strcpy(debug, "Starting IR init");
+	strcpy(debug, "Starting IR init\r\n");
+	bt_puts(debug);
 	ircam_init();
 
 	ir_point_t p1, p2, p3, p4;
-	strcpy(debug, "Polling data");
+	strcpy(debug, "Polling data\r\n");
+	bt_puts(debug);
 	while(1)
 	{
 		ircam_read(&p1, &p2, &p3, &p4);
-		sprintf(debug, "%d,%d (%d)  -  %d,%d (%d)\n",
+		sprintf(debug, "%4d,%4d,%2d-%4d,%4d,%2d-%4d,%4d,%2d-%4d,%4d,%2d\r\n",
 				p1.x, p1.y, p1.size,
-				p2.x, p2.y, p2.size);
-		wait(2000);
+				p2.x, p2.y, p2.size,
+				p3.x, p3.y, p3.size,
+				p4.x, p4.y, p4.size);
+		bt_puts(debug);
+		debug_knightrider();
+		wait(100);
 	}
 	return 0;
 }

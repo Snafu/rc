@@ -55,6 +55,10 @@
 									<listOptionValue builtIn="false" value="&quot;${ARM_GCC_HOME}/arm-none-eabi/include/c++/4.6.2&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${eclipse_home}/../CMSIS/Infineon/XMC4500_series/Include&quot;"/>
 								</option>
+								<option id="org.eclipse.cdt.cross.arm.gnu.cpp.compiler.option.preprocessor.def.1627122251" name="Defined symbols (-D)" superClass="org.eclipse.cdt.cross.arm.gnu.cpp.compiler.option.preprocessor.def" valueType="definedSymbols">
+									<listOptionValue builtIn="false" value="DAVE_CE"/>
+									<listOptionValue builtIn="false" value="UC_ID=4502003"/>
+								</option>
 								<inputType id="org.eclipse.cdt.cross.arm.gnu.sourcery.windows.cpp.compiler.base.input.582403771" superClass="org.eclipse.cdt.cross.arm.gnu.sourcery.windows.cpp.compiler.base.input"/>
 							</tool>
 							<tool id="com.ifx.xmc4000.appRelease.assembler.1420943038" name="ARM-GCC Assembler" superClass="com.ifx.xmc4000.appRelease.assembler">
@@ -142,6 +146,10 @@
 									<listOptionValue builtIn="false" value="&quot;${eclipse_home}/../emWin/Start/GUI/inc&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${ARM_GCC_HOME}/arm-none-eabi/include/c++/4.6.2&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${eclipse_home}/../CMSIS/Infineon/XMC4500_series/Include&quot;"/>
+								</option>
+								<option id="org.eclipse.cdt.cross.arm.gnu.cpp.compiler.option.preprocessor.def.831550362" name="Defined symbols (-D)" superClass="org.eclipse.cdt.cross.arm.gnu.cpp.compiler.option.preprocessor.def" valueType="definedSymbols">
+									<listOptionValue builtIn="false" value="DAVE_CE"/>
+									<listOptionValue builtIn="false" value="UC_ID=4502003"/>
 								</option>
 								<inputType id="org.eclipse.cdt.cross.arm.gnu.sourcery.windows.cpp.compiler.base.input.1082926866" superClass="org.eclipse.cdt.cross.arm.gnu.sourcery.windows.cpp.compiler.base.input"/>
 							</tool>

@@ -31,6 +31,24 @@ void debug_init(void)
 	wait(500);
 }
 
+void debug_knightrider()
+{
+	static uint8_t dir = 0;
+	static uint16_t state = 1;
+	debug_show(state);
+	if(dir == 0)
+		state <<= 1;
+	else
+		state >>= 1;
+	if(state == 0x0100) {
+		state = 0x40;
+		dir = 1;
+	} else if(state == 0x00) {
+		state = 0x02;
+		dir = 0;
+	}
+}
+
 void debug_show(uint8_t byte)
 {
 	uint8_t val = byte & 0x01;
