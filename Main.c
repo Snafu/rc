@@ -30,7 +30,7 @@ int main(void)
 		while(1);
 	}
 
-	//car_test();
+	car_test();
 
 	strcpy(debug, "Starting IR init\r\n");
 	bt_puts(debug);
@@ -57,19 +57,19 @@ int main(void)
 void car_test(void)
 {
 	car_steer(-50);
-	wait(250);
+	wait(500);
 	car_steer(-100);
-	wait(250);
+	wait(500);
 	car_steer(50);
-	wait(250);
+	wait(500);
 	car_steer(100);
-	wait(250);
+	wait(500);
 	car_steer(0);
 
-	wait(1000);
+	wait(2000);
 	car_throttle(-30);
-	wait(250);
+	wait(500);
 	car_throttle(30);
-	wait(250);
+	wait(500);
 	car_throttle(0);
 }

@@ -35,13 +35,13 @@ int car_init(void)
 	/*
 	 * Throttle
 	 *
-	 * min		1,32 ms
-	 * center	1,56 ms
-	 * max		1,77 ms
+	 * min		1,06 ms
+	 * center	1,51 ms
+	 * max		1,91 ms
 	 */
-	throttle_min = 0.132f * (float) throttle_period;
-	throttle_center = 0.156f * (float) throttle_period;
-	throttle_max = 0.177f * (float) throttle_period;
+	throttle_min = 0.106f * (float) throttle_period;
+	throttle_center = 0.151f * (float) throttle_period;
+	throttle_max = 0.191f * (float) throttle_period;
 
 
 	car_steer(0);
@@ -56,19 +56,20 @@ void car_steer(int percent)
 
 	// steer left
 	if(percent < 0) {
-		if(percent < -100)
-			percent = -100;
-		compare = steer_center + (percent * (steer_center - steer_min))/100;
+		percent = -percent;
+		if(percent > 100)
+			percent = 100;
+		compare = steer_center - (percent * (steer_center - steer_min))/100;
 	}
 
 	// steer right
-	if(percent > 0) {
+	else if(percent > 0) {
 		if(percent > 100)
 			percent = 100;
 		compare = steer_center + (percent * (steer_max - steer_center))/100;
 	}
 
-	(void) PWMSP001_SetCompare (CAR_STEER, compare);
+	(void) PWMSP001_SetCompare (CAR_STEER, steer_period - compare);
 }
 
 void car_throttle(int percent)
@@ -77,17 +78,18 @@ void car_throttle(int percent)
 
 	// steer left
 	if(percent < 0) {
-		if(percent < -100)
-			percent = -100;
-		compare = throttle_center + (percent * (throttle_center - throttle_min))/100;
+		percent = -percent;
+		if(percent > 100)
+			percent = 100;
+		compare = throttle_center - (percent * (throttle_center - throttle_min))/100;
 	}
 
 	// steer right
-	if(percent > 0) {
+	else if(percent > 0) {
 		if(percent > 100)
 			percent = 100;
 		compare = throttle_center + (percent * (throttle_max - throttle_center))/100;
 	}
 
-	(void) PWMSP001_SetCompare (CAR_THROTTLE, compare);
+	(void) PWMSP001_SetCompare (CAR_THROTTLE, throttle_period - compare);
 }
