@@ -29,8 +29,8 @@
   <provided xsi:type="ResourceModel:BitField" name="PC6_4" URI="http://www.infineon.com/0.1.39/port/p/2/pad/6/iocr_oe" maxValue="1" minValue="0" startPos="23" stopPos="23" accessPermission="rw">
     <defaultValue xsi:type="ResourceModel:IntegerValue" value="0"/>
     <upWardMappingList xsi:type="ResourceModel:ProxyResource" href="../IO004/1.0.22/io004_3.app#//@consumed.3"/>
-    <localValue xsi:type="ResourceModel:IntegerValue" value="1"/>
-    <globalValue xsi:type="ResourceModel:IntegerValue" value="1"/>
+    <localValue xsi:type="ResourceModel:IntegerValue" value="0"/>
+    <globalValue xsi:type="ResourceModel:IntegerValue" value="0"/>
     <toolTipHelpDescription>Port Control for Port n Pin 4 to 7</toolTipHelpDescription>
   </provided>
   <provided xsi:type="ResourceModel:BitField" name="PC6_3" URI="http://www.infineon.com/0.1.39/port/p/2/pad/6/iocr_po" maxValue="1" minValue="0" startPos="22" stopPos="22" accessPermission="rw">

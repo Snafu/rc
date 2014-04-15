@@ -168,8 +168,6 @@ void DAVE_MUX_Init(void)
   WR_REG(PORT2->HWSEL, PORT2_HWSEL_HW1_Msk, PORT2_HWSEL_HW1_Pos, PORT_HWSEL_SW);                    /*    P2.1 : PORT2_HWSEL_HW1 */                         
   WR_REG(PORT2->IOCR0, PORT_IOCR_PC1_OE_Msk, PORT_IOCR_PC1_OE_Pos, PORT_IOCR_OE1);                /*    P2.1 : PORT2_IOCR0_PC1_OE */					   
 					                         
-  WR_REG(PORT2->IOCR4, PORT_IOCR_PC2_OE_Msk, PORT_IOCR_PC2_OE_Pos, PORT_IOCR_OE1);                /*    P2.6 : PORT2_IOCR4_PC6_OE */					   
-					                         
   WR_REG(PORT2->IOCR8, PORT_IOCR_PC2_OE_Msk, PORT_IOCR_PC2_OE_Pos, PORT_IOCR_OE1);                /*    P2.10 : PORT2_IOCR8_PC10_OE */					   
 					                         
   WR_REG(PORT3->IOCR0, PORT_IOCR_PC0_OE_Msk, PORT_IOCR_PC0_OE_Pos, PORT_IOCR_OE1);                /*    P3.0 : PORT3_IOCR0_PC0_OE */					   
