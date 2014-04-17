@@ -10,6 +10,7 @@
             <BindMap MUri="port/p/0/pad/1" Proxy="app/io004/7/pin"/>
             <BindMap MUri="peripheral/scu/0/clkctrl/0/perbridge" Proxy="app/clk001/0/perbridge"/>
             <BindMap MUri="peripheral/scu/0/clkctrl/0/ccu" Proxy="app/clk001/0/ccu"/>
+            <BindMap MUri="port/p/1/pad/15" Proxy="app/io004/16/pin"/>
             <BindMap MUri="peripheral/scu/0/clkctrl/0/pll" Proxy="app/clk001/0/pll"/>
             <BindMap MUri="peripheral/scu/0/clkctrl/0/usb" Proxy="app/clk001/0/usb"/>
             <BindMap MUri="port/p/5/pad/1" Proxy="app/uart001/0/uart_txpin"/>
@@ -22,6 +23,7 @@
             <BindMap MUri="peripheral/scu/0/rstctrl/0/rcurst" Proxy="app/reset001/0/rcurst"/>
             <BindMap MUri="peripheral/scu/0/rstctrl/0/ebureset" Proxy="app/reset001/0/ebureset"/>
             <BindMap MUri="peripheral/scu/0/rstctrl/0/wdtreset" Proxy="app/reset001/0/wdtreset"/>
+            <BindMap MUri="port/p/1/pad/12" Proxy="app/io004/13/pin"/>
             <BindMap MUri="peripheral/scu/0/clkctrl/0/sdmmc" Proxy="app/clk001/0/mmc"/>
             <BindMap MUri="port/p/3/pad/1" Proxy="app/io004/10/pin"/>
             <BindMap MUri="peripheral/scu/0/pwrctrl/0/hibernate" Proxy="app/clk001/0/hibernate"/>
@@ -31,6 +33,7 @@
             <BindMap MUri="peripheral/ccu4/0/cc4/2" Proxy="app/pwmsp001/2/slice"/>
             <BindMap MUri="port/p/0/pad/0" Proxy="app/io004/5/pin"/>
             <BindMap MUri="peripheral/scu/0/clkctrl/0/extclk" Proxy="app/clk001/0/rgextclk"/>
+            <BindMap MUri="port/p/1/pad/14" Proxy="app/io004/17/pin"/>
             <BindMap MUri="peripheral/scu/0/rstctrl/0/vadcreset" Proxy="app/reset001/0/vadcreset"/>
             <BindMap MUri="port/p/2/pad/10" Proxy="app/io004/1/pin"/>
             <BindMap MUri="port/p/5/pad/2" Proxy="app/io004/2/pin"/>
@@ -51,10 +54,12 @@
             <BindMap MUri="peripheral/scu/0/rstctrl/0/ccu8reset/0" Proxy="app/reset001/0/ccu8reset0"/>
             <BindMap MUri="peripheral/scu/0/rstctrl/0/pportreset" Proxy="app/reset001/0/pportreset"/>
             <BindMap MUri="peripheral/scu/0/rstctrl/0/ledtsreset" Proxy="app/reset001/0/ledtsreset"/>
-            <BindMap MUri="peripheral/ccu4/0/cc4/1" Proxy="app/pwmsp001/1/slice"/>
+            <BindMap MUri="port/p/5/pad/0" Proxy="app/io004/15/pin"/>
             <BindMap MUri="peripheral/scu/0/rstctrl/0/usicreset/2" Proxy="app/reset001/0/usicreset2"/>
+            <BindMap MUri="peripheral/ccu4/0/cc4/1" Proxy="app/pwmsp001/1/slice"/>
             <BindMap MUri="peripheral/scu/0/rstctrl/0/usicreset/1" Proxy="app/reset001/0/usicreset1"/>
             <BindMap MUri="peripheral/scu/0/rstctrl/0/usicreset/0" Proxy="app/reset001/0/usicreset0"/>
+            <BindMap MUri="port/p/1/pad/13" Proxy="app/io004/18/pin"/>
             <BindMap MUri="peripheral/scu/0/rstctrl/0/ethreset" Proxy="app/reset001/0/ethreset"/>
             <BindMap MUri="peripheral/scu/0/rstctrl/0/posifreset/1" Proxy="app/reset001/0/posifreset1"/>
             <BindMap MUri="peripheral/scu/0/rstctrl/0/posifreset/0" Proxy="app/reset001/0/posifreset0"/>
@@ -66,6 +71,7 @@
             <BindMap MUri="peripheral/ccu4/0/cc4/0" Proxy="app/pwmsp001/0/slice"/>
             <BindMap MUri="peripheral/scu/0/rstctrl/0/dmareset/0" Proxy="app/reset001/0/dmareset0"/>
             <BindMap MUri="peripheral/usic/1/channel/0" Proxy="app/i2c001/0/channel"/>
+            <BindMap MUri="port/p/1/pad/11" Proxy="app/io004/14/pin"/>
             <BindMap MUri="peripheral/scu/0/rstctrl/0/fcereset" Proxy="app/reset001/0/fcereset"/>
             <BindMap MUri="port/p/1/pad/2" Proxy="app/pwmsp001/1/pin_directoutput"/>
             <BindMap MUri="peripheral/scu/0/rstctrl/0/ccu4reset/0" Proxy="app/reset001/0/ccu4reset0"/>
