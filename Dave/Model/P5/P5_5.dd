@@ -158,8 +158,8 @@
   <provided xsi:type="ResourceModel:BitField" name="PC0_4" URI="http://www.infineon.com/0.1.39/port/p/5/pad/0/iocr_oe" maxValue="1" minValue="0" startPos="7" stopPos="7" accessPermission="rw">
     <defaultValue xsi:type="ResourceModel:IntegerValue" value="0"/>
     <upWardMappingList xsi:type="ResourceModel:ProxyResource" href="../IO004/1.0.22/io004_15.app#//@consumed.3"/>
-    <localValue xsi:type="ResourceModel:IntegerValue" value="0"/>
-    <globalValue xsi:type="ResourceModel:IntegerValue" value="0"/>
+    <localValue xsi:type="ResourceModel:IntegerValue" value="1"/>
+    <globalValue xsi:type="ResourceModel:IntegerValue" value="1"/>
     <toolTipHelpDescription>Port Control for Port n Pin 0 to 3</toolTipHelpDescription>
   </provided>
   <provided xsi:type="ResourceModel:BitField" name="PC0_3" URI="http://www.infineon.com/0.1.39/port/p/5/pad/0/iocr_po" maxValue="1" minValue="0" startPos="6" stopPos="6" accessPermission="rw">
@@ -192,6 +192,16 @@
   </provided>
   <provided xsi:type="ResourceModel:SignalDeclaration" name="PAD" URI="http://www.infineon.com/0.1.39/port/p/5/pad/0/pad" padClass="A1Plus" isVisible="true">
     <upWardMappingList xsi:type="ResourceModel:ProxyResource" href="../IO004/1.0.22/io004_15.app#//@consumed.8"/>
+  </provided>
+  <provided xsi:type="ResourceModel:BitField" name="HW0" URI="http://www.infineon.com/0.1.39/port/p/5/pad/0/hwsel_hw" maxValue="3" minValue="0" startPos="0" stopPos="1" accessPermission="rw">
+    <defaultValue xsi:type="ResourceModel:IntegerValue" value="0"/>
+    <localValue xsi:type="ResourceModel:IntegerValue" value="0"/>
+    <globalValue xsi:type="ResourceModel:IntegerValue" value="0"/>
+    <toolTipHelpDescription>Port n Pin Hardware Select Bit x</toolTipHelpDescription>
+    <enumValues xsi:type="ResourceModel:RegEnumValue" value="0b00" description="Software control only."/>
+    <enumValues xsi:type="ResourceModel:RegEnumValue" value="0b01" description="HW0 control path can override the software configuration."/>
+    <enumValues xsi:type="ResourceModel:RegEnumValue" value="0b10" description="HW1 control path can override the software configuration."/>
+    <enumValues xsi:type="ResourceModel:RegEnumValue" value="0b11" description="Reserved."/>
   </provided>
   <categoryDescription description="Port 5 is a 12-bit bi-directional general-purpose I/O port." name="Port 5"/>
 </ResourceModel:Peripheral>

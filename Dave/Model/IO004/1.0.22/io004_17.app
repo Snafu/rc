@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ASCII"?>
-<ResourceModel:App xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ResourceModel="http://www.infineon.com/Davex/Resource.ecore" name="IO004" description="IO004 App is used when the user needs to&#xA;use a digital pin as a standalone GPIO pin." descriptionURL="/doc/html/group___software___controlled___i_o___i_o004_app.html" URI="http://www.infineon.com/1.0.22/app/io004/17" userLabel="BLINK_L">
+<ResourceModel:App xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ResourceModel="http://www.infineon.com/Davex/Resource.ecore" name="IO004" description="IO004 App is used when the user needs to&#xA;use a digital pin as a standalone GPIO pin." descriptionURL="/doc/html/group___software___controlled___i_o___i_o004_app.html" URI="http://www.infineon.com/1.0.22/app/io004/17" userLabel="INDICATOR_L">
   <provided xsi:type="ResourceModel:VirtualSignal" name="Software Controlled Output Signal" URI="http://www.infineon.com/1.0.22/app/io004/17/pin_sw_vs" requiredSignalResource="pin/swreg_out" canExpose="false">
     <localValue xsi:type="ResourceModel:StringValue" value="-1"/>
     <globalValue xsi:type="ResourceModel:StringValue" value="-1"/>
@@ -10,14 +10,14 @@
   </provided>
   <provided xsi:type="ResourceModel:EnumerationParameter" name="Output Driver Enabled" evalFunction="&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;function ForwardMapping()&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;{&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;var Res = SCM.getResource(&quot;pin/iocr_oe&quot;); &#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;var value = SCM.getIntValue(currentResource);  &#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;SCM.setIntValue(Res,value);&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;function BackwardMapping()&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;{&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;var Res = SCM.getResource(&quot;pin/iocr_oe&quot;); &#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;var value = SCM.getIntValue(Res); &#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;if (value == -1) {&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;SCM.setIntValue(currentResource,0);&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;} else {&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;SCM.setIntValue(currentResource,value);&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;}&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;" URI="http://www.infineon.com/1.0.22/app/io004/17/io004_erwoutputmode" downWardmappedList="//@consumed.3" multipleSelections="true">
     <localValue xsi:type="ResourceModel:StringValue" value="-1"/>
-    <globalValue xsi:type="ResourceModel:IntegerValue" value="0"/>
+    <globalValue xsi:type="ResourceModel:IntegerValue" value="1"/>
     <toolTipHelpDescription>This selection enables the port pin in output Mode.
 This is a read only UI, since the output mode
 is determined based on signal connectivity</toolTipHelpDescription>
-    <item name="Output Enable" evalFunction="&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;function ForwardMapping()&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;{&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;var value = SCM.getIntValue(currentResource);&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;var Res = SCM.getResource(&quot;pin/iocr_oe&quot;);&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;if (value == 1 ) {&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;    SCM.setIntValue(Res,1);&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;var Res1 = SCM.getResource(&quot;pin/iocr_pcr&quot;);&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;SCM.setIntValue(Res1,0);&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;} else if (value === 0 ) {&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;SCM.setIntValue(Res,0);&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;}&#xD;&#xA;&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;function BackwardMapping()&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;{&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;var Res = SCM.getResource(&quot;pin/iocr_oe&quot;); &#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;var value = SCM.getIntValue(Res); &#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;if (value == -1) {&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;SCM.setIntValue(currentResource,0);&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;} else {&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;SCM.setIntValue(currentResource,value);&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;}&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;}&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;" URI="http://www.infineon.com/1.0.22/app/io004/17/io004_erwoutputmode/0" downWardmappedList="//@consumed.3" maxValue="1" minValue="0">
+    <item name="Output Enable" evalFunction="&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;function ForwardMapping()&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;{&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;var value = SCM.getIntValue(currentResource);&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;var Res = SCM.getResource(&quot;pin/iocr_oe&quot;);&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;if (value == 1 ) {&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;    SCM.setIntValue(Res,1);&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;var Res1 = SCM.getResource(&quot;pin/iocr_pcr&quot;);&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;SCM.setIntValue(Res1,0);&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;} else if (value === 0 ) {&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;SCM.setIntValue(Res,0);&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;}&#xD;&#xA;&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;function BackwardMapping()&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;{&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;var Res = SCM.getResource(&quot;pin/iocr_oe&quot;); &#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;var value = SCM.getIntValue(Res); &#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;if (value == -1) {&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;SCM.setIntValue(currentResource,0);&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;} else {&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;SCM.setIntValue(currentResource,value);&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;}&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;}&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;" URI="http://www.infineon.com/1.0.22/app/io004/17/io004_erwoutputmode/0" downWardmappedList="//@consumed.3 //@consumed.5" maxValue="1" minValue="0">
       <defaultValue xsi:type="ResourceModel:IntegerValue" value="0"/>
-      <localValue xsi:type="ResourceModel:StringValue" value="0"/>
-      <globalValue xsi:type="ResourceModel:IntegerValue" value="0"/>
+      <localValue xsi:type="ResourceModel:StringValue" value="1"/>
+      <globalValue xsi:type="ResourceModel:IntegerValue" value="1"/>
       <toolTipHelpDescription>This selection enables the output Mode</toolTipHelpDescription>
     </item>
   </provided>
@@ -171,35 +171,45 @@ on Pad class selection.</toolTipHelpDescription>
     </item>
   </provided>
   <consumed xsi:type="ResourceModel:ProxyResource" evalFunction="function resourceCondition() {&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;       var value = Solver.getSoftwareId().substring(0,1).compareTo(&quot;1&quot;);&#x9;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;       var constr = &quot;&quot;;&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;       if (value == 0) {&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;   constr=&quot;reserved([port,p,AA,pad,_],app_pin) \n register_value(app_pin,iocr_pcr,-1) \n register_value(app_pin,iocr_oe,-1) \n uri_element_range(AA,[0,1,2])&quot;;&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;       } else {&#xD;&#xA;              &#x9;&#x9;&#x9;     var resa1 = Solver.getResource(&quot;IO004_erwPadClass/0&quot;);&#xD;&#xA;                    &#x9;     var resa1p = Solver.getResource(&quot;IO004_erwPadClass/1&quot;);&#xD;&#xA;                    &#x9;     var resa2 = Solver.getResource(&quot;IO004_erwPadClass/2&quot;);&#xD;&#xA;                    &#x9;     var vala1 = Solver.getIntValue(resa1);&#xD;&#xA;                    &#x9;     var vala1p = Solver.getIntValue(resa1p);&#xD;&#xA;                    &#x9;     var vala2 = Solver.getIntValue(resa2);&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;     if (vala1 == 1) {&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;        constr=&quot;reserved([port,p,AA,pad,_],app_pin) \n register_value(app_pin,iocr_pcr,-1) \n register_value(app_pin,iocr_oe,-1) \n uri_element_range(AA,[0,1,2,3,4,5,6])&quot;;&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;     } else if (vala1p == 1) {&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;    constr=&quot;reserved([port,p,AA,pad,_],app_pin) \n register_value(app_pin,iocr_pcr,-1) \n register_value(app_pin,iocr_oe,-1) \n uri_element_range(AA,[0,1,2,3,4,5,6]) \n rg_constraint_property_value(app_pin,speed_class of rg_property,'A1+')&quot;;&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;     } else if (vala2 == 1) {&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;    constr=&quot;reserved([port,p,AA,pad,_],app_pin) \n register_value(app_pin,iocr_pcr,-1) \n register_value(app_pin,iocr_oe,-1) \n uri_element_range(AA,[0,1,2,3,4,5,6]) \n rg_constraint_property_value(app_pin,speed_class of rg_property,'A2')&quot;;&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;     }&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;  &#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;       }&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;       Solver.setConstraintString(constr);&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;       return true;&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;        }" URI="http://www.infineon.com/1.0.22/app/io004/17/pin">
-    <requiredResource uriString="port/p/*/pad/*" uriType="LOCALTYPE"/>
+    <downWardmappedList xsi:type="ResourceModel:ResourceGroup" href="../../P1/P1_1.dd#//@provided.41"/>
+    <requiredResource uriString="port/p/1/pad/14" uriType="LOCALTYPE"/>
   </consumed>
   <consumed xsi:type="ResourceModel:ProxyResource" URI="http://www.infineon.com/1.0.22/app/io004/17/io004_padclassdummy" upWardMappingList="//@provided.6/@item.0 //@provided.6/@item.1 //@provided.6/@item.2 //@provided.6/@item.3 //@provided.6/@item.4 //@provided.6/@item.5 //@provided.7 //@provided.7/@item.0 //@provided.7/@item.1 //@provided.7/@item.2" isSystemDefined="true">
     <localValue xsi:type="ResourceModel:IntegerValue" value="0"/>
     <globalValue xsi:type="ResourceModel:IntegerValue" value="0"/>
     <requiredResource uriString="" uriType="LOCALTYPE"/>
   </consumed>
-  <consumed xsi:type="ResourceModel:ProxyResource" URI="http://www.infineon.com/1.0.22/app/io004/17/pin/swreg_out" isSystemDefined="true"/>
+  <consumed xsi:type="ResourceModel:ProxyResource" URI="http://www.infineon.com/1.0.22/app/io004/17/pin/swreg_out" isSystemDefined="true">
+    <downWardmappedList xsi:type="ResourceModel:SignalDeclaration" href="../../P1/P1_1.dd#//@provided.42"/>
+  </consumed>
   <consumed xsi:type="ResourceModel:ProxyResource" URI="http://www.infineon.com/1.0.22/app/io004/17/pin/iocr_oe" upWardMappingList="//@provided.2 //@provided.2/@item.0" isSystemDefined="true">
-    <localValue xsi:type="ResourceModel:IntegerValue" value="0"/>
-    <globalValue xsi:type="ResourceModel:IntegerValue" value="0"/>
+    <localValue xsi:type="ResourceModel:IntegerValue" value="1"/>
+    <downWardmappedList xsi:type="ResourceModel:BitField" href="../../P1/P1_1.dd#//@provided.43"/>
+    <globalValue xsi:type="ResourceModel:IntegerValue" value="1"/>
   </consumed>
   <consumed xsi:type="ResourceModel:ProxyResource" URI="http://www.infineon.com/1.0.22/app/io004/17/pin/iocr_po" upWardMappingList="//@provided.3 //@provided.3/@item.0 //@provided.3/@item.1" isSystemDefined="true">
     <localValue xsi:type="ResourceModel:IntegerValue" value="0"/>
+    <downWardmappedList xsi:type="ResourceModel:BitField" href="../../P1/P1_1.dd#//@provided.44"/>
     <globalValue xsi:type="ResourceModel:IntegerValue" value="0"/>
   </consumed>
-  <consumed xsi:type="ResourceModel:ProxyResource" URI="http://www.infineon.com/1.0.22/app/io004/17/pin/iocr_pcr" upWardMappingList="//@provided.5 //@provided.5/@item.0 //@provided.5/@item.1 //@provided.5/@item.2 //@provided.5/@item.3 //@provided.5/@item.4 //@provided.5/@item.5 //@provided.5/@item.6 //@provided.5/@item.7" isSystemDefined="true">
+  <consumed xsi:type="ResourceModel:ProxyResource" URI="http://www.infineon.com/1.0.22/app/io004/17/pin/iocr_pcr" upWardMappingList="//@provided.5 //@provided.5/@item.0 //@provided.5/@item.1 //@provided.5/@item.2 //@provided.5/@item.3 //@provided.5/@item.4 //@provided.5/@item.5 //@provided.5/@item.6 //@provided.5/@item.7 //@provided.2/@item.0" isSystemDefined="true">
     <localValue xsi:type="ResourceModel:IntegerValue" value="0"/>
+    <downWardmappedList xsi:type="ResourceModel:BitField" href="../../P1/P1_1.dd#//@provided.45"/>
     <globalValue xsi:type="ResourceModel:IntegerValue" value="0"/>
   </consumed>
   <consumed xsi:type="ResourceModel:ProxyResource" URI="http://www.infineon.com/1.0.22/app/io004/17/pin/omr_ps" upWardMappingList="//@provided.4 //@provided.4/@item.0" isSystemDefined="true">
     <localValue xsi:type="ResourceModel:IntegerValue" value="0"/>
+    <downWardmappedList xsi:type="ResourceModel:BitField" href="../../P1/P1_1.dd#//@provided.46"/>
     <globalValue xsi:type="ResourceModel:IntegerValue" value="0"/>
   </consumed>
   <consumed xsi:type="ResourceModel:ProxyResource" URI="http://www.infineon.com/1.0.22/app/io004/17/pin/pdr_pd" upWardMappingList="//@provided.6 //@provided.6/@item.0 //@provided.6/@item.1 //@provided.6/@item.2 //@provided.6/@item.3 //@provided.6/@item.4 //@provided.6/@item.5 //@provided.7/@item.0 //@provided.7/@item.1 //@provided.7/@item.2" isSystemDefined="true">
     <localValue xsi:type="ResourceModel:IntegerValue" value="4"/>
+    <downWardmappedList xsi:type="ResourceModel:BitField" href="../../P1/P1_1.dd#//@provided.47"/>
     <globalValue xsi:type="ResourceModel:IntegerValue" value="4"/>
   </consumed>
-  <consumed xsi:type="ResourceModel:ProxyResource" URI="http://www.infineon.com/1.0.22/app/io004/17/pin/pad" isSystemDefined="true"/>
+  <consumed xsi:type="ResourceModel:ProxyResource" URI="http://www.infineon.com/1.0.22/app/io004/17/pin/pad" isSystemDefined="true">
+    <downWardmappedList xsi:type="ResourceModel:SignalDeclaration" href="../../P1/P1_1.dd#//@provided.48"/>
+  </consumed>
   <categoryDescription description="Peripheral Specific Apps" name="Peripheral Specific Apps">
     <subCategory description="I/O Ports" name="I/O Ports">
       <subCategory description="Software Controlled IO App" name="Software Controlled IO App"/>

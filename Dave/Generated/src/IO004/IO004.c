@@ -171,6 +171,54 @@ void IO004_Init(void)
                                           PORT2_PDR0_PD1_Msk);
   IO004_Handle12.PortRegs->IOCR0 |= (0U << 11);   
 
+  /* Configuration of 1 Port 12 based on User configuration */
+  IO004_Handle13.PortRegs->OMR = 0U<< 12;
+  
+  IO004_Handle13.PortRegs->PDR1  &= (uint32_t)(~(PORT1_PDR1_PD12_Msk));
+  IO004_Handle13.PortRegs->PDR1  |= (uint32_t)((4UL << PORT1_PDR1_PD12_Pos) & \
+                                     PORT1_PDR1_PD12_Msk);
+  IO004_Handle13.PortRegs->IOCR12 |= (0U << 3);   
+
+  /* Configuration of 1 Port 11 based on User configuration */
+  IO004_Handle14.PortRegs->OMR = 0U<< 11;
+  
+  IO004_Handle14.PortRegs->PDR1  &= (uint32_t)(~(PORT1_PDR1_PD11_Msk));
+  IO004_Handle14.PortRegs->PDR1  |= (uint32_t)((4UL << PORT1_PDR1_PD11_Pos) & \
+                                     PORT1_PDR1_PD11_Msk);
+  IO004_Handle14.PortRegs->IOCR8 |= (0U << 27);   
+
+  /* Configuration of 5 Port 0 based on User configuration */
+  IO004_Handle15.PortRegs->OMR = 0U<< 0;
+  
+  IO004_Handle15.PortRegs->PDR0   &= (uint32_t)(~(PORT5_PDR0_PD0_Msk));
+  IO004_Handle15.PortRegs->PDR0   |= (uint32_t)((4UL << PORT5_PDR0_PD0_Pos) & \
+                                          PORT5_PDR0_PD0_Msk);
+  IO004_Handle15.PortRegs->IOCR0 |= (0U << 3);   
+
+  /* Configuration of 1 Port 15 based on User configuration */
+  IO004_Handle16.PortRegs->OMR = 0U<< 15;
+  
+  IO004_Handle16.PortRegs->PDR1  &= (uint32_t)(~(PORT1_PDR1_PD15_Msk));
+  IO004_Handle16.PortRegs->PDR1  |= (uint32_t)((4UL << PORT1_PDR1_PD15_Pos) & \
+                                     PORT1_PDR1_PD15_Msk);
+  IO004_Handle16.PortRegs->IOCR12 |= (0U << 27);   
+
+  /* Configuration of 1 Port 14 based on User configuration */
+  IO004_Handle17.PortRegs->OMR = 0U<< 14;
+  
+  IO004_Handle17.PortRegs->PDR1  &= (uint32_t)(~(PORT1_PDR1_PD14_Msk));
+  IO004_Handle17.PortRegs->PDR1  |= (uint32_t)((4UL << PORT1_PDR1_PD14_Pos) & \
+                                     PORT1_PDR1_PD14_Msk);
+  IO004_Handle17.PortRegs->IOCR12 |= (0U << 19);   
+
+  /* Configuration of 1 Port 13 based on User configuration */
+  IO004_Handle18.PortRegs->OMR = 0U<< 13;
+  
+  IO004_Handle18.PortRegs->PDR1  &= (uint32_t)(~(PORT1_PDR1_PD13_Msk));
+  IO004_Handle18.PortRegs->PDR1  |= (uint32_t)((4UL << PORT1_PDR1_PD13_Pos) & \
+                                     PORT1_PDR1_PD13_Msk);
+  IO004_Handle18.PortRegs->IOCR12 |= (0U << 11);   
+
   /* Configuration of 5 Port 2 based on User configuration */
   IO004_Handle2.PortRegs->OMR = 0U<< 2;
   

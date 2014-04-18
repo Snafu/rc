@@ -225,8 +225,8 @@
   <provided xsi:type="ResourceModel:BitField" name="SIZE" URI="http://www.infineon.com/0.1.30/peripheral/usic/0/channel/0/rbctr_size" maxValue="7" minValue="0" startPos="24" stopPos="26" accessPermission="rw">
     <defaultValue xsi:type="ResourceModel:IntegerValue" value="0"/>
     <upWardMappingList xsi:type="ResourceModel:ProxyResource" href="../UART001/1.0.22/uart001_0.app#//@consumed.34"/>
-    <localValue xsi:type="ResourceModel:IntegerValue" value="1"/>
-    <globalValue xsi:type="ResourceModel:IntegerValue" value="1"/>
+    <localValue xsi:type="ResourceModel:IntegerValue" value="3"/>
+    <globalValue xsi:type="ResourceModel:IntegerValue" value="3"/>
     <toolTipHelpDescription>Buffer Size</toolTipHelpDescription>
     <enumValues xsi:type="ResourceModel:RegEnumValue" value="0b000" description="The FIFO mechanism is disabled. The buffer does not accept any request for data."/>
     <enumValues xsi:type="ResourceModel:RegEnumValue" value="0b001" description="The FIFO buffer contains 2 entries."/>
@@ -247,8 +247,8 @@
   <provided xsi:type="ResourceModel:BitField" name="SIZE" URI="http://www.infineon.com/0.1.30/peripheral/usic/0/channel/0/tbctr_size" maxValue="7" minValue="0" startPos="24" stopPos="26" accessPermission="rw">
     <defaultValue xsi:type="ResourceModel:IntegerValue" value="0"/>
     <upWardMappingList xsi:type="ResourceModel:ProxyResource" href="../UART001/1.0.22/uart001_0.app#//@consumed.36"/>
-    <localValue xsi:type="ResourceModel:IntegerValue" value="1"/>
-    <globalValue xsi:type="ResourceModel:IntegerValue" value="1"/>
+    <localValue xsi:type="ResourceModel:IntegerValue" value="3"/>
+    <globalValue xsi:type="ResourceModel:IntegerValue" value="3"/>
     <toolTipHelpDescription>Buffer Size</toolTipHelpDescription>
     <enumValues xsi:type="ResourceModel:RegEnumValue" value="0b000" description="The FIFO mechanism is disabled. The buffer does not accept any request for data."/>
     <enumValues xsi:type="ResourceModel:RegEnumValue" value="0b001" description="The FIFO buffer contains 2 entries."/>
@@ -398,16 +398,16 @@
   </provided>
   <provided xsi:type="ResourceModel:BitField" name="SRBIEN" URI="http://www.infineon.com/0.1.30/peripheral/usic/0/channel/0/rbctr_srbien" maxValue="1" minValue="0" startPos="30" stopPos="30" accessPermission="rw">
     <defaultValue xsi:type="ResourceModel:IntegerValue" value="0"/>
-    <localValue xsi:type="ResourceModel:IntegerValue" value="0"/>
-    <globalValue xsi:type="ResourceModel:IntegerValue" value="0"/>
+    <localValue xsi:type="ResourceModel:IntegerValue" value="1"/>
+    <globalValue xsi:type="ResourceModel:IntegerValue" value="1"/>
     <toolTipHelpDescription>Standard Receive Buffer Interrupt Enable</toolTipHelpDescription>
     <enumValues xsi:type="ResourceModel:RegEnumValue" value="0b0" description="The standard receive buffer interrupt generation is disabled."/>
     <enumValues xsi:type="ResourceModel:RegEnumValue" value="0b1" description="The standard receive buffer interrupt generation is enabled."/>
   </provided>
   <provided xsi:type="ResourceModel:BitField" name="SRBINP" URI="http://www.infineon.com/0.1.30/peripheral/usic/0/channel/0/rbctr_srbinp" maxValue="7" minValue="0" startPos="16" stopPos="18" accessPermission="rw">
     <defaultValue xsi:type="ResourceModel:IntegerValue" value="0"/>
-    <localValue xsi:type="ResourceModel:IntegerValue" value="0"/>
-    <globalValue xsi:type="ResourceModel:IntegerValue" value="0"/>
+    <localValue xsi:type="ResourceModel:IntegerValue" value="5"/>
+    <globalValue xsi:type="ResourceModel:IntegerValue" value="5"/>
     <toolTipHelpDescription>Standard Receive Buffer Interrupt Node Pointer</toolTipHelpDescription>
     <enumValues xsi:type="ResourceModel:RegEnumValue" value="0b000" description="Output SR0 becomes activated."/>
     <enumValues xsi:type="ResourceModel:RegEnumValue" value="0b001" description="Output SR1 becomes activated."/>
@@ -590,8 +590,8 @@
   </provided>
   <provided xsi:type="ResourceModel:BitField" name="DPTR" URI="http://www.infineon.com/0.1.30/peripheral/usic/0/channel/0/tbctr_dptr" maxValue="63" minValue="0" startPos="0" stopPos="5" accessPermission="w">
     <defaultValue xsi:type="ResourceModel:IntegerValue" value="0"/>
-    <localValue xsi:type="ResourceModel:IntegerValue" value="2"/>
-    <globalValue xsi:type="ResourceModel:IntegerValue" value="2"/>
+    <localValue xsi:type="ResourceModel:IntegerValue" value="8"/>
+    <globalValue xsi:type="ResourceModel:IntegerValue" value="8"/>
     <toolTipHelpDescription>Data Pointer</toolTipHelpDescription>
   </provided>
   <categoryDescription description="USIC 0 Device Description" name="USIC 0"/>

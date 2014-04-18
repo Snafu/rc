@@ -109,6 +109,54 @@ const IO004_HandleType IO004_Handle12 = {
    
 
 
+const IO004_HandleType IO004_Handle13 = {
+  .PortNr   = 1U , /* Mapped Port */
+  .PortPin  = 12U,   /* Mapped Pin */
+  .PortRegs = (IO004_PORTS_TypeDef*)PORT1_BASE /* Port Base Address*/		
+};
+   
+
+
+const IO004_HandleType IO004_Handle14 = {
+  .PortNr   = 1U , /* Mapped Port */
+  .PortPin  = 11U,   /* Mapped Pin */
+  .PortRegs = (IO004_PORTS_TypeDef*)PORT1_BASE /* Port Base Address*/		
+};
+   
+
+
+const IO004_HandleType IO004_Handle15 = {
+  .PortNr   = 5U , /* Mapped Port */
+  .PortPin  = 0U,   /* Mapped Pin */
+  .PortRegs = (IO004_PORTS_TypeDef*)PORT5_BASE /* Port Base Address*/		
+};
+   
+
+
+const IO004_HandleType IO004_Handle16 = {
+  .PortNr   = 1U , /* Mapped Port */
+  .PortPin  = 15U,   /* Mapped Pin */
+  .PortRegs = (IO004_PORTS_TypeDef*)PORT1_BASE /* Port Base Address*/		
+};
+   
+
+
+const IO004_HandleType IO004_Handle17 = {
+  .PortNr   = 1U , /* Mapped Port */
+  .PortPin  = 14U,   /* Mapped Pin */
+  .PortRegs = (IO004_PORTS_TypeDef*)PORT1_BASE /* Port Base Address*/		
+};
+   
+
+
+const IO004_HandleType IO004_Handle18 = {
+  .PortNr   = 1U , /* Mapped Port */
+  .PortPin  = 13U,   /* Mapped Pin */
+  .PortRegs = (IO004_PORTS_TypeDef*)PORT1_BASE /* Port Base Address*/		
+};
+   
+
+
 const IO004_HandleType IO004_Handle2 = {
   .PortNr   = 5U , /* Mapped Port */
   .PortPin  = 2U,   /* Mapped Pin */

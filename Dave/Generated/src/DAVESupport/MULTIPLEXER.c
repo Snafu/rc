@@ -104,13 +104,19 @@ void DAVE_MUX_Init(void)
                   
       
     						
-   /*USIC 0 Channel 0 Mux Related SFR/Bitfields Configurations*/ 									  					 				 				 		       				              				  					    					 					   				  					 				 				       				  										 									 					 					  									      					              					  						    					      
+   /*USIC 0 Channel 0 Mux Related SFR/Bitfields Configurations*/ 									  					 				 				 		       				              				  					    					 					   				  					 				 				       				  					    
+ //Standard receive buffer event is enabled.                 
+ WR_REG(USIC0_CH0->RBCTR, USIC_CH_RBCTR_SRBIEN_Msk, USIC_CH_RBCTR_SRBIEN_Pos,1);  
+ 					 									 					 					  									      					              					  						       
+ //Interrupt node 5 is selected for Standard receive buffer event                 
+ WR_REG(USIC0_CH0->RBCTR, USIC_CH_RBCTR_SRBINP_Msk, USIC_CH_RBCTR_SRBINP_Pos,5);  
+ 					      
                  
    // Data Pointer & Buffer Size for Transmitter Buffer Control  
- WR_REG(USIC0_CH0->TBCTR, USIC_CH_TBCTR_DPTRSIZE_Msk, USIC_CH_TBCTR_DPTRSIZE_Pos,0x01000002);		/*    DPTR = 2,  SIZE = 1 */ 
+ WR_REG(USIC0_CH0->TBCTR, USIC_CH_TBCTR_DPTRSIZE_Msk, USIC_CH_TBCTR_DPTRSIZE_Pos,0x03000008);		/*    DPTR = 8,  SIZE = 3 */ 
          
   // Data Pointer & Buffer Size for Receiver Buffer Control  
- WR_REG(USIC0_CH0->RBCTR, USIC_CH_RBCTR_DPTRSIZE_Msk, USIC_CH_RBCTR_DPTRSIZE_Pos,0x01000000);		/*    DPTR = 0,  SIZE = 1 */ 
+ WR_REG(USIC0_CH0->RBCTR, USIC_CH_RBCTR_DPTRSIZE_Msk, USIC_CH_RBCTR_DPTRSIZE_Pos,0x03000000);		/*    DPTR = 0,  SIZE = 3 */ 
  						
    /*USIC 0 Channel 1 Mux Related SFR/Bitfields Configurations*/ 									  					 				 				 		       				              				  					    					 					   				  					 				 				       				  										 									 					 					  									      					              					  						    					      
          						
@@ -163,6 +169,16 @@ void DAVE_MUX_Init(void)
   WR_REG(PORT1->IOCR0, 0xb800U, PORT_IOCR_PC1_PCR_Pos, 0x13U);                /*P1.1 : PORT1_IOCR0_PC1_PCR and PORT1_IOCR0_PC1_OE */					   
 					                         
   WR_REG(PORT1->IOCR0, 0xb80000U, PORT_IOCR_PC2_PCR_Pos, 0x13U);                /*P1.2 : PORT1_IOCR0_PC2_PCR and PORT1_IOCR0_PC2_OE */					   
+					                         
+  WR_REG(PORT1->IOCR8, PORT_IOCR_PC3_OE_Msk, PORT_IOCR_PC3_OE_Pos, PORT_IOCR_OE1);                /*    P1.11 : PORT1_IOCR8_PC11_OE */					   
+					                         
+  WR_REG(PORT1->IOCR12, PORT_IOCR_PC0_OE_Msk, PORT_IOCR_PC0_OE_Pos, PORT_IOCR_OE1);                /*    P1.12 : PORT1_IOCR12_PC12_OE */					   
+					                         
+  WR_REG(PORT1->IOCR12, PORT_IOCR_PC1_OE_Msk, PORT_IOCR_PC1_OE_Pos, PORT_IOCR_OE1);                /*    P1.13 : PORT1_IOCR12_PC13_OE */					   
+					                         
+  WR_REG(PORT1->IOCR12, PORT_IOCR_PC2_OE_Msk, PORT_IOCR_PC2_OE_Pos, PORT_IOCR_OE1);                /*    P1.14 : PORT1_IOCR12_PC14_OE */					   
+					                         
+  WR_REG(PORT1->IOCR12, PORT_IOCR_PC3_OE_Msk, PORT_IOCR_PC3_OE_Pos, PORT_IOCR_OE1);                /*    P1.15 : PORT1_IOCR12_PC15_OE */					   
 					   
               
   WR_REG(PORT2->HWSEL, PORT2_HWSEL_HW1_Msk, PORT2_HWSEL_HW1_Pos, PORT_HWSEL_SW);                    /*    P2.1 : PORT2_HWSEL_HW1 */                         
@@ -175,6 +191,8 @@ void DAVE_MUX_Init(void)
   WR_REG(PORT3->IOCR0, PORT_IOCR_PC1_OE_Msk, PORT_IOCR_PC1_OE_Pos, PORT_IOCR_OE1);                /*    P3.1 : PORT3_IOCR0_PC1_OE */					   
 					                         
   WR_REG(PORT3->IOCR0, PORT_IOCR_PC2_OE_Msk, PORT_IOCR_PC2_OE_Pos, PORT_IOCR_OE1);                /*    P3.2 : PORT3_IOCR0_PC2_OE */					   
+					                         
+  WR_REG(PORT5->IOCR0, PORT_IOCR_PC0_OE_Msk, PORT_IOCR_PC0_OE_Pos, PORT_IOCR_OE1);                /*    P5.0 : PORT5_IOCR0_PC0_OE */					   
 					                         
   WR_REG(PORT5->IOCR0, 0xb800U, PORT_IOCR_PC1_PCR_Pos, 0x11U);                /*P5.1 : PORT5_IOCR0_PC1_PCR and PORT5_IOCR0_PC1_OE */					   
 					      
