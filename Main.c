@@ -16,11 +16,11 @@
 
 #define CAR_INIT_ERROR	0x8f
 
-#define PID_P		0.6f
-#define PID_I		0.2f
+#define PID_P		0.08f
+#define PID_I		0.000f
 #define PID_D		0.1f
 #define SET_POS		300
-#define MAX_SPEED	30
+#define MAX_SPEED	20
 #define MIN_SPEED	0
 
 #define IR_DIFF			50	// maximum ir_point_t x diff for matching set
@@ -32,7 +32,7 @@
 
 
 char debug[100];
-static volatile bool emergency_stop = TRUE;
+static volatile bool emergency_stop = FALSE;
 
 static int s(int diff);
 static void car_test(void);
@@ -42,11 +42,9 @@ static void execCommand(struct command *c);
 int main(void) {
 	DAVE_Init(); // Initialization of DAVE Apps
 	debug_init();
+	(void) car_init();
 	bt_init();
 
-	(void) car_init();
-
-	car_test();
 	strcpy(debug, "Starting IR init\r\n");
 	bt_puts(debug);
 	ircam_init();
@@ -109,6 +107,8 @@ void car_control(ir_point_t *p1, ir_point_t *p2, ir_point_t *p3, ir_point_t *p4)
 	ir_point_t *top = NULL;
 	ir_point_t *bottom = NULL;
 
+	static unsigned lock_lost_counter = 0;
+
 	static int error_sum = 0;
 	static int last_error = 0;
 	int error;
@@ -131,8 +131,18 @@ void car_control(ir_point_t *p1, ir_point_t *p2, ir_point_t *p3, ir_point_t *p4)
 	}
 
 	if (top == NULL || bottom == NULL) {
+		lock_lost_counter++;
+		if(lock_lost_counter > 5) {
+			bt_puts("Lost lock. Stopping car.\r\n");
+			error_sum = 0;
+			last_error = 0;
+			car_throttle(0);
+			car_steer(0);
+		}
 		return;
 	}
+
+	lock_lost_counter = 0;
 
 	if (bottom->y < top->y) {
 		ir_point_t *temp = top;
@@ -150,11 +160,14 @@ void car_control(ir_point_t *p1, ir_point_t *p2, ir_point_t *p3, ir_point_t *p4)
 	//bt_puts(debug);
 
 	int control_t = 0;
-	error = SET_POS - dist;
+	error = dist - SET_POS;
 	error_diff = error - last_error;
 	error_sum = error_sum + error;
 
 	control_t = PID_P * (error + PID_I * error_sum + PID_D * error_diff);
+	sprintf(debug, "DIST: %4d, C: %4d, E: %4d, S: %4d, L: %4d, D: %4d\r\n",
+			dist, control_t, error, error_sum, last_error, error_diff);
+	bt_puts(debug);
 
 	if(control_t < MIN_SPEED) {
 		control_t = MIN_SPEED;
@@ -162,6 +175,8 @@ void car_control(ir_point_t *p1, ir_point_t *p2, ir_point_t *p3, ir_point_t *p4)
 	if(control_t > MAX_SPEED) {
 		control_t = MAX_SPEED;
 	}
+	car_throttle(control_t);
+	last_error = error;
 
 	/*
 	if (dist > 300 && dist < 600) {
@@ -169,14 +184,11 @@ void car_control(ir_point_t *p1, ir_point_t *p2, ir_point_t *p3, ir_point_t *p4)
 		if (control_t > 30)
 			control_t = 30;
 	}
-	*/
 	car_throttle(control_t);
+	*/
 
 	int control_s = (512 - (int) top->x) * 100 / 512;
 	car_steer(control_s);
-	sprintf(debug, "H: %4d, D: %4d, Throttle: %4d, Steer: %4d\r\n", top->x,
-			dist, control_t, control_s);
-	bt_puts(debug);
 }
 
 static void execCommand(struct command *c) {
