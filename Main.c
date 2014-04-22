@@ -16,6 +16,13 @@
 
 #define CAR_INIT_ERROR	0x8f
 
+#define PID_P		0.6f
+#define PID_I		0.2f
+#define PID_D		0.1f
+#define SET_POS		300
+#define MAX_SPEED	30
+#define MIN_SPEED	0
+
 #define IR_DIFF			50	// maximum ir_point_t x diff for matching set
 #define IR_MAX_SIZE		3	// maximum ir_point_t size
 #define IR_LED_DIST		80	// distance between LEDs in mm
@@ -102,6 +109,11 @@ void car_control(ir_point_t *p1, ir_point_t *p2, ir_point_t *p3, ir_point_t *p4)
 	ir_point_t *top = NULL;
 	ir_point_t *bottom = NULL;
 
+	static int error_sum = 0;
+	static int last_error = 0;
+	int error;
+	int error_diff;
+
 	for (int i = 0; i < 4; i++) {
 		if (bottom != NULL) {
 			break;
@@ -138,11 +150,26 @@ void car_control(ir_point_t *p1, ir_point_t *p2, ir_point_t *p3, ir_point_t *p4)
 	//bt_puts(debug);
 
 	int control_t = 0;
+	error = SET_POS - dist;
+	error_diff = error - last_error;
+	error_sum = error_sum + error;
+
+	control_t = PID_P * (error + PID_I * error_sum + PID_D * error_diff);
+
+	if(control_t < MIN_SPEED) {
+		control_t = MIN_SPEED;
+	}
+	if(control_t > MAX_SPEED) {
+		control_t = MAX_SPEED;
+	}
+
+	/*
 	if (dist > 300 && dist < 600) {
 		control_t = (dist - 300) * 30 / 300;
 		if (control_t > 30)
 			control_t = 30;
 	}
+	*/
 	car_throttle(control_t);
 
 	int control_s = (512 - (int) top->x) * 100 / 512;
