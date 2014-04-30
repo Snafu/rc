@@ -140,7 +140,7 @@ void car_control(ir_point_t *p1, ir_point_t *p2, ir_point_t *p3, ir_point_t *p4)
 			error_sum = 0;
 			last_error = 0;
 			car_throttle(0);
-			car_steer(0);
+			//car_steer(0);
 		}
 		return;
 	}
@@ -194,8 +194,9 @@ void car_control(ir_point_t *p1, ir_point_t *p2, ir_point_t *p3, ir_point_t *p4)
 	last_error = error;
 
 	int control_s = (512 - (int) top->x) * 100 / 512;
+	/*
 	// steer harder at outer borders
-	if(control_s > 50) {
+	if(control_s > 50 || control_s < -50) {
 		control_s = (control_s * 130)/100;
 	}
 
@@ -207,6 +208,7 @@ void car_control(ir_point_t *p1, ir_point_t *p2, ir_point_t *p3, ir_point_t *p4)
 	if(control_s < -100) {
 		control_s = -100;
 	}
+	*/
 	car_steer(control_s);
 }
 
