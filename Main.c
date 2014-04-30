@@ -16,11 +16,9 @@
 
 #define CAR_INIT_ERROR	0x8f
 
-#define PID_P		0.08f
-#define PID_I		0.000f
-#define PID_D		0.1f
-#define SET_POS		300
-#define MAX_SPEED	20
+#define SET_POS		450
+#define MAX_DIST	1500
+#define MAX_SPEED	30
 #define MIN_SPEED	0
 
 #define IR_DIFF			50	// maximum ir_point_t x diff for matching set
@@ -33,6 +31,9 @@
 
 char debug[100];
 static volatile bool emergency_stop = FALSE;
+static float pid_p = 0.080f;
+static float pid_i = 0.000f;
+static float pid_d = 0.30f;
 
 static int s(int diff);
 static void car_test(void);
@@ -61,6 +62,7 @@ int main(void) {
 		}
 
 		ircam_read(&p1, &p2, &p3, &p4);
+
 		if(!emergency_stop) {
 			car_control(&p1, &p2, &p3, &p4);
 		}
@@ -68,9 +70,10 @@ int main(void) {
 		sprintf(debug, "#%4d,%4d,%2d-%4d,%4d,%2d-%4d,%4d,%2d-%4d,%4d,%2d\r\n",
 				p1.x, p1.y, p1.size, p2.x, p2.y, p2.size, p3.x, p3.y, p3.size,
 				p4.x, p4.y, p4.size);
-		bt_puts(debug);
+		//bt_puts(debug);
 
-		if (counter++ == 2) {
+
+		if (counter++ == 6) {
 			debug_knightrider();
 			counter = 0;
 		}
@@ -133,7 +136,7 @@ void car_control(ir_point_t *p1, ir_point_t *p2, ir_point_t *p3, ir_point_t *p4)
 	if (top == NULL || bottom == NULL) {
 		lock_lost_counter++;
 		if(lock_lost_counter > 5) {
-			bt_puts("Lost lock. Stopping car.\r\n");
+			//bt_puts("Lost lock. Stopping car.\r\n");
 			error_sum = 0;
 			last_error = 0;
 			car_throttle(0);
@@ -153,6 +156,16 @@ void car_control(ir_point_t *p1, ir_point_t *p2, ir_point_t *p3, ir_point_t *p4)
 	int diff = (bottom->y - top->y);
 	int dist = s(diff);
 
+
+	if(dist > MAX_DIST) {
+		//bt_puts("Max dist exceeded.\r\n");
+		error_sum = 0;
+		last_error = 0;
+		car_throttle(0);
+		car_steer(0);
+		return;
+	}
+
 	sprintf(debug,
 			"\r\nHoriz: %4d, Diff: %4d, Dist: %4d (%4d,%4d,%2d-%4d,%4d,%2d)\r\n\r\n",
 			top->x, diff, dist, top->x, top->y, top->size, bottom->x, bottom->y,
@@ -164,30 +177,36 @@ void car_control(ir_point_t *p1, ir_point_t *p2, ir_point_t *p3, ir_point_t *p4)
 	error_diff = error - last_error;
 	error_sum = error_sum + error;
 
-	control_t = PID_P * (error + PID_I * error_sum + PID_D * error_diff);
+	control_t = pid_p * (error + pid_i * error_sum + pid_d * error_diff);
 	sprintf(debug, "DIST: %4d, C: %4d, E: %4d, S: %4d, L: %4d, D: %4d\r\n",
 			dist, control_t, error, error_sum, last_error, error_diff);
-	bt_puts(debug);
+	//bt_puts(debug);
 
+	// clip minimum
 	if(control_t < MIN_SPEED) {
 		control_t = MIN_SPEED;
 	}
+	// clip maximum
 	if(control_t > MAX_SPEED) {
 		control_t = MAX_SPEED;
 	}
 	car_throttle(control_t);
 	last_error = error;
 
-	/*
-	if (dist > 300 && dist < 600) {
-		control_t = (dist - 300) * 30 / 300;
-		if (control_t > 30)
-			control_t = 30;
-	}
-	car_throttle(control_t);
-	*/
-
 	int control_s = (512 - (int) top->x) * 100 / 512;
+	// steer harder at outer borders
+	if(control_s > 50) {
+		control_s = (control_s * 130)/100;
+	}
+
+	// clip maximum
+	if(control_s > 100) {
+		control_s = 100;
+	}
+	// clip minimum
+	if(control_s < -100) {
+		control_s = -100;
+	}
 	car_steer(control_s);
 }
 
@@ -217,6 +236,18 @@ static void execCommand(struct command *c) {
 		car_steer(0);
 		break;
 
+	case I_PID_P:
+		pid_p = c->fvalue;
+		break;
+
+	case I_PID_I:
+		pid_i = c->fvalue;
+		break;
+
+	case I_PID_D:
+		pid_d = c->fvalue;
+		break;
+
 	default:
 		break;
 	}
@@ -225,7 +256,7 @@ static void execCommand(struct command *c) {
 		sprintf(debug, "\n\n!!! EMERGENCY STOP !!!\n\n");
 		bt_puts(debug);
 	} else {
-		sprintf(debug, "* %s %s %d\n", getItemStr(c->item), getDirStr(c->dir), c->value);
+		sprintf(debug, "* %s %s %d %f\n", getItemStr(c->item), getDirStr(c->dir), c->value, c->fvalue);
 		bt_puts(debug);
 	}
 }

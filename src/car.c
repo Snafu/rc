@@ -25,12 +25,12 @@ int car_init(void)
 	 * Steering
 	 *
 	 * min		1,40 ms
-	 * center	1,56 ms
-	 * max		1,77 ms
+	 * center	1,60 ms
+	 * max		1,80 ms
 	 */
 	steer_min = 0.140f * (float) steer_period;
-	steer_center = 0.156f * (float) steer_period;
-	steer_max = 0.177f * (float) steer_period;
+	steer_center = 0.160f * (float) steer_period;
+	steer_max = 0.180f * (float) steer_period;
 
 	/*
 	 * Throttle

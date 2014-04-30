@@ -7,17 +7,18 @@
 
 #include <DAVE3.h>
 #include <ctype.h>
+#include <stdlib.h>
 #include <command.h>
 
 #define COMMAND_HANDLE	UART001_Handle0
 #define FIFO_SIZE		16
 
 static char *itemStr[] = { "HEADLIGHT", "BRAKELIGHT", "INDICATOR", "THROTTLE",
-		"STEERING", "EMERGENCY", "ACTIVE MODE" };
+		"STEERING", "PID_P", "PID_I", "PID_D", "EMERGENCY", "ACTIVE MODE" };
 static char *dirStr[] = { "FWD", "REV", "LEFT", "RIGHT", "ALL" };
 
 enum command_state {
-	S_IDLE, S_DIR, S_SIDE, S_VALUE, S_WAITLINE
+	S_IDLE, S_DIR, S_SIDE, S_PID, S_FVALUE, S_VALUE, S_WAITLINE
 };
 
 static struct command command_fifo[FIFO_SIZE];
@@ -26,7 +27,7 @@ static unsigned int fifo_read = 0;
 
 
 void UART_handler(void);
-static void addCommand(enum command_item item, enum command_dir dir, int value);
+static void addCommand(enum command_item item, enum command_dir dir, int value, float fvalue);
 static void commandParser(unsigned char c);
 
 struct command * getCommand(void)
@@ -50,7 +51,7 @@ char * getDirStr(enum command_dir dir)
 	return dirStr[dir];
 }
 
-void addCommand(enum command_item item, enum command_dir dir, int value)
+void addCommand(enum command_item item, enum command_dir dir, int value, float fvalue)
 {
 	switch (item) {
 	case I_THROTTLE:
@@ -68,9 +69,11 @@ void addCommand(enum command_item item, enum command_dir dir, int value)
 		}
 		if (dir == D_FWD) {
 			dir = D_RIGHT;
-		} else {
+		} else if(dir == D_REV) {
 			dir = D_LEFT;
 			value *= -1;
+		} else {
+			value = 0;
 		}
 		break;
 
@@ -90,6 +93,7 @@ void addCommand(enum command_item item, enum command_dir dir, int value)
 	command_fifo[fifo_write].item = item;
 	command_fifo[fifo_write].dir = dir;
 	command_fifo[fifo_write].value = value;
+	command_fifo[fifo_write].fvalue = fvalue;
 
 	fifo_write = (fifo_write + 1) % FIFO_SIZE;
 }
@@ -104,8 +108,11 @@ void addCommand(enum command_item item, enum command_dir dir, int value)
  *   H[LR][percent]  ... headlights (defaults: all, 0%)
  *   B[LR][percent]  ... breaklights (defaults: all, 0%)
  *   I[LR][percent]  ... indicators (defaults: all, 0%)
+ *   _P float        ... PID_P value
+ *   _I float        ... PID_I value
+ *   _D float        ... PID_D value
  *
- *  All commands except E and G can be issued per as one command per line
+ *  All commands can be issued per as one command per line
  *  as multiple commands per line separated by a comma (",")
  *
  *  \param c		Character to parse
@@ -115,6 +122,9 @@ static void commandParser(unsigned char c) {
 	static enum command_item item;
 	static enum command_dir dir;
 	static int value;
+	static float fvalue;
+	static int counter;
+	static unsigned char buf[10];
 
 	bool add_command = FALSE;
 
@@ -161,6 +171,10 @@ static void commandParser(unsigned char c) {
 		case 'I':
 			state = S_SIDE;
 			item = I_INDICATOR;
+			break;
+
+		case '_':
+			state = S_PID;
 			break;
 
 		case ' ':
@@ -216,6 +230,7 @@ static void commandParser(unsigned char c) {
 			break;
 
 		default:
+			/*
 			if (isdigit(c)) {
 				state = S_VALUE;
 				value = c - '0';
@@ -223,7 +238,56 @@ static void commandParser(unsigned char c) {
 			} else {
 				state = S_WAITLINE;
 			}
+			*/
+			state = S_WAITLINE;
 			break;
+		}
+		break;
+
+	case S_PID:
+		fvalue = 0;
+		state = S_FVALUE;
+		counter = 0;
+		switch(c) {
+			case 'P':
+				item = I_PID_P;
+			break;
+
+			case 'I':
+				item = I_PID_I;
+			break;
+
+			case 'D':
+				item = I_PID_D;
+			break;
+
+			default:
+				state = S_WAITLINE;
+			break;
+		}
+		break;
+
+	case S_FVALUE:
+		if(counter >= 10) {
+			counter = 0;
+			*buf = '\0';
+			state = S_WAITLINE;
+		} else if(isdigit(c) || c == '.') {
+			buf[counter++] = c;
+		}
+		else if (c == ',' || c == '\n') {
+			buf[counter] = '\0';
+			char *eptr = NULL;
+			fvalue = strtof((const char*) buf, &eptr);
+			if(*eptr == '\0') {
+				value = 0;
+				state = S_IDLE;
+				add_command = TRUE;
+			} else {
+				state = S_WAITLINE;
+			}
+		} else {
+			state = S_WAITLINE;
 		}
 		break;
 
@@ -247,7 +311,7 @@ static void commandParser(unsigned char c) {
 	}
 
 	if(add_command) {
-		addCommand(item, dir, value);
+		addCommand(item, dir, value, fvalue);
 	}
 }
 

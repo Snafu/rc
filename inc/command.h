@@ -14,6 +14,9 @@ enum command_item {
 	I_INDICATOR,
 	I_THROTTLE,
 	I_STEERING,
+	I_PID_P,
+	I_PID_I,
+	I_PID_D,
 	I_EMERGENCY,
 	I_GO
 };
@@ -25,6 +28,7 @@ struct command {
 	enum command_item item;
 	enum command_dir dir;
 	int value;
+	float fvalue;
 };
 
 

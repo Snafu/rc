@@ -26,17 +26,19 @@ void ircam_init(void)
 		Write_2bytes(0x33,0x33); delay(10);
 		delay(100);
 	 */
-	//p0=0x72; p1=0x20; p2=0x1F; p3=0x03; // sensitivity
-	//p0=0xC8; p1=0x36; p2=0x35; p3=0x03;
-	  p0=0xAA; p1=0x64; p2=0x63; p3=0x03;
-	//p0=0x96; p1=0xB4; p2=0xB3; p3=0x04;
-	//p0=0x96; p1=0xFE; p2=0xFE; p3=0x05;
 
 	i2c_start(I2C_ADR, I2C_WRITE);
 	i2c_write(0x30);
 	i2c_write(0x01);
 	i2c_stop();
 	wait(1000);
+
+	//p0=0x72; p1=0x20; p2=0x1F; p3=0x03; // sensitivity
+	//p0=0xC8; p1=0x36; p2=0x35; p3=0x03;
+	  p0=0xAA; p1=0x64; p2=0x63; p3=0x03; // vorher
+	//p0=0x96; p1=0xB4; p2=0xB3; p3=0x04;
+	//p0=0x96; p1=0xFE; p2=0xFE; p3=0x05;
+	/*
 
 	i2c_start(I2C_ADR, I2C_WRITE);
 	i2c_write(0x00);
@@ -63,6 +65,36 @@ void ircam_init(void)
 	i2c_write(p3);
 	i2c_stop();
 	wait(1000);
+	*/
+
+	/* START Max sensitivity */
+	i2c_start(I2C_ADR, I2C_WRITE);
+	i2c_write(0x00);
+	i2c_write(0x00);
+	i2c_write(0x00);
+	i2c_write(0x00);
+	i2c_write(0x00);
+	i2c_write(0x00);
+	i2c_write(0x00);
+	i2c_write(0xff);
+	i2c_stop();
+	wait(1000);
+
+	i2c_start(I2C_ADR, I2C_WRITE);
+	i2c_write(0x07);
+	i2c_write(0x00);
+	i2c_write(0x0c);
+	i2c_stop();
+	wait(1000);
+
+	i2c_start(I2C_ADR, I2C_WRITE);
+	i2c_write(0x1A);
+	i2c_write(0x00);
+	i2c_write(0x00);
+	i2c_stop();
+	wait(1000);
+
+	/* END Max sensitivity */
 
 	i2c_start(I2C_ADR, I2C_WRITE);
 	i2c_write(0x33);
