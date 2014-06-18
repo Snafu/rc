@@ -14,7 +14,7 @@
 #define FIFO_SIZE		16
 
 static char *itemStr[] = { "HEADLIGHT", "BRAKELIGHT", "INDICATOR", "THROTTLE",
-		"STEERING", "PID_P", "PID_I", "PID_D", "EMERGENCY", "ACTIVE MODE" };
+		"STEERING", "PID_P", "PID_I", "PID_D", "EMERGENCY", "DEBUG TOGGLE", "ACTIVE MODE" };
 static char *dirStr[] = { "FWD", "REV", "LEFT", "RIGHT", "ALL" };
 
 enum command_state {
@@ -175,6 +175,12 @@ static void commandParser(unsigned char c) {
 
 		case '_':
 			state = S_PID;
+			break;
+
+		case 'D':
+			item = I_DEBUG;
+			add_command = TRUE;
+			state = S_WAITLINE;
 			break;
 
 		case ' ':

@@ -18,6 +18,7 @@ enum command_item {
 	I_PID_I,
 	I_PID_D,
 	I_EMERGENCY,
+	I_DEBUG,
 	I_GO
 };
 enum command_dir {

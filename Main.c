@@ -13,12 +13,13 @@
 #include <ircam.h>
 #include <car.h>
 #include <util.h>
+#include <types.h>
 
 #define CAR_INIT_ERROR	0x8f
 
 #define SET_POS		450
-#define MAX_DIST	1500
-#define MAX_SPEED	30
+#define MAX_DIST	1800
+#define MAX_SPEED	99
 #define MIN_SPEED	0
 
 #define IR_DIFF			50	// maximum ir_point_t x diff for matching set
@@ -29,6 +30,7 @@
 #define IR_LED_POS_MAX	153	// ir_point_t y diff @ 500 mm
 
 
+bool doDebug = FALSE;
 char debug[100];
 static volatile bool emergency_stop = FALSE;
 static float pid_p = 0.080f;
@@ -170,7 +172,9 @@ void car_control(ir_point_t *p1, ir_point_t *p2, ir_point_t *p3, ir_point_t *p4)
 			"\r\nHoriz: %4d, Diff: %4d, Dist: %4d (%4d,%4d,%2d-%4d,%4d,%2d)\r\n\r\n",
 			top->x, diff, dist, top->x, top->y, top->size, bottom->x, bottom->y,
 			bottom->size);
-	//bt_puts(debug);
+	if(doDebug) {
+		bt_puts(debug);
+	}
 
 	int control_t = 0;
 	error = dist - SET_POS;
@@ -248,6 +252,10 @@ static void execCommand(struct command *c) {
 
 	case I_PID_D:
 		pid_d = c->fvalue;
+		break;
+
+	case I_DEBUG:
+		doDebug = !doDebug;
 		break;
 
 	default:
