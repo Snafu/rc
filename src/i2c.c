@@ -1,3 +1,10 @@
+/*
+ * i2c.c
+ *
+ *  Created on: 02.04.2014
+ *      Author: Albin Frischenschlager, Christopher Gabriel, Matthias Zens
+ */
+
 #include <DAVE3.h>
 #include <i2c.h>
 

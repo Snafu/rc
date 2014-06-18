@@ -2,7 +2,7 @@
  * car.h
  *
  *  Created on: 28.03.2014
- *      Author: Snafu
+ *      Author: Albin Frischenschlager, Christopher Gabriel, Matthias Zens
  */
 
 #ifndef CAR_H_

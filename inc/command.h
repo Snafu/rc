@@ -2,7 +2,7 @@
  * command.h
  *
  *  Created on: 18.04.2014
- *      Author: Snafu
+ *      Author: Albin Frischenschlager, Christopher Gabriel, Matthias Zens
  */
 
 #ifndef COMMAND_H_

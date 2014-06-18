@@ -1,5 +1,12 @@
-#ifndef I2C_H
-# define I2C_H
+/*
+ * i2c.h
+ *
+ *  Created on: 02.04.2014
+ *      Author: Albin Frischenschlager, Christopher Gabriel, Matthias Zens
+ */
+
+#ifndef I2C_H_
+#define I2C_H_
 
 #include <types.h>
 
@@ -16,4 +23,4 @@ extern void i2c_stop(void);
 
 extern void i2c_rx_handler(void);
 
-#endif /* I2C_H */
+#endif /* I2C_H_ */

@@ -2,70 +2,21 @@
  * ircam.c
  *
  *  Created on: 02.04.2014
- *      Author: Snafu
+ *      Author: Albin Frischenschlager, Christopher Gabriel, Matthias Zens
  */
+
 #include <DAVE3.h>
 #include <ircam.h>
 #include <i2c.h>
 #include <util.h>
 
-void ircam_init(void) {
-	uint8_t p0, p1, p2, p3;
-
-	// IR sensor initialize
-	/*
-	 * From PVision.cpp
-	 Write_2bytes(0x30,0x01); delay(10);
-	 Write_2bytes(0x30,0x08); delay(10);
-	 Write_2bytes(0x06,0x90); delay(10);
-	 Write_2bytes(0x08,0xC0); delay(10);
-	 Write_2bytes(0x1A,0x40); delay(10);
-	 Write_2bytes(0x33,0x33); delay(10);
-	 delay(100);
-	 */
-
+void ircam_init(void)
+{
 	i2c_start(I2C_ADR, I2C_WRITE);
 	i2c_write(0x30);
 	i2c_write(0x01);
 	i2c_stop();
 	wait(1000);
-
-	//p0=0x72; p1=0x20; p2=0x1F; p3=0x03; // sensitivity
-	//p0=0xC8; p1=0x36; p2=0x35; p3=0x03;
-	p0 = 0xAA;
-	p1 = 0x64;
-	p2 = 0x63;
-	p3 = 0x03; // vorher
-	//p0=0x96; p1=0xB4; p2=0xB3; p3=0x04;
-	//p0=0x96; p1=0xFE; p2=0xFE; p3=0x05;
-	/*
-
-	 i2c_start(I2C_ADR, I2C_WRITE);
-	 i2c_write(0x00);
-	 i2c_write(0x02);
-	 i2c_write(0x00);
-	 i2c_write(0x00);
-	 i2c_write(0x71);
-	 i2c_write(0x01);
-	 i2c_write(0x00);
-	 i2c_write(p0);
-	 i2c_stop();
-	 wait(1000);
-
-	 i2c_start(I2C_ADR, I2C_WRITE);
-	 i2c_write(0x07);
-	 i2c_write(0x00);
-	 i2c_write(p1);
-	 i2c_stop();
-	 wait(1000);
-
-	 i2c_start(I2C_ADR, I2C_WRITE);
-	 i2c_write(0x1A);
-	 i2c_write(p2);
-	 i2c_write(p3);
-	 i2c_stop();
-	 wait(1000);
-	 */
 
 	/* IR cam sensitivity    |------------------- Block 1 ------------------------|,|- Block 2 -|*/
 	/*
@@ -123,7 +74,8 @@ void ircam_init(void) {
 	wait(1000);
 }
 
-void ircam_read(ir_point_t *p1, ir_point_t *p2, ir_point_t *p3, ir_point_t *p4) {
+void ircam_read(ir_point_t *p1, ir_point_t *p2, ir_point_t *p3, ir_point_t *p4)
+{
 	int i;
 	uint8_t s;
 	uint8_t data_buf[16];

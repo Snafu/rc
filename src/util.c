@@ -1,3 +1,10 @@
+/*
+ * util.c
+ *
+ *  Created on: 02.04.2014
+ *      Author: Albin Frischenschlager, Christopher Gabriel, Matthias Zens
+ */
+
 #include <DAVE3.h>			//Declarations from DAVE3 Code Generation (includes SFR declaration)
 #include <util.h>
 

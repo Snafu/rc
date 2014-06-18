@@ -2,7 +2,7 @@
  * ircam.h
  *
  *  Created on: 02.04.2014
- *      Author: Snafu
+ *      Author: Albin Frischenschlager, Christopher Gabriel, Matthias Zens
  */
 
 #ifndef IRCAM_H_

@@ -2,7 +2,7 @@
  * command.c
  *
  *  Created on: 18.04.2014
- *      Author: Snafu
+ *      Author: Albin Frischenschlager, Christopher Gabriel, Matthias Zens
  */
 
 #include <DAVE3.h>

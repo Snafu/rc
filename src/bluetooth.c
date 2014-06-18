@@ -2,7 +2,7 @@
  * bluetooth.c
  *
  *  Created on: 07.04.2014
- *      Author: Matthias
+ *      Author: Albin Frischenschlager, Christopher Gabriel, Matthias Zens
  */
 
 #include <DAVE3.h>
